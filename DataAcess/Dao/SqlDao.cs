@@ -12,7 +12,7 @@ namespace DataAcess.Dao
     public class SqlDao
     {   
                      
-       private string CONNECTION_STRING = "Data Source=DESKTOP-92GJOPO;Initial Catalog=Laboratorios;Integrated Security=True";
+       private string CONNECTION_STRING = "Data Source=DESKTOP-92GJOPO;Initial Catalog=PROYECTOBR;Integrated Security=True";
        
        private static SqlDao instance;
 
