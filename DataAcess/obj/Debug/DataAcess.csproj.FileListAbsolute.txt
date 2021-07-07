@@ -42,3 +42,12 @@ C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Data
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\DataAcess\obj\Debug\DataAcess.csproj.CopyComplete
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\DataAcess\obj\Debug\DataAcess.dll
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\DataAcess\obj\Debug\DataAcess.pdb
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\bin\Debug\DataAcess.dll
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\bin\Debug\DataAcess.pdb
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\bin\Debug\Entities-POJO.dll
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\bin\Debug\Entities-POJO.pdb
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\obj\Debug\DataAcess.csproj.AssemblyReference.cache
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\obj\Debug\DataAcess.csproj.CoreCompileInputs.cache
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\obj\Debug\DataAcess.csproj.CopyComplete
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\obj\Debug\DataAcess.dll
+C:\Users\jz600\source\repos\Proyecto2\DataAcess\obj\Debug\DataAcess.pdb

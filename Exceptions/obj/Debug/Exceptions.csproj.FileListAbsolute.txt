@@ -52,3 +52,14 @@ C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Exce
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Exceptions\obj\Debug\Exceptions.csproj.CopyComplete
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Exceptions\obj\Debug\Exceptions.dll
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Exceptions\obj\Debug\Exceptions.pdb
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\Exceptions.dll
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\Exceptions.pdb
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\DataAcess.dll
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\Entities-POJO.dll
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\DataAcess.pdb
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\bin\Debug\Entities-POJO.pdb
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\obj\Debug\Exceptions.csproj.AssemblyReference.cache
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\obj\Debug\Exceptions.csproj.CopyComplete
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\obj\Debug\Exceptions.dll
+C:\Users\jz600\source\repos\Proyecto2\Exceptions\obj\Debug\Exceptions.pdb

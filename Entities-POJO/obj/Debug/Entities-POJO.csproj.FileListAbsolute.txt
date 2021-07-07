@@ -39,3 +39,13 @@ C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Enti
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Entities-POJO\obj\Debug\Entities-POJO.csproj.CopyComplete
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Entities-POJO\obj\Debug\Entities-POJO.dll
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Entities-POJO\obj\Debug\Entities-POJO.pdb
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\bin\Debug\Entities-POJO.dll
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\bin\Debug\Entities-POJO.pdb
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\bin\Debug\System.Web.Cors.dll
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\obj\Debug\Entities-POJO.csproj.AssemblyReference.cache
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\obj\Debug\Entities-POJO.csproj.CoreCompileInputs.cache
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\obj\Debug\Entities-POJO.csproj.CopyComplete
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\obj\Debug\Entities-POJO.dll
+C:\Users\jz600\source\repos\Proyecto2\Entities-POJO\obj\Debug\Entities-POJO.pdb

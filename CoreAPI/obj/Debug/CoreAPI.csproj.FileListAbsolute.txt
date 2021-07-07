@@ -62,3 +62,16 @@ C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\Core
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\CoreAPI\obj\Debug\CoreAPI.csproj.CopyComplete
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\CoreAPI\obj\Debug\CoreAPI.dll
 C:\Users\XPC\Documents\Proyecto 2 Software\Architecture Components - WEB UI\CoreAPI\obj\Debug\CoreAPI.pdb
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\CoreAPI.dll
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\CoreAPI.pdb
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\DataAcess.dll
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\Entities-POJO.dll
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\Exceptions.dll
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\DataAcess.pdb
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\Entities-POJO.pdb
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\bin\Debug\Exceptions.pdb
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\obj\Debug\CoreAPI.csproj.AssemblyReference.cache
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\obj\Debug\CoreAPI.csproj.CoreCompileInputs.cache
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\obj\Debug\CoreAPI.csproj.CopyComplete
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\obj\Debug\CoreAPI.dll
+C:\Users\jz600\source\repos\Proyecto2\CoreAPI\obj\Debug\CoreAPI.pdb
