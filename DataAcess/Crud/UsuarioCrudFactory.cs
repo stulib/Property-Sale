@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace DataAcess.Crud
 {
-    class UsuarioCrudFactory : CrudFactory
+    public class UsuarioCrudFactory : CrudFactory
     {
         UsuarioMapper mapper;
 

@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="ExceptionFilter.cs" />
     <Compile Include="Filters\UserLogFilter.cs" />
     <Compile Include="Global.asax.cs">
