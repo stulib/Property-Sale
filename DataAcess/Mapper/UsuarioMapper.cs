@@ -9,7 +9,7 @@ namespace DataAcess.Mapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_TIPO_ID = "TIPO_ID";
-        private const string DB_COL_NOMBRE = "DB_COL_NOMBRE";
+        private const string DB_COL_NOMBRE = "NOMBRE";
         private const string DB_COL_APELLIDOS = "APELLIDOS";
         private const string DB_COL_FECHA_NAC = "FECHA_NAC";
         private const string DB_COL_CONTRASENNA = "CONTRASENNA";
