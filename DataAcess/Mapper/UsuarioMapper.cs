@@ -9,7 +9,7 @@ namespace DataAcess.Mapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_TIPO_ID = "TIPO_ID";
-        private const string DB_COL_NOMBRE = "DB_COL_NOMBRE";
+        private const string DB_COL_NOMBRE = "NOMBRE";
         private const string DB_COL_APELLIDOS = "APELLIDOS";
         private const string DB_COL_FECHA_NAC = "FECHA_NAC";
         private const string DB_COL_CONTRASENNA = "CONTRASENNA";
@@ -19,9 +19,10 @@ namespace DataAcess.Mapper
         private const string DB_COL_COD_EMAIL = "COD_EMAIL";
         private const string DB_COL_COD_CEL = "COD_CEL";
         private const string DB_COL_IDSUSCRIPCION = "IDSUSCRIPCION";
-        private const string DB_COL_ID_ROL = "ID_ROL ";
+        private const string DB_COL_ID_ROL = "ID_ROL";
         private const string DB_COL_ID_AGENCIA = "ID_AGENCIA";
         private const string DB_COL_VERIFICADO = "VERIFICADO";
+        private const string DB_COL_NOMBRE_ROL = "ROL";
 
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
@@ -129,7 +130,8 @@ namespace DataAcess.Mapper
                 Id_Suscripcion = GetStringValue(row, DB_COL_IDSUSCRIPCION),
                 Id_Rol = GetStringValue(row, DB_COL_ID_ROL),
                 Id_Agencia = GetStringValue(row, DB_COL_ID_AGENCIA),
-                Verificado = Convert.ToChar(GetStringValue(row, DB_COL_VERIFICADO))
+                Verificado = Convert.ToChar(GetStringValue(row, DB_COL_VERIFICADO)),
+                Rol = GetStringValue(row, DB_COL_NOMBRE_ROL)
             };
 
             return usuario;

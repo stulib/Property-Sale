@@ -2,7 +2,7 @@
 	this.tblCustomersId = 'tblUsuariosAdmin';
 	this.service = 'usuario';
 	this.ctrlActions = new ControlActions();
-	this.columns = "Id, Tipo_Id, Nombre, Apellidos, Fecha_Nac, Contrasenna, Email, Telefono";
+	this.columns = "Id,Tipo_Id,Nombre,Apellidos,Fecha_Nac,Contrasenna,Email,Telefono,Rol";
 
 	this.Create = function () {
 		var usuario_Data = {};

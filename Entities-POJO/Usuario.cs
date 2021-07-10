@@ -23,6 +23,7 @@ namespace Entities_POJO
         public string Id_Rol { get; set; }
         public string Id_Agencia { get; set; }
         public char Verificado { get; set; }
+        public string Rol { get; set; }
 
         public Usuario() { }
 

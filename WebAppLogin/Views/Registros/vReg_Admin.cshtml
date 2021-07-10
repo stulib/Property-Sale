@@ -9,14 +9,16 @@
 
 <h2>Gestión de Usuarios</h2>
 @Html.CtrlTable(viewName: "vReg_Admin", id: "tblUsuariosAdmin", title: "Listado de usuarios",
-    columnsTitle: "ID, Tipo de Identificación, Nombre, Apellidos, Fecha de Nacimiento, Correo, Teléfono", ColumnsDataName: "Id,Tipo_Id,Nombre,Apellidos,Fecha_Nac,Email,Telefono,Rol",
+    columnsTitle: "ID, Tipo de Identificación, Nombre, Apellidos, Fecha de Nacimiento, Correo, Teléfono,Rol,Estado", ColumnsDataName: "Id,Tipo_Id,Nombre,Apellidos,Fecha_Nac,Email,Telefono,Rol,Estado",
     onSelectFunction: "BindFields", colorHeader: "red")
 <div class="card-header">
     <div class="row pull-right">
-        <div class="col-md-8">Customer edition</div>
-        <div class="col-md-4">
+        <div class="col-md-8">OPCIONES</div>
+        <div class="col-md-8">
             @Html.CtrlButton(viewName: "vReg_Admin", id: "btnCreate", label: "Crear nuevo", onClickFunction: "Create", buttonType: "success")
             @Html.CtrlButton(viewName: "vReg_Admin", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnEnable", label: "Activar", onClickFunction: "Enable", buttonType: "info")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnDisable", label: "Desactivar", onClickFunction: "Disable", buttonType: "info")
             @Html.CtrlButton(viewName: "vReg_Admin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
         </div>
     </div>
