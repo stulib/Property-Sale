@@ -1,5 +1,4 @@
-﻿
-function vCustomers() {
+﻿function vCustomers() {
 
 	this.tblCustomersId = 'tblCustomers';
 	this.service = 'customer';

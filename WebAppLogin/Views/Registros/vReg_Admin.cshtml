@@ -1,0 +1,41 @@
+﻿@model Entities_POJO.Usuario
+@using WebApp.Helpers;
+<script src="~/Scripts/Views/vReg_Admin.js"></script>
+
+@{
+    ViewBag.Title = "vReg_Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";   
+}
+
+<h2>Gestión de Usuarios</h2>
+@Html.CtrlTable(viewName: "vReg_Admin", id: "tblUsuariosAdmin", title: "Listado de usuarios",
+    columnsTitle: "ID, Tipo de Identificación, Nombre, Apellidos, Fecha de Nacimiento, Contraseña, Correo, Teléfono", ColumnsDataName: "Id,Tipo_Id,Nombre,Apellidos,Fecha_Nac,Contrasenna,Email,Telefono",
+    onSelectFunction: "BindFields", colorHeader: "red")
+<div class="card-header">
+    <div class="row pull-right">
+        <div class="col-md-8">Customer edition</div>
+        <div class="col-md-4">
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnCreate", label: "Crear nuevo", onClickFunction: "Create", buttonType: "success")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="bs-component">
+                <form id="forma_Reg_Admin">
+                    @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                    @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                    @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                    @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                    @Html.CtrlInput(id: "txtFechaNac", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
+                    @Html.CtrlInput(id: "txtContrasenna", type: "text", label: "Constraseña", columnDataName: "Contrasenna")
+                    @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo Electrónico", columnDataName: "Email")
+                    @Html.CtrlInput(id: "txtTelefono", type: "text", label: "Número celular", columnDataName: "Telefono")
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

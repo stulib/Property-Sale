@@ -54,8 +54,8 @@ C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\bin\Debug\Entities-POJO.pd
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\bin\Debug\Newtonsoft.Json.dll
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\bin\Debug\System.Web.Cors.dll
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.csproj.AssemblyReference.cache
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.csproj.CoreCompileInputs.cache
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.csproj.CopyComplete
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.dll
 C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.pdb
-C:\Users\jz600\source\repos\Proy2_Jorge\Entities-POJO\obj\Debug\Entities-POJO.csproj.AssemblyReference.cache
