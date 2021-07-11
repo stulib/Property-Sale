@@ -23,7 +23,7 @@ namespace Entities_POJO
         public string Id_Rol { get; set; }
         public string Id_Agencia { get; set; }
         public char Verificado { get; set; }
-        public string Rol { get; set; }
+        public string Nombre_Rol { get; set; }
 
         public Usuario() { }
 
@@ -43,6 +43,7 @@ namespace Entities_POJO
             Id_Rol = info[12];
             Id_Agencia = info[13];
             Verificado = Convert.ToChar(info[14]);
+            Nombre_Rol = info[15];
         }
     }
 }

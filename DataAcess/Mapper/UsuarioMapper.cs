@@ -22,7 +22,7 @@ namespace DataAcess.Mapper
         private const string DB_COL_ID_ROL = "ID_ROL";
         private const string DB_COL_ID_AGENCIA = "ID_AGENCIA";
         private const string DB_COL_VERIFICADO = "VERIFICADO";
-        private const string DB_COL_NOMBRE_ROL = "ROL";
+        private const string DB_COL_NOMBRE_ROL = "NOMBRE_ROL";
 
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
@@ -131,7 +131,7 @@ namespace DataAcess.Mapper
                 Id_Rol = GetStringValue(row, DB_COL_ID_ROL),
                 Id_Agencia = GetStringValue(row, DB_COL_ID_AGENCIA),
                 Verificado = Convert.ToChar(GetStringValue(row, DB_COL_VERIFICADO)),
-                Rol = GetStringValue(row, DB_COL_NOMBRE_ROL)
+                Nombre_Rol = GetStringValue(row, DB_COL_NOMBRE_ROL)
             };
 
             return usuario;
