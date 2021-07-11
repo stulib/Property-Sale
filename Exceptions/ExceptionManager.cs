@@ -51,16 +51,11 @@ namespace Exceptions
         }
 
         private void ProcessBussinesException(BussinessException bex)
-        {
-            //2021022009            
+        {       
             var today = DateTime.Now.ToString("yyyyMMdd_HH");
             var logName = PATH + today + "_" + "log.txt";
 
             var message = bex.ExceptionDetails + "\n" + bex.StackTrace + "\n";
-
-            //if (bex.InnerException!=null)
-            //    message += bex.InnerException.Message + "\n" + bex.InnerException.StackTrace;
-
             using (StreamWriter w = File.AppendText(logName))
             {
                 Log(message, w);
@@ -89,18 +84,13 @@ namespace Exceptions
 
         private void LoadMessages()
         {
-            messages.Add(0, new ApplicationMessage { Id = 0, Message = "Houston we have a problem!" });
-            messages.Add(3, new ApplicationMessage { Id = 3, Message = "Customer already exists in the database" });
-            messages.Add(2, new ApplicationMessage { Id = 2, Message = "Customer should be major than 18." });
+            var crudMessages = new AppMessagesCrudFactory();
+            var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 
-            //var crudMessages = new AppMessagesCrudFactory();
-
-            //var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
-
-            //foreach(var appMessage in lstMessages)
-            //{
-            //    messages.Add(appMessage.Id, appMessage);
-            //}  
+            foreach (var appMessage in lstMessages) { 
+            
+                messages.Add(appMessage.Id, appMessage);
+            }  
 
         }
 
