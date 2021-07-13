@@ -6,15 +6,15 @@
 
 
 	this.RetrieveAll = function () {
-		this.ctrlActions.FillTable(this.service, this.tblUsuariosAdmin, false);
+		this.ctrlActions.FillTableAdmin(this.service, this.tblUsuariosAdmin, false);
 	}
 
 	this.ReloadTable = function () {
-		this.ctrlActions.FillTable(this.service, this.tblUsuariosAdmin, true);
+		this.ctrlActions.FillTableAdmin(this.service, this.tblUsuariosAdmin, true);
 	}
 
 	this.BindFields = function (data) {
-		this.ctrlActions.BindFields('forma_Reg_Admin', data);
+		this.ctrlActions.BindFields('forma_Usuario_Upd', data);
 	}
 
 	this.Create = function () {
@@ -29,8 +29,20 @@
 	this.Update = function () {
 
 		var usuario_Data = {};
-		usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
+		usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
 		this.ctrlActions.PutToAPI(this.service, usuario_Data, function() {
+			var v_Gestion_Admin = new vReg_Admin();
+			v_Gestion_Admin.ReloadTable();
+		});
+	}
+
+	this.Enable = function () {
+		var usuario_Data = {};
+		usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
+		usuario_Data = {
+			Estado: "Activado"
+		};
+		this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
 			var v_Gestion_Admin = new vReg_Admin();
 			v_Gestion_Admin.ReloadTable();
 		});
@@ -38,7 +50,7 @@
 
 	this.Disable = function () {
 		var usuario_Data = {};
-		usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
+		usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
 		usuario_Data = {
 			Estado : "Desactivado"
 		};
@@ -51,7 +63,7 @@
 	this.Delete = function () {
 
 		var usuario_Data = {};
-		usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
+		usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
 		this.ctrlActions.DeleteToAPI(this.service, usuario_Data, function () {
 			var v_Gestion_Admin = new vReg_Admin();
 			v_Gestion_Admin.ReloadTable();

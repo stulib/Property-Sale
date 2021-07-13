@@ -51,7 +51,7 @@ namespace DataAcess.Dao
             Parameters.Add(param);
         }
 
-        public void AddDateParam(string paramName, DateTime paramValue)
+        public void AddDateParam(string paramName, DateTime? paramValue)
         {
             var param = new SqlParameter("@P_" + paramName, SqlDbType.Date)
             {

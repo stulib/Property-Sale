@@ -1,5 +1,4 @@
-﻿
-function ControlActions() {
+﻿function ControlActions() {
 
 	this.URL_API = "http://localhost:57056/api/";
 
@@ -13,7 +12,7 @@ function ControlActions() {
 		return val;
 	}
 
-	this.FillTable = function (service, tableId,refresh) {
+	this.FillTable = function (service, tableId, refresh) {
 
 		if (!refresh) {
 			columns = this.GetTableColumsDataName(tableId).split(',');
@@ -38,8 +37,41 @@ function ControlActions() {
 			//RECARGA LA TABLA
 			$('#' + tableId).DataTable().ajax.reload();
 		}
-		
+
 	}
+
+	this.FillTableAdmin = function (service, tableId,refresh) {
+
+		if (!refresh) {
+			columns = this.GetTableColumsDataName(tableId).split(',');
+			var arrayColumnsData = [];
+
+			$.each(columns, function (index, value) {
+				var obj = {};
+				obj.data = value;
+				arrayColumnsData.push(obj);
+			});
+
+			$('#' + tableId).DataTable({
+				"processing": true,
+				"ajax": {
+					"url": this.GetUrlApiService(service),
+					dataSrc: 'Data'
+				},
+				columnDefs: [{
+					targets: 3,
+					render: function (data) {
+						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
+					}
+				}],
+				"columns": arrayColumnsData
+			});
+		} else {
+			//RECARGA LA TABLA
+			$('#' + tableId).DataTable().ajax.reload();
+		}
+		
+	} 
 
 	this.GetSelectedRow = function () {
 		var data = sessionStorage.getItem(tableId + '_selected');
@@ -142,7 +174,6 @@ function ControlActions() {
     }
 }
 
-//Custom jquery actions
 $.put = function (url, data, callback) {
 	if ($.isFunction(data)) {
 		type = type || callback,

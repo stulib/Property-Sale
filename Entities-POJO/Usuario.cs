@@ -12,7 +12,7 @@ namespace Entities_POJO
         public string Tipo_Id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public DateTime Fecha_Nac { get; set; }
+        public DateTime? Fecha_Nac { get; set; }
         public string Contrasenna { get; set; }
         public string Email { get; set; }
         public string Estado { get; set; }
