@@ -19,7 +19,7 @@ namespace DataAcess.Mapper
         private const string DB_COL_COD_EMAIL = "COD_EMAIL";
         private const string DB_COL_COD_CEL = "COD_CEL";
         private const string DB_COL_IDSUSCRIPCION = "IDSUSCRIPCION";
-        private const string DB_COL_ID_ROL = "ID_ROL ";
+        private const string DB_COL_ID_ROL = "ID_ROL";
         private const string DB_COL_ID_AGENCIA = "ID_AGENCIA";
         private const string DB_COL_VERIFICADO = "VERIFICADO";
 
