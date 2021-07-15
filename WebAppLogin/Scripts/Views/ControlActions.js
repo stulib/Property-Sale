@@ -40,7 +40,8 @@
 
 	}
 
-	this.FillTableAdmin = function (service, tableId,refresh) {
+	this.FillTableAdmin = function (service, tableId, refresh) {
+		moment.updateLocale(moment.locale(), { invalidDate: " " });
 
 		if (!refresh) {
 			columns = this.GetTableColumsDataName(tableId).split(',');
@@ -58,7 +59,7 @@
 					"url": this.GetUrlApiService(service),
 					dataSrc: 'Data'
 				},
-				columnDefs: [{
+				"columnDefs": [{
 					targets: 3,
 					render: function (data) {
 						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
@@ -80,11 +81,12 @@
 	};
 
 	this.BindFields = function (formId, data) {
-		console.log(data);
+		//console.log(data);
 		$('#' + formId +' *').filter(':input').each(function (input) {
 			var columnDataName = $(this).attr("ColumnDataName");
 			this.value = data[columnDataName];
 		});
+		return data;
 	}
 
 	this.GetDataForm = function (formId) {

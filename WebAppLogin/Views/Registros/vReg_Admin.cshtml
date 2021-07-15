@@ -12,16 +12,32 @@
 <h2>Gestión de Usuarios</h2>
 @Html.CtrlTable(viewName: "vReg_Admin", id: "tblUsuariosAdmin", title: "Listado de usuarios",
     columnsTitle: "ID, Nombre, Apellidos, Fecha de Nacimiento, Correo, Teléfono,Rol,Estado", ColumnsDataName: "Id,Nombre,Apellidos,Fecha_Nac,Email,Telefono,Nombre_Rol,Estado",
-    onSelectFunction: "BindFields", colorHeader: "red")
+    onSelectFunction: "SaveSelecteduser", colorHeader: "red")
 <div class="card-header">
     <div class="row pull-right">
         <div class="col-md-8">OPCIONES</div>
         <div>
-            <form id="forma_Usuario_Upd">
+            <form id="forma_Usuario_Display">
                 @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                 @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
                 @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                 @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+            </form>
+            <form id="forma_Usuario_Upd" style="display:none">
+                @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Tipo_Id")
+                @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "DOB", columnDataName: "Fecha_Nac")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "PWD", columnDataName: "Contrasenna")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Email", columnDataName: "Email")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Estado", columnDataName: "Estado")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Telefono", columnDataName: "Telefono")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "ID Suscripcion", columnDataName: "Id_Suscripcion")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "ID Rol", columnDataName: "Id_Rol")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "ID Agencia", columnDataName: "Id_Agencia")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Verificado", columnDataName: "Verificado")
             </form>
         </div>
         <div class="col-md-8">
