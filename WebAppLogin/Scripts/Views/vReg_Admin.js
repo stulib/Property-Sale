@@ -24,16 +24,12 @@
     this.Create = function () {
         var usuario_Data = {};
         usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
+        usuario_Data.Contrasenna = "tempTest";
+        usuario_Data.Estado = "Activo";
+        usuario_Data.Id_Rol = "01";
+        usuario_Data.Id_Agencia = " ";
+        usuario_Data.Verificado = "N";
         this.ctrlActions.PostToAPI(this.service, usuario_Data, function () {
-            var v_Gestion_Admin = new vReg_Admin();
-            v_Gestion_Admin.ReloadTable();
-        });
-    }
-
-    this.Update = function () {
-        var usuario_Data = {};
-        usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
-        this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
             v_Gestion_Admin.ReloadTable();
         });
