@@ -10,6 +10,7 @@ namespace CoreAPI
     public class UsuarioManager : BaseManager
     {
         private UsuarioCrudFactory crudUsuario;
+        private Random rng = new Random();
 
         public UsuarioManager()
         {
@@ -22,16 +23,30 @@ namespace CoreAPI
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
             try
             {
-                int codigo_Celular = GenerarCodigo();
-                int codigo_Correo = GenerarCodigo();
+                var u = crudUsuario.Retrieve<Usuario>(usuario);
+                int codigo_Celular = GenerarCodigo(rng);
+                int codigo_Correo = GenerarCodigo(rng);
                 usuario.Cod_Celular = codigo_Celular;
                 usuario.Cod_Email = codigo_Correo;
-                crudUsuario.Create(usuario);
-                /*var u = crudUsuario.Retrieve<Usuario>(usuario); 
+                bool email_Match = regexEmail.IsMatch(usuario.Email);
+                bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
+
                 if (u != null)
                 {
+                    throw new BussinessException(1);
+                }
+                else if (email_Match == false)
+                {
                     throw new BussinessException(3);
-                }*/
+                }
+                else if (contrasenna_Match == false)
+                {
+                    throw new BussinessException(4);
+                }
+                else
+                {
+                    crudUsuario.Create(usuario);
+                }
             }
             catch (Exception ex)
             {
@@ -52,7 +67,7 @@ namespace CoreAPI
                 u = crudUsuario.Retrieve<Usuario>(usuario);
                 if (u == null)
                 {
-                    throw new BussinessException(4);
+                    throw new BussinessException(5);
                 }
             }
             catch (Exception ex)
@@ -73,12 +88,47 @@ namespace CoreAPI
             crudUsuario.Delete(usuario);
         }
 
-        public int GenerarCodigo()
+        private int GenerarCodigo(Random rng)
         {
             int codigo = 0;
-            Random rndm = new Random();
-            codigo = rndm.Next(100000, 1000000);
+            codigo = rng.Next(100000, 1000000);
             return codigo;
+        }
+
+        private bool ValidatePassword(string password)
+        {
+            var input = password;
+            var hasLowerChar = new Regex(@"[a-z]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinChars = new Regex(@".{6,}");
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+
+            if (!hasLowerChar.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasUpperChar.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasMinChars.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasNumber.IsMatch(input))
+            {
+                return false;
+            }
+
+            else if (!hasSymbols.IsMatch(input))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

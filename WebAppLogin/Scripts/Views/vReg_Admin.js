@@ -16,7 +16,6 @@
         this.ctrlActions.BindFields('forma_Usuario_Upd', data);
         this.ctrlActions.BindFields('forma_Usuario_Display', data);
         var usuario = data;
-        console.log(usuario);
         return data;
     }
 
@@ -24,7 +23,7 @@
     this.Create = function () {
         var usuario_Data = {};
         usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
-        usuario_Data.Contrasenna = "tempTest";
+        usuario_Data.Contrasenna = "tempTest1!";
         usuario_Data.Estado = "Activo";
         usuario_Data.Id_Rol = "01";
         usuario_Data.Id_Agencia = " ";
