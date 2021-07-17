@@ -53,7 +53,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult vLogin(UserProfile objUser)
+        public ActionResult vLogin(Usuario objUser)
         {
             if (ModelState.IsValid)
 
@@ -61,17 +61,18 @@ namespace WebApp.Controllers
                 string jsonString = JsonConvert.SerializeObject(objUser);
 
                 HttpContent c = new StringContent(jsonString, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = client.PostAsync("http://localhost:57056/api/userProfile", c).Result;
+                HttpResponseMessage response = client.PostAsync("http://localhost:57056/api/signin", c).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     var content = response.Content.ReadAsStringAsync().Result;
 
                     var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(content);
-                    var user = JsonConvert.DeserializeObject<UserProfile>(apiResponse.Data.ToString());
+                    var user = JsonConvert.DeserializeObject<Usuario>(apiResponse.Data.ToString());
 
-                    Session["UserID"]=user;
-                    Session["FullName"] = user.FullName;
+                    Session["Email"]=user.Email;
+                    Session["Nombre"] = user.Nombre;
+                    Session["UserID"] = user.Id;
                     return View("Index");
                 }
                 else

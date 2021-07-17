@@ -58,6 +58,17 @@ namespace DataAcess.Mapper
             return operation;
         }
 
+        public SqlOperation GetLoginStatement(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "OBT_SESION_PR" };
+
+            var u = (Usuario)entity;
+            operation.AddVarcharParam(DB_COL_EMAIL, u.Email);
+            operation.AddVarcharParam(DB_COL_CONTRASENNA, u.Contrasenna);
+
+            return operation;
+        }
+
         public SqlOperation GetRetriveAllStatement()
         {
             var operation = new SqlOperation { ProcedureName = "OBT_USUARIOS_PR" };

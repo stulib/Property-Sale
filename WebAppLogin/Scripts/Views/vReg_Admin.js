@@ -56,7 +56,6 @@
     }
 
     this.Delete = function () {
-
         var usuario_Data = {};
         usuario_Data = this.ctrlActions.GetDataForm('forma_Usuario_Upd');
         this.ctrlActions.DeleteToAPI(this.service, usuario_Data, function () {
@@ -69,5 +68,4 @@
 $(document).ready(function () {
     var v_Gestion_Admin = new vReg_Admin();
     v_Gestion_Admin.RetrieveAll();
-
 });

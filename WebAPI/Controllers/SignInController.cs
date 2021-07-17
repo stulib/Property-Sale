@@ -2,25 +2,21 @@
 using Entities_POJO;
 using Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class UserProfileController : ApiController
+    public class SignInController : ApiController
     {
 
         ApiResponse apiResp = new ApiResponse();
         // Retrieve by id
-        public IHttpActionResult Post(UserProfile user)
+        public IHttpActionResult Post(Usuario user)
         {
             try
             {
-                var mng = new UserProfileManager();
+                var mng = new UsuarioManager();
               
 
                 user = mng.ValidateUser(user);

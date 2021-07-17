@@ -26,10 +26,11 @@ namespace CoreAPI
                 var u = crudUsuario.Retrieve<Usuario>(usuario);
                 int codigo_Celular = GenerarCodigo(rng);
                 int codigo_Correo = GenerarCodigo(rng);
-                usuario.Cod_Celular = codigo_Celular;
-                usuario.Cod_Email = codigo_Correo;
                 bool email_Match = regexEmail.IsMatch(usuario.Email);
                 bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
+
+                usuario.Cod_Celular = codigo_Celular;
+                usuario.Cod_Email = codigo_Correo;
 
                 if (u != null)
                 {
@@ -80,12 +81,46 @@ namespace CoreAPI
 
         public void Update(Usuario usuario)
         {
-            crudUsuario.Update(usuario);
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u != null)
+            {
+                throw new BussinessException(1);
+            }
+            else {
+                crudUsuario.Update(usuario);
+            }
         }
 
         public void Delete(Usuario usuario)
         {
-            crudUsuario.Delete(usuario);
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u != null)
+            {
+                throw new BussinessException(1);
+            }
+            else
+            {
+                crudUsuario.Delete(usuario);
+            }
+        }
+
+        public Usuario ValidateUser(Usuario user)
+        {
+            Usuario u = null;
+            try
+            {
+                u = crudUsuario.LoginData<Usuario>(user);
+                if (u == null)
+                {
+                    throw new BussinessException(1);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.GetInstance().Process(ex);
+            }
+
+            return u;
         }
 
         private int GenerarCodigo(Random rng)
