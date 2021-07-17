@@ -14,11 +14,11 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult Index()
+        public ActionResult Index(Usuario objUser)
         {
             if (Session["UserID"] != null)
             {
-                return View();
+                return View(objUser);
             }
             else
             {
@@ -26,12 +26,12 @@ namespace WebApp.Controllers
             }
         }
 
-        public ActionResult vCustomers()
+        public ActionResult vCustomers(Usuario objUser)
         {
 
             if (Session["UserID"] != null)
             {
-                return View();
+                return View(objUser);
             }
             else
             {

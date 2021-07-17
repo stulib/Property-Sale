@@ -82,9 +82,9 @@ namespace CoreAPI
         public void Update(Usuario usuario)
         {
             var u = crudUsuario.Retrieve<Usuario>(usuario);
-            if (u != null)
+            if (u == null)
             {
-                throw new BussinessException(1);
+                throw new BussinessException(5);
             }
             else {
                 crudUsuario.Update(usuario);
@@ -94,9 +94,9 @@ namespace CoreAPI
         public void Delete(Usuario usuario)
         {
             var u = crudUsuario.Retrieve<Usuario>(usuario);
-            if (u != null)
+            if (u == null)
             {
-                throw new BussinessException(1);
+                throw new BussinessException(5);
             }
             else
             {
@@ -112,7 +112,7 @@ namespace CoreAPI
                 u = crudUsuario.LoginData<Usuario>(user);
                 if (u == null)
                 {
-                    throw new BussinessException(1);
+                    throw new BussinessException(5);
                 }
             }
             catch (Exception ex)

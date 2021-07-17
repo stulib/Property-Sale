@@ -98,22 +98,5 @@ namespace WebAPI.Controllers
                 return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
         }
-
-        public IHttpActionResult Login(Usuario usuario)
-        {
-            try
-            {
-                var mng = new UsuarioManager();
-                var usuarioL = mng.ValidateUser(usuario);
-                apiResp = new ApiResponse();
-                apiResp.Data = usuarioL;
-                return Ok(apiResp);
-            }
-            catch (BussinessException bex)
-            {
-                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
-            }
-        }
-
     }
 }

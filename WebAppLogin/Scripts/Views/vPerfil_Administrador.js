@@ -2,8 +2,9 @@
     this.service = 'usuario';
     this.ctrlActions = new ControlActions();
 
-    this.FillData = function () {
-
+    this.FillData = function (data) {
+        this.ctrlActions.BindFields("forma_Admin_Upd", data);
+        return data;
     }
 
     this.Update = function () {
