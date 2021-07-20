@@ -64,7 +64,6 @@ namespace DataAcess.Mapper
 
             var u = (Usuario)entity;
             operation.AddVarcharParam(DB_COL_EMAIL, u.Email);
-            operation.AddVarcharParam(DB_COL_CONTRASENNA, u.Contrasenna);
 
             return operation;
         }

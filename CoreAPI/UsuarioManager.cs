@@ -3,6 +3,8 @@ using Entities_POJO;
 using Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace CoreAPI
@@ -10,6 +12,7 @@ namespace CoreAPI
     public class UsuarioManager : BaseManager
     {
         private UsuarioCrudFactory crudUsuario;
+        private SHA256 Hasher = SHA256.Create();
         private Random rng = new Random();
 
         public UsuarioManager()
@@ -28,10 +31,10 @@ namespace CoreAPI
                 int codigo_Correo = GenerarCodigo(rng);
                 bool email_Match = regexEmail.IsMatch(usuario.Email);
                 bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
+                
 
                 usuario.Cod_Celular = codigo_Celular;
                 usuario.Cod_Email = codigo_Correo;
-
                 if (u != null)
                 {
                     throw new BussinessException(1);
@@ -46,6 +49,7 @@ namespace CoreAPI
                 }
                 else
                 {
+                    usuario.Contrasenna = Hash_Function(usuario.Contrasenna);
                     crudUsuario.Create(usuario);
                 }
             }
@@ -110,9 +114,14 @@ namespace CoreAPI
             try
             {
                 u = crudUsuario.LoginData<Usuario>(user);
+                string pwd_To_Match = Hash_Function(user.Contrasenna);
+
                 if (u == null)
                 {
                     throw new BussinessException(5);
+                }
+                else if (u.Contrasenna != pwd_To_Match) {
+                    throw new BussinessException(6);
                 }
             }
             catch (Exception ex)
@@ -164,6 +173,20 @@ namespace CoreAPI
             {
                 return true;
             }
+        }
+
+        private string Hash_Function(string password) {
+            
+            string hashed_Pwd;
+            byte[] hashed_Middle = Hasher.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            StringBuilder stringbuilder = new StringBuilder();
+            for (int i = 0; i < hashed_Middle.Length; i++)
+            {
+                stringbuilder.Append(hashed_Middle[i].ToString("x2"));
+            }
+            hashed_Pwd = stringbuilder.ToString();
+            return hashed_Pwd;
         }
     }
 }

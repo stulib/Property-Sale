@@ -90,6 +90,7 @@ namespace Exceptions
             messages.Add(3, new ApplicationMessage { Id = 3, Message = "Por favor ingrese un correo válido."});
             messages.Add(4, new ApplicationMessage { Id = 4, Message = "Por favor ingrese una contraseña válida."});
             messages.Add(5, new ApplicationMessage { Id = 5, Message = "Cliente no encontrado."});
+            messages.Add(6, new ApplicationMessage { Id = 6, Message = "Contraseña incorrecta."});
             /*var crudMessages = new AppMessagesCrudFactory();
             var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 

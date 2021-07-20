@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using Entities_POJO;
+using System.Net.Http;
 using System.Web.Mvc;
 using WebApp.Security;
 
@@ -9,9 +10,34 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult vPerfilAdministrador()
+        public ActionResult vPerfil_Administrador()
         {
-            return View();
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        public ActionResult vPerfil_Admin_Suscripciones()
+        {
+            if (Session["UserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("vLogin", "Home");
         }
     }
 }

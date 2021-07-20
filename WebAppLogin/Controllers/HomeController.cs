@@ -14,31 +14,26 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult Index(Usuario objUser)
+        public ActionResult vPerfil_Administrador() {
+                return RedirectToAction("vPerfil_Administrador", "Perfiles");
+        }
+
+        public ActionResult vReg_Admin(Usuario user)
         {
-            if (Session["UserID"] != null)
+            return RedirectToAction("vReg_Admin", "Registros");
+        }
+
+        public ActionResult Index(Usuario user)
+        {
+            if (user.Id != null)
             {
-                return View(objUser);
+                return View();
             }
             else
             {
-                return RedirectToAction("vLogin");
+                return RedirectToAction("Error");
             }
         }
-
-        public ActionResult vCustomers(Usuario objUser)
-        {
-
-            if (Session["UserID"] != null)
-            {
-                return View(objUser);
-            }
-            else
-            {
-                return RedirectToAction("vLogin");
-            }
-        }
-
        
         public ActionResult vLogin()
         {
@@ -49,6 +44,10 @@ namespace WebApp.Controllers
         {
             Session.Clear();    
             return View("vLogin");
+        }
+
+        public ActionResult Error() {
+            return View("Error");
         }
 
         [HttpPost]
@@ -70,9 +69,9 @@ namespace WebApp.Controllers
                     var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(content);
                     var user = JsonConvert.DeserializeObject<Usuario>(apiResponse.Data.ToString());
 
-                    Session["Email"]=user.Email;
                     Session["Nombre"] = user.Nombre;
                     Session["UserID"] = user.Id;
+                    Session["IdRol"] = user.Id_Rol;
                     return View("Index");
                 }
                 else
@@ -81,18 +80,6 @@ namespace WebApp.Controllers
                 }
             }
             return View(objUser);
-        }
-
-        public ActionResult UserDashBoard()
-        {
-            if (Session["UserID"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
         }
     }
 }
