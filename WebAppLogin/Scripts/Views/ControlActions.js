@@ -12,8 +12,8 @@
 			if (callBackFunction) {
 				callBackFunction(response.Data);
 			}
-			return response.Data;
 			console.log(response.Data);
+			return response.Data;
 		});
 	};
 

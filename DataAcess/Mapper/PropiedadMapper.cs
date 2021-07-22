@@ -23,7 +23,7 @@ namespace DataAcess.Mapper
         private const string DB_COL_Distrito = "DISTRITO";
         private const string DB_COL_Direccion_Exacta = "DIRECCION_EXACTA";
         private const string DB_COL_Destacado = "DESTACADO";
-        private const string DB_COL_Programado = "PROGRMADO";
+        private const string DB_COL_Programado = "PROGRAMADO";
         private const string DB_COL_Visitas = "VISITAS";
 
 

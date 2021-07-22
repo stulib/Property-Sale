@@ -1,5 +1,4 @@
-﻿
-function vPropiedades() {
+﻿function vPropiedades() {
 
 	this.tblPropiedadesId = 'tblPropiedades';
 	this.service = 'propiedad';

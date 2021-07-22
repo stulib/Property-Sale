@@ -13,13 +13,13 @@
 <h2>Gestión de Propiedades</h2>
 <div>
     @Html.CtrlTable(viewName: "vPropiedades", id: "tblPropiedades", title: "Listado de propiedades",
-        columnsTitle: "Identificación,Precio,Provincia,Fecha de Publicación, Estado", ColumnsDataName: "Id,Precio,Provincia,Fecha_Publicacion,Estado",
+        columnsTitle: "Identificación,Precio,Provincia,Fecha de Publicación,Estado", ColumnsDataName: "Id,Precio,Provincia,Fecha_Publicacion,Estado",
         onSelectFunction: "BindFields", colorHeader: "red")
 </div>
 <form id="forma_Propiedad_Upd">
     @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
     @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo de Propiedad", columnDataName: "Tipo")
-    @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compre", columnDataName: "Opcion_Compra")
+    @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compra", columnDataName: "Opcion_Compra")
     @Html.CtrlInput(id: "txtFechaPub", type: "date", label: "Fecha de Publicación", columnDataName: "Fecha_Publicacion")
     @Html.CtrlInput(id: "txtLatitud", type: "text", label: "Latitud", columnDataName: "Latitud")
     @Html.CtrlInput(id: "txtLong", type: "text", label: "Longitud", columnDataName: "Longitud")
