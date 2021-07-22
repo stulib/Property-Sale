@@ -1,11 +1,28 @@
 ﻿function vPerfil_Administrador() {
-    this.service = 'usuario';
+    this.service = 'usuario?id=';
     this.ctrlActions = new ControlActions();
+    this.columns = "Id,Nombre,Apellidos,Fecha_Nac,Contrasenna,Email,Telefono,Nombre_Rol";
 
-    this.FillData = function (data) {
-        this.ctrlActions.BindFields("forma_Admin_Upd", data);
-        return data;
+    this.getURLParams = function () {
+        var results = window.location.href;
+        var section = results.split("/");
+        if (results == null) {
+            return null;
+        }
+        return section[5];
     }
+
+    var param = this.getURLParams();
+
+    console.log(param);
+
+    var usuario_Data = {};
+    usuario_Data = this.ctrlActions.GetToApi(this.service, this.FillData);
+
+    /*this.FillData = function (usuario_Data) {
+        this.ctrlActions.BindFields("forma_Admin_Upd", usuario_Data);
+        return data;
+    }*/
 
     this.Update = function () {
         var usuario_Data = {};
@@ -19,9 +36,31 @@
             v_PerfilU.FillData();
         });
     }
+
+    this.mostrarPWD = function () {
+        $('#verPassword').on('mousedown', function () {
+            $('#Password').attr("type", "text");
+        });
+
+        $('#verPassword').on('mouseup mouseleave', function () {
+            $('#Password').attr("type", "password");
+        });
+
+    }
+
+    this.mostrarPWDC = function () {
+        $('#verPasswordC').on('mousedown', function () {
+            $('#Password').attr("type", "text");
+        });
+
+        $('#verPasswordC').on('mouseup mouseleave', function () {
+            $('#Password').attr("type", "password");
+        });
+
+    }
 }
 
 $(document).ready(function () {
     var v_PerfilU = new vPerfil_Administrador();
-    v_PerfilU.FillData();
+    //v_PerfilU.FillData();
 });

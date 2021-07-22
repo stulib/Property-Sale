@@ -4,13 +4,12 @@
 <script src="~/Scripts/moment.js"></script>
 <script src="~/Scripts/moment-with-locales.js"></script>
 <script src="~/Scripts/Views/vPerfil_Administrador.js"></script>
-<script src="https://kit.fontawesome.com/e0274567d6.js" crossorigin="anonymous"></script>
 
 @{
-    ViewBag.Title = "vPerfilAdministrador";
+    ViewBag.Title = "vPerfil_Administrador";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Administrador</h2>
+<h2>Administrador: @Session["Nombre"]</h2>
 <div class="card-body">
     Actualización de Datos
     <div class="row">
@@ -19,22 +18,9 @@
             @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
             @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
             @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
-            @Html.CtrlInput(id: "txtDoB", type: "date", label: "DOB", columnDataName: "Fecha_Nac")
+            @Html.CtrlInput(id: "txtDoB", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
             @Html.CtrlInput(id: "txtEmail", type: "text", label: "Email", columnDataName: "Email")
-            @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Telefono", columnDataName: "Telefono")
-        </form>
-    </div>
-</div>
-<div class="card-body">
-    Actualización de Contraseña
-    <div class="row">
-        <form id="forma_Contrasenna_Upd">
-            <div class="input-group">
-                @Html.CtrlInput(id:"Contrasenna", type:"password", label:"Contraseña", placeHolder:"Contraseña")
-                <span class="input-group-btn">
-                    @Html.CtrlButton(viewName:"btnMostrar", id: "verPassword", label:"S", onClickFunction:"mostrarPWD");
-                </span>
-            </div>
+            @Html.CtrlInput(id: "txtTelefono", type: "text", label: "Teléfono", columnDataName: "Telefono")
         </form>
     </div>
 </div>

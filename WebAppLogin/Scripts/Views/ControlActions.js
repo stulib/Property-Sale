@@ -68,11 +68,41 @@
 				"columns": arrayColumnsData
 			});
 		} else {
-			//RECARGA LA TABLA
+			$('#' + tableId).DataTable().ajax.reload();
+		}	
+	}
+
+	this.FillPropiedadesTable = function (service, tableId, refresh) {
+		moment.updateLocale(moment.locale(), { invalidDate: " " });
+
+		if (!refresh) {
+			columns = this.GetTableColumsDataName(tableId).split(',');
+			var arrayColumnsData = [];
+
+			$.each(columns, function (index, value) {
+				var obj = {};
+				obj.data = value;
+				arrayColumnsData.push(obj);
+			});
+
+			$('#' + tableId).DataTable({
+				"processing": true,
+				"ajax": {
+					"url": this.GetUrlApiService(service),
+					dataSrc: 'Data'
+				},
+				"columnDefs": [{
+					targets: 3,
+					render: function (data) {
+						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
+					}
+				}],
+				"columns": arrayColumnsData
+			});
+		} else {
 			$('#' + tableId).DataTable().ajax.reload();
 		}
-		
-	} 
+	}
 
 	this.GetSelectedRow = function () {
 		var data = sessionStorage.getItem(tableId + '_selected');

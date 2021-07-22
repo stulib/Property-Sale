@@ -14,27 +14,50 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult vPerfil_Administrador() {
-                return RedirectToAction("vPerfil_Administrador", "Perfiles");
+        public ActionResult vPerfil_Admin_Suscripciones()
+        {
+            return RedirectToAction("vPerfil_Admin_Suscripciones", "Perfiles");
         }
 
-        public ActionResult vReg_Admin(Usuario user)
+        public ActionResult vPerfil_Administrador() {
+            return RedirectToAction("vPerfil_Administrador", "Perfiles");
+        }
+
+        public ActionResult vReg_Admin()
         {
             return RedirectToAction("vReg_Admin", "Registros");
         }
 
-        public ActionResult Index(Usuario user)
+        public ActionResult vPropiedades()
         {
-            if (user.Id != null)
+            return RedirectToAction("vPropiedades", "Perfiles");
+        }
+
+        public ActionResult Index()
+        {
+            if (Session["UserID"] != null)
             {
                 return View();
             }
             else
             {
-                return RedirectToAction("Error");
+                return RedirectToAction("vLogin");
             }
         }
-       
+
+        public ActionResult vCustomers()
+        {
+            string RolUsuario = (string)Session["IdRol"];
+            if ((Session["UserID"] != null) & (RolUsuario.Equals("01") == true))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("vLogin");
+            }
+        }
+
         public ActionResult vLogin()
         {
             return View();

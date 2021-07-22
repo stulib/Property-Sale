@@ -91,6 +91,9 @@ namespace Exceptions
             messages.Add(4, new ApplicationMessage { Id = 4, Message = "Por favor ingrese una contraseña válida."});
             messages.Add(5, new ApplicationMessage { Id = 5, Message = "Cliente no encontrado."});
             messages.Add(6, new ApplicationMessage { Id = 6, Message = "Contraseña incorrecta."});
+            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema." });
+            messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
+            messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
             /*var crudMessages = new AppMessagesCrudFactory();
             var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 

@@ -2,20 +2,22 @@
 using Entities_POJO;
 using Exceptions;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Http;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [ExceptionFilter]
-    public class UsuarioController : ApiController
+    public class PropiedadController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
 
         public IHttpActionResult Get()
         {
             apiResp = new ApiResponse();
-            var mng = new UsuarioManager();
+            var mng = new PropiedadManager();
             apiResp.Data = mng.RetrieveAll();
 
             return Ok(apiResp);
@@ -25,15 +27,15 @@ namespace WebAPI.Controllers
         {
             try
             {
-                var mng = new UsuarioManager();
-                var usuario = new Usuario
+                var mng = new PropiedadManager();
+                var propiedad = new Propiedad
                 {
                     Id = id
                 };
 
-                usuario = mng.RetrieveById(usuario);
+                propiedad = mng.RetrieveById(propiedad);
                 apiResp = new ApiResponse();
-                apiResp.Data = usuario;
+                apiResp.Data = propiedad;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -42,13 +44,13 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Post(Usuario usuario)
+        public IHttpActionResult Post(Propiedad propiedad)
         {
 
             try
             {
-                var mng = new UsuarioManager();
-                mng.Create(usuario);
+                var mng = new PropiedadManager();
+                mng.Create(propiedad);
 
                 apiResp = new ApiResponse();
                 apiResp.Message = "Action was executed.";
@@ -62,12 +64,12 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(Usuario usuario)
+        public IHttpActionResult Put(Propiedad propiedad)
         {
             try
             {
-                var mng = new UsuarioManager();
-                mng.Update(usuario);
+                var mng = new PropiedadManager();
+                mng.Update(propiedad);
 
                 apiResp = new ApiResponse();
                 apiResp.Message = "Action was executed.";
@@ -80,12 +82,12 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Delete(Usuario usuario)
+        public IHttpActionResult Delete(Propiedad propiedad)
         {
             try
             {
-                var mng = new UsuarioManager();
-                mng.Delete(usuario);
+                var mng = new PropiedadManager();
+                mng.Delete(propiedad);
 
                 apiResp = new ApiResponse();
                 apiResp.Message = "Action was executed.";

@@ -11,14 +11,12 @@ namespace WebAPI.Controllers
     {
 
         ApiResponse apiResp = new ApiResponse();
-        // Retrieve by id
+
         public IHttpActionResult Post(Usuario user)
         {
             try
             {
                 var mng = new UsuarioManager();
-              
-
                 user = mng.ValidateUser(user);
                 apiResp = new ApiResponse();
                 apiResp.Data = user;

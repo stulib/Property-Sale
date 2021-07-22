@@ -26,18 +26,19 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Opciones</a>
                         <div class="dropdown-menu">
-                            @Html.ActionLink("Gestión de Suscripciones", "vPerfil_Admin_Suscripciones", "Perfiles", new { @class = "nav-link" })
+                            @Html.ActionLink("Gestión de Suscripciones", "vPerfil_Admin_Suscripciones", "Home", null, new { @class = "nav-link" })
                             <div class="dropdown-divider"></div>
-                            @Html.ActionLink("Gestión de usuarios", "vReg_Admin", "Registros", new { @class = "nav-link" })
+                            @Html.ActionLink("Gestión de usuarios", "vReg_Admin", "Home", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Gestión de propiedades", "vPropiedades", "Home", null, new { @class = "nav-link" })
                         </div>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        @Html.ActionLink((string)Session["Nombre"], "vPerfil_Administrador", "Perfiles", new { @class = "nav-link" })
+                        @Html.ActionLink((string)Session["Nombre"], "vPerfil_Administrador", "Home", new { id = Session["UserID"] }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Cerrar sesión", "Logout", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Cerrar sesión", "Logout", "Home", null, new { @class = "nav-link" })
                     </li>
                 </ul>
             </div>

@@ -31,7 +31,7 @@ namespace CoreAPI
                 int codigo_Correo = GenerarCodigo(rng);
                 bool email_Match = regexEmail.IsMatch(usuario.Email);
                 bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
-                
+
 
                 usuario.Cod_Celular = codigo_Celular;
                 usuario.Cod_Email = codigo_Correo;
@@ -90,7 +90,8 @@ namespace CoreAPI
             {
                 throw new BussinessException(5);
             }
-            else {
+            else
+            {
                 crudUsuario.Update(usuario);
             }
         }
@@ -120,7 +121,12 @@ namespace CoreAPI
                 {
                     throw new BussinessException(5);
                 }
-                else if (u.Contrasenna != pwd_To_Match) {
+                else if (u.Estado.Equals("Inactivo"))
+                {
+                    throw new BussinessException(7);
+                }
+                else if (u.Contrasenna.Equals(pwd_To_Match) == false)
+                {
                     throw new BussinessException(6);
                 }
             }
@@ -134,7 +140,7 @@ namespace CoreAPI
 
         private int GenerarCodigo(Random rng)
         {
-            int codigo = 0;
+            int codigo;
             codigo = rng.Next(100000, 1000000);
             return codigo;
         }
@@ -175,8 +181,9 @@ namespace CoreAPI
             }
         }
 
-        private string Hash_Function(string password) {
-            
+        private string Hash_Function(string password)
+        {
+
             string hashed_Pwd;
             byte[] hashed_Middle = Hasher.ComputeHash(Encoding.UTF8.GetBytes(password));
 
