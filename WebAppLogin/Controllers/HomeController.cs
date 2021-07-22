@@ -20,7 +20,7 @@ namespace WebApp.Controllers
         }
 
         public ActionResult vPerfil_Administrador() {
-            return RedirectToAction("vPerfil_Administrador", "Perfiles");
+            return RedirectToAction("vPerfil_Administrador", "Perfiles", new { id = Session["UserID"] });
         }
 
         public ActionResult vReg_Admin()

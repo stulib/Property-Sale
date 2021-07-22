@@ -6,6 +6,17 @@
 		return this.URL_API + service;
 	}
 
+	this.GetToApi = function (service, callBackFunction) {
+		var jqxhr = $.get(this.GetUrlApiService(service), function (response) {
+			//console.log("Response " + response.Data);
+			if (callBackFunction) {
+				callBackFunction(response.Data);
+			}
+			return response.Data;
+			console.log(response.Data);
+		});
+	};
+
 	this.GetTableColumsDataName = function (tableId) {
 		var val = $('#' + tableId).attr("ColumnsDataName");
 
@@ -34,7 +45,6 @@
 				"columns": arrayColumnsData
 			});
 		} else {
-			//RECARGA LA TABLA
 			$('#' + tableId).DataTable().ajax.reload();
 		}
 
@@ -111,7 +121,7 @@
 	};
 
 	this.BindFields = function (formId, data) {
-		//console.log(data);
+		console.log(data);
 		$('#' + formId +' *').filter(':input').each(function (input) {
 			var columnDataName = $(this).attr("ColumnDataName");
 			this.value = data[columnDataName];
@@ -193,17 +203,6 @@
 				console.log(data);
 			})
     };
-
-
-    this.GetToApi = function (service, callBackFunction) {
-        var jqxhr = $.get(this.GetUrlApiService(service), function (response) {
-			console.log("Response " + response);
-			if (callBackFunction) {
-				callBackFunction(response.Data);
-			}
-            
-        });
-    }
 }
 
 $.put = function (url, data, callback) {

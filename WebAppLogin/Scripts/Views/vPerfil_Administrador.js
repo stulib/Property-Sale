@@ -13,16 +13,9 @@
     }
 
     var param = this.getURLParams();
-
-    console.log(param);
-
-    var usuario_Data = {};
-    usuario_Data = this.ctrlActions.GetToApi(this.service, this.FillData);
-
-    /*this.FillData = function (usuario_Data) {
-        this.ctrlActions.BindFields("forma_Admin_Upd", usuario_Data);
-        return data;
-    }*/
+    var usuario = {};
+    usuario = this.ctrlActions.GetToApi(this.service + param);
+    console.log(usuario);
 
     this.Update = function () {
         var usuario_Data = {};
@@ -58,9 +51,14 @@
         });
 
     }
+
+    this.FillData = function (data) {
+        this.ctrlActions.BindFields("forma_Admin_Upd", data);
+        return data;
+    }
 }
 
 $(document).ready(function () {
     var v_PerfilU = new vPerfil_Administrador();
-    //v_PerfilU.FillData();
+    v_PerfilU.FillData();
 });
