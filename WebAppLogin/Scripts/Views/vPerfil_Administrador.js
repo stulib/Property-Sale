@@ -13,9 +13,14 @@
     }
 
     var param = this.getURLParams();
-    var usuario = {};
-    usuario = this.ctrlActions.GetToApi(this.service + param);
-    console.log(usuario);
+
+    async function getUserData(param) {
+        this.service = 'usuario?id=';
+        this.ctrlActions = new ControlActions();
+        let usuario = await ctrlActions.GetToApi(this.service + param);
+        console.log(usuario);
+        return usuario;
+    };
 
     this.Update = function () {
         var usuario_Data = {};
@@ -24,41 +29,18 @@
         usuario_Data.Id_Rol = "01";
         usuario_Data.Id_Agencia = " ";
         usuario_Data.Verificado = "Y";
-        this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
+        this.ctrlActions.PutToAPI(this.service + param), usuario_Data, function () {
             var v_PerfilU = new vPerfil_Administrador();
             v_PerfilU.FillData();
-        });
+        };
     }
 
-    this.mostrarPWD = function () {
-        $('#verPassword').on('mousedown', function () {
-            $('#Password').attr("type", "text");
-        });
-
-        $('#verPassword').on('mouseup mouseleave', function () {
-            $('#Password').attr("type", "password");
-        });
-
-    }
-
-    this.mostrarPWDC = function () {
-        $('#verPasswordC').on('mousedown', function () {
-            $('#Password').attr("type", "text");
-        });
-
-        $('#verPasswordC').on('mouseup mouseleave', function () {
-            $('#Password').attr("type", "password");
-        });
-
-    }
-
-    this.FillData = function (data) {
-        this.ctrlActions.BindFields("forma_Admin_Upd", data);
-        return data;
+    this.FillData = function (usuario) {
+        this.ctrlActions.BindFields("forma_Admin_Upd", usuario);
+        return usuario;
     }
 }
 
 $(document).ready(function () {
     var v_PerfilU = new vPerfil_Administrador();
-    v_PerfilU.FillData();
-});
+}); 

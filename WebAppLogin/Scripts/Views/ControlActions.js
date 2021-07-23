@@ -17,6 +17,9 @@
 		});
 	};
 
+	//var usuario = await this.GetToApi("usuario?id=117770797");
+	//console.log(usuario);
+
 	this.GetTableColumsDataName = function (tableId) {
 		var val = $('#' + tableId).attr("ColumnsDataName");
 
@@ -102,7 +105,7 @@
 					dataSrc: 'Data'
 				},
 				"columnDefs": [{
-					targets: 3,
+					targets: 4,
 					render: function (data) {
 						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
 					}

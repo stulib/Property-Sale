@@ -15,7 +15,6 @@
     this.SaveSelecteduser = function (data) {
         this.ctrlActions.BindFields('forma_Usuario_Upd', data);
         this.ctrlActions.BindFields('forma_Usuario_Display', data);
-        var usuario = data;
         return data;
     }
 

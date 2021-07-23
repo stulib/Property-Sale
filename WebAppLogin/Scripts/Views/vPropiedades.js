@@ -3,7 +3,7 @@
 	this.tblPropiedadesId = 'tblPropiedades';
 	this.service = 'propiedad';
 	this.ctrlActions = new ControlActions();
-	this.columns = "Id,Precio,Provincia,Fecha_Publicacion,Estado";
+	this.columns = "Id,Tipo,Precio,Provincia,Fecha_Publicacion,Estado";
 
 	this.RetrieveAll = function () {
 		this.ctrlActions.FillPropiedadesTable(this.service, this.tblPropiedadesId, false);
@@ -18,7 +18,7 @@
 		propiedad_Data = this.ctrlActions.GetDataForm('forma_Propiedad_Upd');
 		this.ctrlActions.PutToAPI(this.service, propiedad_Data, function () {
 			var vpropiedad = new vPropiedades();
-			vpropiedad.RetrieveAll();
+			vpropiedad.ReloadTable();
 		});
 	}
 
@@ -28,7 +28,7 @@
 		propiedad_Data.Estado = "Activa";
 		this.ctrlActions.PutToAPI(this.service, propiedad_Data, function () {
 			var vpropiedad = new vPropiedades();
-			vpropiedad.RetrieveAll();
+			vpropiedad.ReloadTable();
 		});
 	}
 
@@ -38,7 +38,7 @@
 		propiedad_Data.Estado = "Inactiva";
 		this.ctrlActions.PutToAPI(this.service, propiedad_Data, function () {
 			var vpropiedad = new vPropiedades();
-			vpropiedad.RetrieveAll();
+			vpropiedad.ReloadTable();
 		});
 	}
 
@@ -47,7 +47,7 @@
 		propiedad_Data = this.ctrlActions.GetDataForm('forma_Propiedad_Upd');
 		this.ctrlActions.DeleteToAPI(this.service, propiedad_Data, function () {
 			var vpropiedad = new vPropiedades();
-			vpropiedad.RetrieveAll();
+			vpropiedad.ReloadTable();
 		});
 	}
 

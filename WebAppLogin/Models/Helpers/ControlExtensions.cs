@@ -39,15 +39,16 @@ namespace WebApp.Helpers
             return new HtmlString(ctrl.GetHtml());
         }
 
-        public static HtmlString CtrlInput(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName="")
+        public static HtmlString CtrlInput(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName = "", string disabled="")
         {
             var ctrl = new CtrlInputModel
             {
                 Id = id,
                 Type = type,
                 Label = label,
-                PlaceHolder=placeHolder,
-                ColumnDataName=columnDataName
+                PlaceHolder = placeHolder,
+                ColumnDataName = columnDataName,
+                Disabled = disabled
             };
 
             return new HtmlString(ctrl.GetHtml());

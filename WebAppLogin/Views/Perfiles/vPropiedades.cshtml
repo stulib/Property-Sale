@@ -13,11 +13,11 @@
 <h2>Gestión de Propiedades</h2>
 <div>
     @Html.CtrlTable(viewName: "vPropiedades", id: "tblPropiedades", title: "Listado de propiedades",
-        columnsTitle: "Identificación,Precio,Provincia,Fecha de Publicación,Estado", ColumnsDataName: "Id,Precio,Provincia,Fecha_Publicacion,Estado",
+        columnsTitle: "Identificación,Tipo,Precio,Provincia,Fecha de Publicación,Estado", ColumnsDataName: "Id,Tipo,Precio,Provincia,Fecha_Publicacion,Estado",
         onSelectFunction: "BindFields", colorHeader: "red")
 </div>
 <form id="forma_Propiedad_Upd">
-    @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+    @Html.CtrlInput(id: "txtID", type: "text", label: "Código", columnDataName: "Id", disabled: "disabled")
     @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo de Propiedad", columnDataName: "Tipo")
     @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compra", columnDataName: "Opcion_Compra")
     @Html.CtrlInput(id: "txtFechaPub", type: "date", label: "Fecha de Publicación", columnDataName: "Fecha_Publicacion")
@@ -34,6 +34,7 @@
     @Html.CtrlInput(id: "txtVisitas", type: "number", label: "Visitas", columnDataName: "Visitas")
 </form>
 <div class="col-md-8">
+    @Html.CtrlButton(viewName: "vPropiedades", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
     @Html.CtrlButton(viewName: "vPropiedades", id: "btnEnable", label: "Activar", onClickFunction: "Enable", buttonType: "info")
     @Html.CtrlButton(viewName: "vPropiedades", id: "btnDisable", label: "Desactivar", onClickFunction: "Disable", buttonType: "info")
     @Html.CtrlButton(viewName: "vPropiedades", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
