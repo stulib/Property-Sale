@@ -13,7 +13,7 @@
 <h2>Administrador: @Session["Nombre"]</h2>
 <div class="card-body">
     Actualización de Datos
-    <div class="row">
+    <div class="card-body">
         <form id="forma_Admin_Upd">
             @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
             @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
