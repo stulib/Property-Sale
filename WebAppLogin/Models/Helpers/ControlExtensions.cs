@@ -68,6 +68,21 @@ namespace WebApp.Helpers
             return new HtmlString(ctrl.GetHtml());
         }
 
+        public static HtmlString CtrlInputHidden(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName = "", string hidden = "")
+        {
+            var ctrl = new CtrlInputHiddenModel
+            {
+                Id = id,
+                Type = type,
+                Label = label,
+                PlaceHolder = placeHolder,
+                ColumnDataName = columnDataName,
+                Hidden = hidden
+            };
+
+            return new HtmlString(ctrl.GetHtml());
+        }
+
         public static HtmlString CtrlButton(this HtmlHelper html, string viewName, string id, string label, string onClickFunction="", string buttonType="primary")
         {
             var ctrl = new CtrlButtonModel

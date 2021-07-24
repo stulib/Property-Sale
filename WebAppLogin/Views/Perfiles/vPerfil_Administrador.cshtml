@@ -15,6 +15,7 @@
     Actualización de Datos
     <div class="card-body">
         <form id="forma_Admin_Upd">
+            @Html.CtrlInputHidden(id: "txtPwd", type: "text", label: "", columnDataName: "Contrasenna")
             @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
             @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
             @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
@@ -22,6 +23,8 @@
             @Html.CtrlInput(id: "txtDoB", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
             @Html.CtrlInput(id: "txtEmail", type: "text", label: "Email", columnDataName: "Email")
             @Html.CtrlInput(id: "txtTelefono", type: "text", label: "Teléfono", columnDataName: "Telefono")
+            @Html.CtrlInputHidden(id: "txtCodEmail", type: "text", label: "", columnDataName: "Cod_Email")
+            @Html.CtrlInputHidden(id: "txtCodCel", type: "text", label: "", columnDataName: "Cod_Celular")
         </form>
     </div>
     @Html.CtrlButton(viewName: "vPerfil_Administrador", id: "btnGuardar", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")

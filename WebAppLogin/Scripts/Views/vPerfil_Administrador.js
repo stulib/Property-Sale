@@ -1,7 +1,6 @@
 ﻿function vPerfil_Administrador() {
-    this.service = 'usuario?id=';
+    this.service = 'usuario';
     this.ctrlActions = new ControlActions();
-    this.columns = "Id,Nombre,Apellidos,Fecha_Nac,Contrasenna,Email,Telefono,Nombre_Rol";
 
     this.getURLParams = function () {
         var results = window.location.href;
@@ -27,22 +26,21 @@
 
     async function FillData(usuario) {
         this.ctrlActions.BindFields("forma_Admin_Upd", usuario);
+        console.log(usuario);
     }
 
     this.Update = function () {
-        var usuario_Data = {};
         usuario_Data = this.ctrlActions.GetDataForm('forma_Admin_Upd');
         usuario_Data.Estado = "Activo";
         usuario_Data.Id_Rol = "01";
         usuario_Data.Id_Agencia = " ";
         usuario_Data.Verificado = "Y";
-        this.ctrlActions.PutToAPI(this.service + param), usuario_Data, function () {
+        this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
             var v_PerfilU = new vPerfil_Administrador();
-            v_PerfilU.FillData();
-        };
+        });
     }
 
-    GetToApi(this.service + param);
+    GetToApi(this.service + '?id=' + param);
 }
 
 $(document).ready(function () {

@@ -160,6 +160,7 @@
     <Compile Include="Models\Controls\CtrlButtonModel.cs" />
     <Compile Include="Models\Controls\CtrlChartModel.cs" />
     <Compile Include="Models\Controls\CtrlInputDisabledModel.cs" />
+    <Compile Include="Models\Controls\CtrlInputHiddenModel.cs" />
     <Compile Include="Models\Controls\CtrlInputModel.cs" />
     <Compile Include="Models\Controls\CtrlDropDownModel.cs" />
     <Compile Include="Models\Controls\CtrlTableModel.cs" />
@@ -178,6 +179,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Controls\CtrlChartModel.html" />
     <Content Include="Models\Controls\CtrlDropDownModel.html" />
+    <Content Include="Models\Controls\CtrlInputHiddenModel.html" />
     <Content Include="Models\Controls\CtrlInputModel.html" />
     <Content Include="Models\Controls\CtrlButtonModel.html" />
     <Content Include="Models\Controls\CtrlTableModel.html" />
