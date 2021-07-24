@@ -8,7 +8,6 @@
 
 	this.GetToApi = function (service, callBackFunction) {
 		var jqxhr = $.get(this.GetUrlApiService(service), function (response) {
-			//console.log("Response " + response.Data);
 			if (callBackFunction) {
 				callBackFunction(response.Data);
 			}
@@ -16,9 +15,6 @@
 			return response.Data;
 		});
 	};
-
-	//var usuario = await this.GetToApi("usuario?id=117770797");
-	//console.log(usuario);
 
 	this.GetTableColumsDataName = function (tableId) {
 		var val = $('#' + tableId).attr("ColumnsDataName");

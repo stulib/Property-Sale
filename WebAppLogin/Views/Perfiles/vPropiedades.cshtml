@@ -17,21 +17,21 @@
         onSelectFunction: "BindFields", colorHeader: "red")
 </div>
 <form id="forma_Propiedad_Upd">
-    @Html.CtrlInput(id: "txtID", type: "text", label: "Código", columnDataName: "Id", disabled: "disabled")
+    @Html.CtrlInputDisabled(id: "txtID", type: "text", label: "Código", columnDataName: "Id")
     @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo de Propiedad", columnDataName: "Tipo")
     @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compra", columnDataName: "Opcion_Compra")
     @Html.CtrlInput(id: "txtFechaPub", type: "date", label: "Fecha de Publicación", columnDataName: "Fecha_Publicacion")
     @Html.CtrlInput(id: "txtLatitud", type: "text", label: "Latitud", columnDataName: "Latitud")
     @Html.CtrlInput(id: "txtLong", type: "text", label: "Longitud", columnDataName: "Longitud")
     @Html.CtrlInput(id: "txtPrecio", type: "number", label: "Precio", columnDataName: "Precio")
-    @Html.CtrlInput(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
+    @Html.CtrlInputDisabled(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
     @Html.CtrlInput(id: "txtProvincia", type: "text", label: "Provincia", columnDataName: "Provincia")
     @Html.CtrlInput(id: "txtCanton", type: "text", label: "Canton", columnDataName: "Canton")
     @Html.CtrlInput(id: "txtDistrito", type: "text", label: "Distito", columnDataName: "Distrito")
     @Html.CtrlInput(id: "txtDirExacta", type: "text", label: "Dirección Exacta", columnDataName: "Direccion_Exacta")
     @Html.CtrlInput(id: "txtDestacado", type: "text", label: "¿Destacado?", columnDataName: "Destacado")
     @Html.CtrlInput(id: "txtProgramado", type: "text", label: "¿Programado?", columnDataName: "Programado")
-    @Html.CtrlInput(id: "txtVisitas", type: "number", label: "Visitas", columnDataName: "Visitas")
+    @Html.CtrlInputDisabled(id: "txtVisitas", type: "number", label: "Visitas", columnDataName: "Visitas")
 </form>
 <div class="col-md-8">
     @Html.CtrlButton(viewName: "vPropiedades", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")

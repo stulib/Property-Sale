@@ -14,13 +14,20 @@
 
     var param = this.getURLParams();
 
-    async function getUserData(param) {
-        this.service = 'usuario?id=';
+    async function GetToApi(service, callBackFunction) {
         this.ctrlActions = new ControlActions();
-        let usuario = await ctrlActions.GetToApi(this.service + param);
-        console.log(usuario);
-        return usuario;
+        var jqxhr = await $.get(this.ctrlActions.GetUrlApiService(service), function (response) {
+            if (response.Data != null & callBackFunction) {
+                callBackFunction(response.Data);
+            }
+            FillData(response.Data)
+            return response.Data;
+        });
     };
+
+    async function FillData(usuario) {
+        this.ctrlActions.BindFields("forma_Admin_Upd", usuario);
+    }
 
     this.Update = function () {
         var usuario_Data = {};
@@ -35,12 +42,9 @@
         };
     }
 
-    this.FillData = function (usuario) {
-        this.ctrlActions.BindFields("forma_Admin_Upd", usuario);
-        return usuario;
-    }
+    GetToApi(this.service + param);
 }
 
 $(document).ready(function () {
     var v_PerfilU = new vPerfil_Administrador();
-}); 
+});

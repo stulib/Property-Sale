@@ -18,10 +18,10 @@
         <div class="col-md-8">OPCIONES</div>
         <div>
             <form id="forma_Usuario_Display">
-                @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
-                @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
-                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
-                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                @Html.CtrlInputDisabled(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                @Html.CtrlInputDisabled(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                @Html.CtrlInputDisabled(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
             </form>
             <form id="forma_Usuario_Upd" style="display:none">
                 @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
