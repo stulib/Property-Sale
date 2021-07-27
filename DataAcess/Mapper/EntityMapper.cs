@@ -32,13 +32,13 @@ namespace DataAcess.Mapper
             return -1;
         }
 
-        protected DateTime GetDateValue(Dictionary<string, object> dic, string attName)
+        protected DateTime? GetDateValue(Dictionary<string, object> dic, string attName)
         {
             var val = dic[attName];
             if (dic.ContainsKey(attName) && val is DateTime)
                 return (DateTime)dic[attName];
 
-            return DateTime.Now;
+            return null;
         }
 
 

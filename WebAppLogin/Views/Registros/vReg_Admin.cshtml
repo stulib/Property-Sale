@@ -1,0 +1,71 @@
+﻿@model Entities_POJO.Usuario
+@using WebApp.Helpers;
+<script src="~/Scripts/datetimeplugin.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/moment-with-locales.js"></script>
+<script src="~/Scripts/Views/vReg_Admin.js"></script>
+@{
+    ViewBag.Title = "vReg_Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gestión de Usuarios</h2>
+@Html.CtrlTable(viewName: "vReg_Admin", id: "tblUsuariosAdmin", title: "Listado de usuarios",
+    columnsTitle: "ID, Nombre, Apellidos, Fecha de Nacimiento, Correo, Teléfono,Rol,Estado", ColumnsDataName: "Id,Nombre,Apellidos,Fecha_Nac,Email,Telefono,Nombre_Rol,Estado",
+    onSelectFunction: "SaveSelecteduser", colorHeader: "red")
+<div class="card-header">
+    <div class="row pull-right">
+        <h4>OPCIONES</h4>
+        <div class="card-body">
+            <form id="forma_Usuario_Display">
+                @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                @Html.CtrlInputDisabled(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                @Html.CtrlInputDisabled(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                @Html.CtrlInputDisabled(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+            </form>
+            <form id="forma_Usuario_Upd" style="display:none">
+                @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                @Html.CtrlInput(id: "txtDOB", type: "text", label: "DOB", columnDataName: "Fecha_Nac")
+                @Html.CtrlInput(id: "txtPWD", type: "text", label: "PWD", columnDataName: "Contrasenna")
+                @Html.CtrlInput(id: "txtEmail", type: "text", label: "Email", columnDataName: "Email")
+                @Html.CtrlInput(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
+                @Html.CtrlInput(id: "txtCodEmail", type: "text", label: "CodEmail", columnDataName: "Cod_Email")
+                @Html.CtrlInput(id: "txtCodCel", type: "text", label: "CodCel", columnDataName: "Cod_Celular")
+                @Html.CtrlInput(id: "txtCel", type: "text", label: "Telefono", columnDataName: "Telefono")
+                @Html.CtrlInput(id: "txtRol", type: "text", label: "ID Rol", columnDataName: "Id_Rol")
+                @Html.CtrlInput(id: "txtAgencia", type: "text", label: "ID Agencia", columnDataName: "Id_Agencia")
+                @Html.CtrlInput(id: "txtVerifica", type: "text", label: "Verificado", columnDataName: "Verificado")
+                @Html.CtrlInput(id: "txtNomRol", type: "text", label: "NombreRol", columnDataName: "Nombre_Rol")
+            </form>
+        </div>
+        <div class="col-md-8">
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnEnable", label: "Activar", onClickFunction: "Enable", buttonType: "info")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnDisable", label: "Desactivar", onClickFunction: "Disable", buttonType: "info")
+            @Html.CtrlButton(viewName: "vReg_Admin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-lg-6"><h3>Registro de Usuario Administrador</h3></div>
+        <div class="col-lg-6"></div>
+    </div>
+    <div class="bs-component">
+        <div class="card-body">
+            <form id="forma_Reg_Admin">
+                @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                @Html.CtrlInput(id: "txtFechaNac", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
+                @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo Electrónico", columnDataName: "Email")
+                @Html.CtrlInput(id: "txtTelefono", type: "text", label: "Número celular", columnDataName: "Telefono")
+                @Html.CtrlInput(id: "txtPwdTest", type: "text", label: "Contraseña", columnDataName: "Contrasenna")
+            </form>
+        </div>
+        @Html.CtrlButton(viewName: "vReg_Admin", id: "btnCreate", label: "Crear nuevo", onClickFunction: "Create", buttonType: "success")
+    </div>
+</div>

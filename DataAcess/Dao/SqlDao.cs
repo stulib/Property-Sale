@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAcess.Dao
 {
     public class SqlDao
     {   
                      
-       private string CONNECTION_STRING = "Data Source=DESKTOP-92GJOPO;Initial Catalog=PROYECTOBR;Integrated Security=True";
+       private string CONNECTION_STRING = "";
        
        private static SqlDao instance;
 
@@ -21,8 +17,6 @@ namespace DataAcess.Dao
             CONNECTION_STRING=ConfigurationManager.ConnectionStrings["CONN_STRING"].ConnectionString;
         }
 
-        //IMPLEMENTA EL PATRON LLAMADO SINGLETON
-        //INVESTIGAR EL PATRON
         public static SqlDao GetInstance()
         {
             if (instance == null)

@@ -1,4 +1,4 @@
-﻿@model Entities_POJO.UserProfile
+﻿@model Entities_POJO.Usuario
 
 @{
     ViewBag.Title = "Login";
@@ -7,41 +7,42 @@
 
 @using (Html.BeginForm("vLogin", "Home", FormMethod.Post))
 {
-    <fieldset>
-        <legend>Bienvenido</legend>
+<fieldset>
+    <legend>Bienvenido</legend>
+    <legend>Por favor ingrese sus credenciales:</legend>
 
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
-        <table>
-            <tr>
-                <td>@Html.Label("Usuario")</td>
-                <td>@Html.TextBoxFor(a => a.UserName)</td>
-                <td>@Html.ValidationMessageFor(a => a.UserName)</td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Contraseña")
-                </td>
-                <td>
-                    @Html.PasswordFor(a => a.Password)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(a => a.Password)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Login" />
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </fieldset>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @if (@ViewBag.Message != null)
+    {
+        <div style="border: 1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        <tr>
+            <td>@Html.Label("Correo Electrónico")</td>
+            <td>@Html.TextBoxFor(a => a.Email)</td>
+            <td>@Html.ValidationMessageFor(a => a.Email)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Contraseña")
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.Contrasenna)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Contrasenna)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</fieldset>
 }  

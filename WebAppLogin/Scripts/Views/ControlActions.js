@@ -1,5 +1,4 @@
-﻿
-function ControlActions() {
+﻿function ControlActions() {
 
 	this.URL_API = "http://localhost:57056/api/";
 
@@ -7,13 +6,23 @@ function ControlActions() {
 		return this.URL_API + service;
 	}
 
+	this.GetToApi = function (service, callBackFunction) {
+		var jqxhr = $.get(this.GetUrlApiService(service), function (response) {
+			if (callBackFunction) {
+				callBackFunction(response.Data);
+			}
+			console.log(response.Data);
+			return response.Data;
+		});
+	};
+
 	this.GetTableColumsDataName = function (tableId) {
 		var val = $('#' + tableId).attr("ColumnsDataName");
 
 		return val;
 	}
 
-	this.FillTable = function (service, tableId,refresh) {
+	this.FillTable = function (service, tableId, refresh) {
 
 		if (!refresh) {
 			columns = this.GetTableColumsDataName(tableId).split(',');
@@ -35,10 +44,73 @@ function ControlActions() {
 				"columns": arrayColumnsData
 			});
 		} else {
-			//RECARGA LA TABLA
 			$('#' + tableId).DataTable().ajax.reload();
 		}
-		
+
+	}
+
+	this.FillTableAdmin = function (service, tableId, refresh) {
+		moment.updateLocale(moment.locale(), { invalidDate: " " });
+
+		if (!refresh) {
+			columns = this.GetTableColumsDataName(tableId).split(',');
+			var arrayColumnsData = [];
+
+			$.each(columns, function (index, value) {
+				var obj = {};
+				obj.data = value;
+				arrayColumnsData.push(obj);
+			});
+
+			$('#' + tableId).DataTable({
+				"processing": true,
+				"ajax": {
+					"url": this.GetUrlApiService(service),
+					dataSrc: 'Data'
+				},
+				"columnDefs": [{
+					targets: 3,
+					render: function (data) {
+						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
+					}
+				}],
+				"columns": arrayColumnsData
+			});
+		} else {
+			$('#' + tableId).DataTable().ajax.reload();
+		}	
+	}
+
+	this.FillPropiedadesTable = function (service, tableId, refresh) {
+		moment.updateLocale(moment.locale(), { invalidDate: " " });
+
+		if (!refresh) {
+			columns = this.GetTableColumsDataName(tableId).split(',');
+			var arrayColumnsData = [];
+
+			$.each(columns, function (index, value) {
+				var obj = {};
+				obj.data = value;
+				arrayColumnsData.push(obj);
+			});
+
+			$('#' + tableId).DataTable({
+				"processing": true,
+				"ajax": {
+					"url": this.GetUrlApiService(service),
+					dataSrc: 'Data'
+				},
+				"columnDefs": [{
+					targets: 4,
+					render: function (data) {
+						return moment(data, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY')
+					}
+				}],
+				"columns": arrayColumnsData
+			});
+		} else {
+			$('#' + tableId).DataTable().ajax.reload();
+		}
 	}
 
 	this.GetSelectedRow = function () {
@@ -53,6 +125,7 @@ function ControlActions() {
 			var columnDataName = $(this).attr("ColumnDataName");
 			this.value = data[columnDataName];
 		});
+		return data;
 	}
 
 	this.GetDataForm = function (formId) {
@@ -129,20 +202,8 @@ function ControlActions() {
 				console.log(data);
 			})
     };
-
-
-    this.GetToApi = function (service, callBackFunction) {
-        var jqxhr = $.get(this.GetUrlApiService(service), function (response) {
-			console.log("Response " + response);
-			if (callBackFunction) {
-				callBackFunction(response.Data);
-			}
-            
-        });
-    }
 }
 
-//Custom jquery actions
 $.put = function (url, data, callback) {
 	if ($.isFunction(data)) {
 		type = type || callback,

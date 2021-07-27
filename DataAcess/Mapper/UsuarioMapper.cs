@@ -18,10 +18,10 @@ namespace DataAcess.Mapper
         private const string DB_COL_TELEFONO = "TELEFONO";
         private const string DB_COL_COD_EMAIL = "COD_EMAIL";
         private const string DB_COL_COD_CEL = "COD_CEL";
-        private const string DB_COL_IDSUSCRIPCION = "IDSUSCRIPCION";
-        private const string DB_COL_ID_ROL = "ID_ROL ";
+        private const string DB_COL_ID_ROL = "ID_ROL";
         private const string DB_COL_ID_AGENCIA = "ID_AGENCIA";
         private const string DB_COL_VERIFICADO = "VERIFICADO";
+        private const string DB_COL_NOMBRE_ROL = "NOMBRE_ROL";
 
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
@@ -40,7 +40,6 @@ namespace DataAcess.Mapper
             operation.AddIntParam(DB_COL_TELEFONO, u.Telefono);
             operation.AddIntParam(DB_COL_COD_EMAIL, u.Cod_Email);
             operation.AddIntParam(DB_COL_COD_CEL, u.Cod_Celular);
-            operation.AddVarcharParam(DB_COL_IDSUSCRIPCION, u.Id_Suscripcion);
             operation.AddVarcharParam(DB_COL_ID_ROL, u.Id_Rol);
             operation.AddVarcharParam(DB_COL_ID_AGENCIA, u.Id_Agencia);
             operation.AddCharParam(DB_COL_VERIFICADO, u.Verificado);
@@ -55,6 +54,16 @@ namespace DataAcess.Mapper
 
             var u = (Usuario)entity;
             operation.AddVarcharParam(DB_COL_ID, u.Id);
+
+            return operation;
+        }
+
+        public SqlOperation GetLoginStatement(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "OBT_SESION_PR" };
+
+            var u = (Usuario)entity;
+            operation.AddVarcharParam(DB_COL_EMAIL, u.Email);
 
             return operation;
         }
@@ -81,7 +90,6 @@ namespace DataAcess.Mapper
             operation.AddIntParam(DB_COL_TELEFONO, u.Telefono);
             operation.AddIntParam(DB_COL_COD_EMAIL, u.Cod_Email);
             operation.AddIntParam(DB_COL_COD_CEL, u.Cod_Celular);
-            operation.AddVarcharParam(DB_COL_IDSUSCRIPCION, u.Id_Suscripcion);
             operation.AddVarcharParam(DB_COL_ID_ROL, u.Id_Rol);
             operation.AddVarcharParam(DB_COL_ID_AGENCIA, u.Id_Agencia);
             operation.AddCharParam(DB_COL_VERIFICADO, u.Verificado);
@@ -126,10 +134,10 @@ namespace DataAcess.Mapper
                 Telefono = GetIntValue(row, DB_COL_TELEFONO),
                 Cod_Email = GetIntValue(row, DB_COL_COD_EMAIL),
                 Cod_Celular = GetIntValue(row, DB_COL_COD_CEL),
-                Id_Suscripcion = GetStringValue(row, DB_COL_IDSUSCRIPCION),
                 Id_Rol = GetStringValue(row, DB_COL_ID_ROL),
                 Id_Agencia = GetStringValue(row, DB_COL_ID_AGENCIA),
-                Verificado = Convert.ToChar(GetStringValue(row, DB_COL_VERIFICADO))
+                Verificado = Convert.ToChar(GetStringValue(row, DB_COL_VERIFICADO)),
+                Nombre_Rol = GetStringValue(row, DB_COL_NOMBRE_ROL)
             };
 
             return usuario;
