@@ -84,14 +84,23 @@ namespace Exceptions
 
         private void LoadMessages()
         {
-            var crudMessages = new AppMessagesCrudFactory();
+            messages.Add(0, new ApplicationMessage { Id = 0, Message = "Houston we have a problem!"});
+            messages.Add(1, new ApplicationMessage { Id = 1, Message = "Cliente ya registrado"});
+            messages.Add(2, new ApplicationMessage { Id = 2, Message = "El cliente debe ser mayor de edad."});
+            messages.Add(3, new ApplicationMessage { Id = 3, Message = "Por favor ingrese un correo válido."});
+            messages.Add(4, new ApplicationMessage { Id = 4, Message = "Por favor ingrese una contraseña válida."});
+            messages.Add(5, new ApplicationMessage { Id = 5, Message = "Cliente no encontrado."});
+            messages.Add(6, new ApplicationMessage { Id = 6, Message = "Contraseña incorrecta."});
+            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema." });
+            messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
+            messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
+            /*var crudMessages = new AppMessagesCrudFactory();
             var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 
             foreach (var appMessage in lstMessages) { 
             
                 messages.Add(appMessage.Id, appMessage);
-            }  
-
+            }*/
         }
 
         private void Log(string logMessage, TextWriter w)

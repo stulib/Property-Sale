@@ -3,12 +3,17 @@ using Entities_POJO;
 using Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CoreAPI
 {
     public class UsuarioManager : BaseManager
     {
         private UsuarioCrudFactory crudUsuario;
+        private SHA256 Hasher = SHA256.Create();
+        private Random rng = new Random();
 
         public UsuarioManager()
         {
@@ -17,16 +22,36 @@ namespace CoreAPI
 
         public void Create(Usuario usuario)
         {
+            Regex regexEmail = new Regex(@"([a-zA-ZÀ-ÿ\u00f1\u00d1\!0-9]+@[a-zA-Z\!0-9]+\.[a-zA-Z]+)",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase);
             try
             {
                 var u = crudUsuario.Retrieve<Usuario>(usuario);
+                int codigo_Celular = GenerarCodigo(rng);
+                int codigo_Correo = GenerarCodigo(rng);
+                bool email_Match = regexEmail.IsMatch(usuario.Email);
+                bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
 
+
+                usuario.Cod_Celular = codigo_Celular;
+                usuario.Cod_Email = codigo_Correo;
                 if (u != null)
+                {
+                    throw new BussinessException(1);
+                }
+                else if (email_Match == false)
                 {
                     throw new BussinessException(3);
                 }
+                else if (contrasenna_Match == false)
+                {
+                    throw new BussinessException(4);
+                }
                 else
-                    throw new BussinessException(2);
+                {
+                    usuario.Contrasenna = Hash_Function(usuario.Contrasenna);
+                    crudUsuario.Create(usuario);
+                }
             }
             catch (Exception ex)
             {
@@ -47,7 +72,7 @@ namespace CoreAPI
                 u = crudUsuario.Retrieve<Usuario>(usuario);
                 if (u == null)
                 {
-                    throw new BussinessException(4);
+                    throw new BussinessException(5);
                 }
             }
             catch (Exception ex)
@@ -60,12 +85,115 @@ namespace CoreAPI
 
         public void Update(Usuario usuario)
         {
-            crudUsuario.Update(usuario);
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudUsuario.Update(usuario);
+            }
         }
 
         public void Delete(Usuario usuario)
         {
-            crudUsuario.Delete(usuario);
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudUsuario.Delete(usuario);
+            }
+        }
+
+        public Usuario ValidateUser(Usuario user)
+        {
+            Usuario u = null;
+            try
+            {
+                u = crudUsuario.LoginData<Usuario>(user);
+                string pwd_To_Match = Hash_Function(user.Contrasenna);
+
+                if (u == null)
+                {
+                    throw new BussinessException(5);
+                }
+                else if (u.Estado.Equals("Inactivo"))
+                {
+                    throw new BussinessException(7);
+                }
+                else if (u.Contrasenna.Equals(pwd_To_Match) == false)
+                {
+                    throw new BussinessException(6);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.GetInstance().Process(ex);
+            }
+
+            return u;
+        }
+
+        private int GenerarCodigo(Random rng)
+        {
+            int codigo;
+            codigo = rng.Next(100000, 1000000);
+            return codigo;
+        }
+
+        private bool ValidatePassword(string password)
+        {
+            var input = password;
+            var hasLowerChar = new Regex(@"[a-z]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinChars = new Regex(@".{6,}");
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+
+            if (!hasLowerChar.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasUpperChar.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasMinChars.IsMatch(input))
+            {
+                return false;
+            }
+            else if (!hasNumber.IsMatch(input))
+            {
+                return false;
+            }
+
+            else if (!hasSymbols.IsMatch(input))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private string Hash_Function(string password)
+        {
+
+            string hashed_Pwd;
+            byte[] hashed_Middle = Hasher.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            StringBuilder stringbuilder = new StringBuilder();
+            for (int i = 0; i < hashed_Middle.Length; i++)
+            {
+                stringbuilder.Append(hashed_Middle[i].ToString("x2"));
+            }
+            hashed_Pwd = stringbuilder.ToString();
+            return hashed_Pwd;
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="ObjectDumper.cs" />
     <Compile Include="OptionList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propiedad.cs" />
     <Compile Include="UserProfile.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

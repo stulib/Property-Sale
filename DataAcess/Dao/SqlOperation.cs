@@ -19,7 +19,7 @@ namespace DataAcess.Dao
         {
             var param = new SqlParameter("@P_" + paramName, SqlDbType.VarChar)
             {
-                Value = paramValue                            
+                Value = (object)paramValue ?? DBNull.Value
             };
             Parameters.Add(param);
         }
@@ -51,11 +51,11 @@ namespace DataAcess.Dao
             Parameters.Add(param);
         }
 
-        public void AddDateParam(string paramName, DateTime paramValue)
+        public void AddDateParam(string paramName, DateTime? paramValue)
         {
             var param = new SqlParameter("@P_" + paramName, SqlDbType.Date)
             {
-                Value = paramValue
+                Value = (object)paramValue ?? DBNull.Value
             };
             Parameters.Add(param);
         }

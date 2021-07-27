@@ -3,23 +3,26 @@ using DataAcess.Mapper;
 using Entities_POJO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DataAcess.Crud
 {
-    public class UsuarioCrudFactory : CrudFactory
+    public class PropiedadCrudFactory : CrudFactory
     {
-        UsuarioMapper mapper;
+        PropiedadMapper mapper;
 
-        public UsuarioCrudFactory() : base()
+        public PropiedadCrudFactory() : base()
         {
-            mapper = new UsuarioMapper();
+            mapper = new PropiedadMapper();
             dao = SqlDao.GetInstance();
         }
 
         public override void Create(BaseEntity entity)
         {
-            var usuario = (Usuario)entity;
-            var sqlOperation = mapper.GetCreateStatement(usuario);
+            var propiedad = (Propiedad)entity;
+            var sqlOperation = mapper.GetCreateStatement(propiedad);
             dao.ExecuteProcedure(sqlOperation);
         }
 
@@ -37,23 +40,9 @@ namespace DataAcess.Crud
             return default(T);
         }
 
-        public T LoginData<T>(BaseEntity entity)
-        {
-            var lstResult = dao.ExecuteQueryProcedure(mapper.GetLoginStatement(entity));
-            var dic = new Dictionary<string, object>();
-            if (lstResult.Count > 0)
-            {
-                dic = lstResult[0];
-                var objs = mapper.BuildObject(dic);
-                return (T)Convert.ChangeType(objs, typeof(T));
-            }
-
-            return default(T);
-        }
-
         public override List<T> RetrieveAll<T>()
         {
-            var lstCustomers = new List<T>();
+            var lstPropiedades = new List<T>();
 
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetriveAllStatement());
             var dic = new Dictionary<string, object>();
@@ -62,23 +51,25 @@ namespace DataAcess.Crud
                 var objs = mapper.BuildObjects(lstResult);
                 foreach (var c in objs)
                 {
-                    lstCustomers.Add((T)Convert.ChangeType(c, typeof(T)));
+                    lstPropiedades.Add((T)Convert.ChangeType(c, typeof(T)));
                 }
             }
 
-            return lstCustomers;
+            return lstPropiedades;
         }
 
         public override void Update(BaseEntity entity)
         {
-            var usuario = (Usuario)entity;
-            dao.ExecuteProcedure(mapper.GetUpdateStatement(usuario));
+            var propiedad = (Propiedad)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateStatement(propiedad));
         }
 
         public override void Delete(BaseEntity entity)
         {
-            var usuario = (Usuario)entity;
-            dao.ExecuteProcedure(mapper.GetDeleteStatement(usuario));
+            var propiedad = (Propiedad)entity;
+            dao.ExecuteProcedure(mapper.GetDeleteStatement(propiedad));
         }
+
+
     }
 }

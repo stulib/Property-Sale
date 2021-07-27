@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using WebApp.Models.Controls;
 
@@ -42,15 +39,45 @@ namespace WebApp.Helpers
             return new HtmlString(ctrl.GetHtml());
         }
 
-        public static HtmlString CtrlInput(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName="")
+        public static HtmlString CtrlInput(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName = "")
         {
             var ctrl = new CtrlInputModel
             {
                 Id = id,
                 Type = type,
                 Label = label,
-                PlaceHolder=placeHolder,
-                ColumnDataName=columnDataName
+                PlaceHolder = placeHolder,
+                ColumnDataName = columnDataName
+            };
+
+            return new HtmlString(ctrl.GetHtml());
+        }
+
+        public static HtmlString CtrlInputDisabled(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName = "", string disabled = "")
+        {
+            var ctrl = new CtrlInputDisabledModel
+            {
+                Id = id,
+                Type = type,
+                Label = label,
+                PlaceHolder = placeHolder,
+                ColumnDataName = columnDataName,
+                Disabled = disabled
+            };
+
+            return new HtmlString(ctrl.GetHtml());
+        }
+
+        public static HtmlString CtrlInputHidden(this HtmlHelper html, string id, string type, string label, string placeHolder = "", string columnDataName = "", string hidden = "")
+        {
+            var ctrl = new CtrlInputHiddenModel
+            {
+                Id = id,
+                Type = type,
+                Label = label,
+                PlaceHolder = placeHolder,
+                ColumnDataName = columnDataName,
+                Hidden = hidden
             };
 
             return new HtmlString(ctrl.GetHtml());
