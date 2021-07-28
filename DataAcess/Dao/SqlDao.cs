@@ -76,6 +76,37 @@ namespace DataAcess.Dao
             }
 
             return lstResult;
-        }      
+        }
+
+        public int ExecuteDML(string oSQL)
+        {
+            int result;
+            SqlConnection con = new SqlConnection(CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand(oSQL, con);
+            con.Open();
+            result = cmd.ExecuteNonQuery();
+            con.Close();
+            return result;
+        }
+
+        public object GetScalar(SqlOperation sqlOperation)
+        {
+            object result = null;
+            using (var conn = new SqlConnection(CONNECTION_STRING))
+            using (var command = new SqlCommand(sqlOperation.ProcedureName, conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                foreach (var param in sqlOperation.Parameters)
+                {
+                    command.Parameters.Add(param);
+                }
+
+                conn.Open();
+                result = command.ExecuteScalar();
+            }
+            return result;
+        }
     }
 }

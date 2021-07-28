@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "vPropietarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using WebApp.Helpers;
+<script src="~/Scripts/Views/vPropietarios.js"></script>
+
+<h3>Registrar Propietario</h3>
+
+<div class="card border-secondary" style="margin-top: 50px;">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo Id", columnDataName: "Tipo_Id")
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                        @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                        @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
+                        @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Telefono", columnDataName: "Telefono")
+                        @Html.CtrlInput(id: "txtTelefono", type: "date", label: "Fecha nacimiento", columnDataName: "Fecha_Nac")
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-header">
+        <div class="row pull-right">
+            <div class="col-md-4">
+                @Html.CtrlButton(viewName: "vPropietarios", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>

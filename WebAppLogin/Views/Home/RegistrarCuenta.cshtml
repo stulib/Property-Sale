@@ -1,0 +1,98 @@
+﻿@model Entities_POJO.Cuenta
+
+@using Entities_POJO
+
+@{
+    ViewBag.Title = "RegistrarCuenta";
+    Layout = "~/Views/Shared/_LayoutRegistrarCuenta.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    .tabs {
+        height: 1475px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .tab-nav-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        position: relative !important;
+        z-index: 999 !important;
+        top: 3px;
+    }
+
+    .tabs ul {
+        display: block;
+        /*width: max-content;*/
+        overflow-y: hidden;
+        margin: 0px;
+        padding-inline-start: 5px;
+    }
+
+        .tabs ul li {
+            display: inline-block;
+            border: 1px solid grey;
+            background-color: white;
+        }
+
+            .tabs ul li.active {
+                border: 1px solid black;
+                border-bottom: 3px solid white;
+            }
+
+            .tabs ul li a {
+                text-decoration: none;
+                padding: 10px;
+                line-height: 25px;
+                position: relative;
+                font-weight: bold;
+            }
+
+    .tab-content-wrapper {
+        position: relative !important;
+        z-index: 1 !important;
+        padding: 20px;
+        min-height: 40px;
+    }
+</style>
+
+    <div class="tabs">
+        <div class="tab-nav-wrapper">
+            <ul>
+                <li class="active nav-link text-dark"><a href="#tab1">Banco</a></li>
+                <li class="nav-link text-dark"><a href="#tab2">Propietario</a></li>
+                <li class="nav-link text-dark"><a href="#tab3">Usuario Final</a></li>
+            </ul>
+        </div>
+        <div class="tab-content-wrapper">
+            <div id="tab1" class="tab-content" style="display:none;">
+                @RenderPage("~/Views/Registrar/_RegistrarBanco.cshtml")
+            </div>
+            <div id="tab2" class="tab-content" style="display:none;">
+                @RenderPage("~/Views/Registrar/vPropietarios.cshtml")
+            </div>
+            <div id="tab3" class="tab-content" style="display:none;">
+                @RenderPage("~/Views/Registrar/_RegistrarUsuarioFinal.cshtml")
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function () {
+        $(".tab-nav-wrapper li.active").click();
+        $($(".tab-nav-wrapper li.active a").attr("href")).show();
+
+        $(".tab-nav-wrapper li").click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(".tab-nav-wrapper li").removeClass("active");
+            $(this).addClass("active");
+
+            var target = $(this).find("a").attr("href");
+            $(".tab-content-wrapper").find(".tab-content").hide();
+            $(".tab-content-wrapper").find(target).show();
+        })
+    });
+</script>
