@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crud\AccountCrudFactory.cs" />
     <Compile Include="Crud\AppMessagesCrudFactory.cs" />
     <Compile Include="Crud\CustomerCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Crud\PropiedadCrudFactory.cs" />
     <Compile Include="Crud\UserProfileCrudFactory.cs" />
     <Compile Include="Crud\UsuarioCrudFactory.cs" />
+    <Compile Include="Mapper\AccountMapper.cs" />
     <Compile Include="Mapper\AppMessageMapper.cs" />
     <Compile Include="Mapper\CustomerMapper.cs" />
     <Compile Include="Mapper\EntityMapper.cs" />

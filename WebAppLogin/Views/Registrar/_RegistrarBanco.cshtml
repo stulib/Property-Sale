@@ -1,0 +1,66 @@
+﻿@model Entities_POJO.Cuenta
+@{
+    Layout = null;
+}
+@using Entities_POJO;
+@{
+    var cuenta = ViewData["Cuenta"] as Cuenta;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registrar Banco</title>
+</head>
+<body>
+    @using (Html.BeginForm("_RegistrarBanco", "Registrar", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <h3>Registrar Banco</h3>
+            <table>
+                <tr>
+                    <td>@Html.Label("Identificación")</td>
+                    <td>@Html.TextBoxFor(a => a.ID)</td>
+                    <td>@Html.ValidationMessageFor(a => a.ID)</td>
+                    <td>
+                        @Html.Label("Tipo Identificación")
+                    </td>
+                    <td>
+                    </td>
+                    <td>@Html.ValidationMessageFor(a => a.TIPO_ID)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.Label("Nombre")</td>
+                    <td colspan="2">@Html.TextBoxFor(a => a.NOMBRE)</td>
+                    <td colspan="2">@Html.ValidationMessageFor(a => a.NOMBRE)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.Label("Correo Eléctronico")</td>
+                    <td colspan="2">@Html.TextBoxFor(a => a.EMAIL)</td>
+                    <td colspan="2">@Html.ValidationMessageFor(a => a.EMAIL)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.Label("Contraseña")</td>
+                    <td colspan="2">@Html.TextBoxFor(a => a.CONTRASENNA, new { @Type = "password" })</td>
+                    <td colspan="2">@Html.ValidationMessageFor(a => a.CONTRASENNA)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.Label("Teléfono")</td>
+                    <td colspan="2">@Html.TextBoxFor(a => a.TELEFONO, new { @Type = "text" })</td>
+                    <td colspan="2">@Html.ValidationMessageFor(a => a.TELEFONO)</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        @if (cuenta != null)
+                        {
+                            @cuenta.Mensaje}
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" value="Registrar">Registrar</button>
+        </div>
+    }
+</body>
+</html>
