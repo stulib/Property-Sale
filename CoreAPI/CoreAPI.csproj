@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="AgenciaManager.cs" />
     <Compile Include="BaseManager.cs" />
     <Compile Include="ListManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

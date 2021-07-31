@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crud\AccountCrudFactory.cs" />
+    <Compile Include="Crud\AgenciaCrudFactory.cs" />
+    <Compile Include="Mapper\AgenciaMapper.cs" />
     <Compile Include="Crud\AppMessagesCrudFactory.cs" />
     <Compile Include="Crud\CustomerCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
