@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using Entities_POJO;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebApp.Security;
@@ -51,8 +52,9 @@ namespace WebApp.Controllers
 
         public ActionResult Logout()
         {
+            var usuario = new Usuario();
             Session.Clear();
-            return RedirectToAction("vLogin", "Home");
+            return RedirectToAction("vLogin", "Home", usuario);
         }
     }
 }

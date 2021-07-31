@@ -46,28 +46,17 @@ namespace WebApp.Controllers
             }
         }
 
-        public ActionResult vCustomers()
-        {
-            string RolUsuario = (string)Session["IdRol"];
-            if ((Session["UserID"] != null) & (RolUsuario.Equals("01") == true))
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("vLogin");
-            }
-        }
-
         public ActionResult vLogin()
         {
-            return View();
+            var usuario = new Usuario();
+            return View(usuario);
         }
 
         public ActionResult Logout()
         {
+            var usuario = new Usuario();
             Session.Clear();    
-            return View("vLogin");
+            return View("vLogin", usuario);
         }
 
         public ActionResult RegistrarCuenta() {
