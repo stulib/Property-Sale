@@ -62,7 +62,7 @@ namespace CoreAPI
                 else
                 {
                     usuario.Contrasenna = Hash_Function(usuario.Contrasenna);
-                    Correo(usuario.Cod_Email, usuario.Email).GetAwaiter();
+                    Correo(usuario.Cod_Email, usuario.Email, usuario.Nombre).GetAwaiter();
                     Mensaje(usuario.Cod_Celular, usuario.Telefono);
                     crudUsuario.Create(usuario);
                 }
@@ -210,16 +210,16 @@ namespace CoreAPI
             return hashed_Pwd;
         }
 
-        private static async Task Correo(int cod_Verificacion_Email, string correo)
+        private static async Task Correo(int cod_Verificacion_Email, string correo, string nombre)
         {
             string codigo_Texto = cod_Verificacion_Email.ToString();
             var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("jzunigas@ucenfotec.ac.cr", "TechHouse");
             var subject = "Código de verificación de cuenta";
-            var to = new EmailAddress(correo, "Usuario de MathBot");
+            var to = new EmailAddress(correo, "Nuevo usuario de TechHouse");
             var plainTextContent = codigo_Texto;
-            var htmlContent = "Gracias por registrarse con TechHouse. Su código de verificación es:" +
+            var htmlContent = nombre +", gracias por registrarse con TechHouse. Su código de verificación es:" +
                 "<strong>" + codigo_Texto + "</strong><br><br>" +
                 "Bienvenido.";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
@@ -235,9 +235,9 @@ namespace CoreAPI
             TwilioClient.Init(accountSid, authToken);
 
             var message = MessageResource.Create(
-                body: "Su código de verificación es " + cod_Verificacion_Cel + ".",
-                from: new Twilio.Types.PhoneNumber("+17076913593"),
-                to: new Twilio.Types.PhoneNumber(numero)
+                body: "Su código de verificación para registrarse con TechHouse es " + cod_Verificacion_Cel + ".",
+                from: new Twilio.Types.PhoneNumber("+16178924006"),
+                to: new Twilio.Types.PhoneNumber("+506"+numero)
             );
         }
     }
