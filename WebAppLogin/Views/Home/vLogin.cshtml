@@ -7,46 +7,46 @@
 
 @using (Html.BeginForm("vLogin", "Home", FormMethod.Post))
 {
-<fieldset>
-    <legend>Bienvenido</legend>
-    <legend>Por favor ingrese sus credenciales:</legend>
+    <fieldset>
+        <legend>Bienvenido</legend>
+        <legend>Por favor ingrese sus credenciales:</legend>
 
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    @if (@ViewBag.Message != null)
-    {
-        <div style="border: 1px solid red">
-            @ViewBag.Message
-        </div>
-    }
-<table>
-    <tr>
-        <td>@Html.Label("Correo Electrónico")</td>
-        <td>@Html.TextBoxFor(a => a.Email)</td>
-        <td>@Html.ValidationMessageFor(a => a.Email)</td>
-    </tr>
-    <tr>
-        <td>
-            @Html.Label("Contraseña")
-        </td>
-        <td>
-            @Html.PasswordFor(a => a.Contrasenna)
-        </td>
-        <td>
-            @Html.ValidationMessageFor(a => a.Contrasenna)
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <input type="submit" value="Login" />
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><a href="@Url.Action("vRegistrarCuenta", "Home")"><span>Registrarse</span></a></td>
-        <td></td>
-    </tr>
-                </table>
-</fieldset>
-}  
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.Label("Correo Electrónico")</td>
+                <td>@Html.TextBoxFor(a => a.Email)</td>
+                <td>@Html.ValidationMessageFor(a => a.Email)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Contraseña")
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.Contrasenna)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.Contrasenna)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="@Url.Action("RegistrarCuenta", "Home")"><span>Registrarse</span></a></td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+} 
