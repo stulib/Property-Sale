@@ -1,0 +1,283 @@
+a {
+    color: white;
+    font-size: 1.85rem;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    width: 5em;
+    margin: 0 auto;
+    padding-top: 1.8em;
+    text-align: center;
+}
+
+h2 {
+    margin-left: 5%;
+    font-size: 40px;
+}
+
+header {
+    align-items: center;
+    background-position: center;
+    background-image: linear-gradient(#222, #101010e0, #54545400);
+    display: flex;
+    justify-content: space-between;
+    padding: 4em 5%;
+    z-index: 2;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+i {
+    font-size: 2rem;
+}
+
+
+/* Header */
+
+.nav_links li {
+    display: inline-block;
+    padding: 0.5em 2em;
+}
+
+
+/* Section principal */
+
+.banner_principal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: url("imgs/BannerPrincipalCortado.jpg");
+    background-position: center;
+    min-height: 888px;
+    z-index: -1;
+}
+
+.boton_principal {
+    background-color: #735943;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.7rem;
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-weight: 600;
+    padding: 0 1.4em;
+    padding-top: 10px;
+    margin-top: 0.7em;
+}
+
+.categorias {
+    margin-top: 765px;
+}
+
+.categorias_grid {
+    align-items: center;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 5%;
+}
+
+.circulo {
+    margin: auto;
+    margin-top: 14.5em;
+    height: 30em;
+    width: 30em;
+    background-color: rgba(255, 255, 255, 0.888);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.columna {
+    min-height: 500px;
+    width: 20%;
+    display: inline;
+}
+
+.columna2 {
+    min-height: 800px;
+    width: 20%;
+    display: inline;
+    text-align: center;
+}
+
+.columna2 span {
+    color: #222;
+    font-size: 25px;
+    margin-top: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.columna span {
+    color: #222;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.col_imagen {
+    min-height: 600px;
+    background-size: cover;
+    border-radius: 32px;
+    width: 100%;
+    background-position: center;
+}
+
+.col_imagen1 {
+    background-image: url("imgs/imagenCasas.jpg");
+    margin-bottom: 40px;
+}
+
+.col_imagen2 {
+    background-image: url("imgs/imagenCondos.jpg");
+    margin-bottom: 40px;
+}
+
+.col_imagen3 {
+    background-image: url("imgs/imagenLotes.jpg");
+    margin-bottom: 40px;
+}
+
+.col_imagen4 {
+    background-image: url("imgs/imagenAparta.jpg");
+    margin-bottom: 40px;
+}
+
+.col_imagen5 {
+    background-image: url("imgs/ventaja1.jpg");
+    margin-bottom: 80px;
+    min-height: 500px;
+}
+
+.col_imagen6 {
+    background-image: url("imgs/ventaja2.jpg");
+    margin-bottom: 80px;
+    min-height: 500px;
+}
+
+.col_imagen7 {
+    background-image: url("imgs/ventaja3.jpg");
+    margin-bottom: 80px;
+    min-height: 500px;
+}
+
+.info {
+    min-height: 635px;
+    background-color: #62ABD9;
+    border-radius: 32px;
+    box-shadow: 0px 3px 6px #888;
+    margin: 100px 5%;
+}
+
+.info {
+    min-height: 635px;
+    background-color: #62ABD9;
+    border-radius: 32px;
+    box-shadow: 0px 3px 6px #888;
+    margin: 100px 5%;
+}
+
+.info_grid {
+    align-items: center;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagen_info {
+    background-image: url(imgs/imagenfamilia.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 38px;
+    margin: 0 5%;
+    margin-top: 93px;
+    min-height: 450px;
+    width: 40%;
+}
+
+.texto {
+    width: 30%;
+    text-align: center;
+    margin-left: 14%;
+}
+
+.texto .logo {
+    margin-top: 100px;
+}
+
+.texto p {
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.texto button {
+    background: none;
+    border: white 3px solid;
+    border-radius: 32px;
+    font-size: 30px;
+    color: white;
+    margin-top: 70px;
+    padding: 10px 15px;
+}
+
+.ventajas_grid {
+    align-items: center;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 15%;
+    margin-top: 125px;
+}
+
+footer {
+    background-color: #222;
+    min-height: 550px;
+}
+
+#logoContFooter {
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+#logoFoot {
+    background-image: url("imgs/TechHouse\ logo\ blancopng.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    margin: 80px auto;
+    width: 100px;
+}
+
+#links {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20%;
+}
+
+#links a {
+    color: #ffffff;
+    padding: 45px 0;
+    margin-left: -5%;
+}
+
+#line {
+    border: 1px solid #ffffff;
+    margin: 0 10%;
+}
+
+#copyright {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 30px 0 60px;
+}

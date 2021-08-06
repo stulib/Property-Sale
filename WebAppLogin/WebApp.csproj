@@ -174,7 +174,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.min.js" />
     <Content Include="Content\imgs\background2.jpg" />
+    <Content Include="Content\imgs\BannerPrincipalCortado.jpg" />
+    <Content Include="Content\imgs\BannerPrincipalOg.jpg" />
+    <Content Include="Content\imgs\imagenAparta.jpg" />
+    <Content Include="Content\imgs\imagenCasas.jpg" />
+    <Content Include="Content\imgs\imagenCondos.jpg" />
+    <Content Include="Content\imgs\imagenfamilia.jpg" />
+    <Content Include="Content\imgs\imagenLotes.jpg" />
+    <Content Include="Content\imgs\TechHouse logo blancopng.png" />
+    <Content Include="Content\imgs\ventaja1.jpg" />
+    <Content Include="Content\imgs\ventaja2.jpg" />
+    <Content Include="Content\imgs\ventaja3.jpg" />
     <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\landing.css" />
+    <Content Include="Content\reset.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -223,6 +236,7 @@
     <Content Include="Scripts\Views\vPropiedades.js" />
     <Content Include="Scripts\Views\vPropietarios.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
+    <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
