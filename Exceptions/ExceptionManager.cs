@@ -94,6 +94,7 @@ namespace Exceptions
             messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema." });
             messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
             messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
+            messages.Add(10, new ApplicationMessage { Id = 10, Message = "Cuenta no verificada. Por favor active su cuenta para iniciar sesión." });
             /*var crudMessages = new AppMessagesCrudFactory();
             var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 

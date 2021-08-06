@@ -47,7 +47,7 @@ namespace CoreAPI
                 {
                     throw new BussinessException(1);
                 }
-                else if(edad < 18)
+                else if (edad < 18)
                 {
                     throw new BussinessException(2);
                 }
@@ -134,6 +134,10 @@ namespace CoreAPI
                 if (u == null)
                 {
                     throw new BussinessException(5);
+                }
+                else if (u.Verificado.Equals("N") | u.Verificado.Equals("n"))
+                {
+                    throw new BussinessException(10);
                 }
                 else if (u.Estado.Equals("Inactivo"))
                 {

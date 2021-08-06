@@ -22,7 +22,7 @@
                     <div class="bs-component">
                         <form id="frmRegistroUsuario">
                             @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
-                            @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                            @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                             @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                             @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
                             @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
@@ -34,10 +34,16 @@
                 </div>
             </div>
         </div>
+        <div class="card-body">
+            <div class="col-lg-6">
+                @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "mostrarPwd", label: "Mostrar", onClickFunction: "ShowPwd", buttonType: "info")
+                @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "ocultarPwd", label: "Ocultar", onClickFunction: "HidePwd", buttonType: "info")
+            </div>
+        </div>
         <div class="card-header">
             <div class="row pull-right">
                 <div class="col-md-4">
-                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "btnRegUsuarioF", label: "Guardar", onClickFunction: "CreateU", buttonType: "success")
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "btnRegUsuarioF", label: "Enviar", onClickFunction: "CreateU", buttonType: "success")
                 </div>
             </div>
         </div>
