@@ -14,11 +14,9 @@ namespace DataAcess.Mapper
         {
             var Cuenta = new Cuenta
             {
-                Mensaje = GetStringValue(row, "Mensaje"),
                 ID = GetStringValue(row, "ID"),
                 TIPO_ID = GetStringValue(row, "TIPO_ID"),
                 NOMBRE = GetStringValue(row, "NOMBRE"),
-                APELLIDOS = GetStringValue(row, "APELLIDOS"),
                 CONTRASENNA = GetStringValue(row, "CONTRASENNA"),
                 FECHA_NAC = GetDateValue(row, "FECHA_NAC"),
                 EMAIL = GetStringValue(row, "EMAIL"),
@@ -26,7 +24,6 @@ namespace DataAcess.Mapper
                 TELEFONO = GetIntValue(row, "TELEFONO"),
                 ID_ROL = GetStringValue(row, "ID_ROL"),
                 VERIFICADO = GetStringValue(row, "VERIFICADO"),
-                Nombre_Rol = GetStringValue(row, "Nombre_Rol")
             };
 
             return Cuenta;
@@ -39,7 +36,23 @@ namespace DataAcess.Mapper
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            var operation = new SqlOperation { ProcedureName = "RET_ACCOUNT_PR" };
+
+            var u = (Cuenta)entity;
+            operation.AddVarcharParam("ID", u.ID);
+            operation.AddVarcharParam("IDAGencia", u.ID_AGENCIA);
+            operation.AddVarcharParam("IDRol", u.ID_ROL);
+            operation.AddVarcharParam("Nombre", u.NOMBRE);
+            operation.AddIntParam("Tel", u.TELEFONO);
+            operation.AddVarcharParam("TipoID", u.TIPO_ID);
+            operation.AddVarcharParam("Verificado", u.VERIFICADO);
+            operation.AddIntParam("Cod_Cel", u.COD_CEL);
+            operation.AddIntParam("Cod_Email", u.COD_EMAIL);
+            operation.AddVarcharParam("Contrasenna", u.CONTRASENNA);
+            operation.AddVarcharParam("Email", u.EMAIL);
+            operation.AddVarcharParam("Estado", u.ESTADO);
+            operation.AddDateParam("FechaNa", u.FECHA_NAC);
+            return operation;
         }
 
         public SqlOperation GetDeleteStatement(BaseEntity entity)
@@ -64,7 +77,6 @@ namespace DataAcess.Mapper
             operation.AddIntParam("TEL", u.TELEFONO);
             operation.AddVarcharParam("TipoID", u.TIPO_ID);
             operation.AddVarcharParam("Verificado", u.VERIFICADO);
-            operation.AddVarcharParam("APELLIDOS", u.APELLIDOS);
             operation.AddIntParam("COD_CEL", u.COD_CEL);
             operation.AddIntParam("COD_EMAIL", u.COD_EMAIL);
             operation.AddVarcharParam("CONTRASENNA", u.CONTRASENNA);

@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
             try
             {
                 var mng = new AccountManager();
-                cuenta = mng.ValidateDuplicate(cuenta);
+                cuenta = mng.Create(cuenta);
                 apiResp = new ApiResponse
                 {
                     Data = cuenta

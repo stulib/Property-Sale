@@ -17,7 +17,9 @@ namespace DataAcess.Crud
 
         public override void Create(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            var cuenta = (Cuenta)entity;
+            var sqlOperation = mapper.GetCreateStatement(cuenta);
+            dao.ExecuteProcedure(sqlOperation);
         }
 
         public int DML(String oSQL)

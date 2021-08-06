@@ -41,5 +41,30 @@ namespace Entities_POJO
             Nombre_Rol = info[14];
             Mensaje = info[15];
         }
+
+        public static explicit operator Usuario(Cuenta v)
+        {
+            var usuario = new Usuario();
+
+            {
+                usuario.Id = v.ID;
+                usuario.Tipo_Id = v.TIPO_ID;
+                usuario.Nombre = v.NOMBRE;
+                usuario.Apellidos = v.APELLIDOS;
+                usuario.Fecha_Nac = v.FECHA_NAC;
+                usuario.Contrasenna = v.CONTRASENNA;
+                usuario.Email = v.EMAIL;
+                usuario.Estado = v.ESTADO;
+                usuario.Telefono = v.TELEFONO;
+                usuario.Cod_Email = v.COD_EMAIL;
+                usuario.Cod_Celular = v.COD_CEL;
+                usuario.Id_Rol = v.ID_ROL;
+                usuario.Id_Agencia = v.ID_AGENCIA;
+                usuario.Verificado = Convert.ToChar(v.VERIFICADO);
+                usuario.Nombre_Rol = v.Nombre_Rol;
+            };
+
+            return usuario;
+        }
     }
 }
