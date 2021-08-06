@@ -3,10 +3,11 @@
 @using Entities_POJO
 
 @{
-    ViewBag.Title = "RegistrarCuenta";
+    ViewBag.Title = "vRegistrarCuenta";
     Layout = "~/Views/Shared/_LayoutRegistrarCuenta.cshtml";
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Scripts/Views/vRegistrarCuenta.js"></script>
 
 <style>
     .tabs {
@@ -68,31 +69,13 @@
         </div>
         <div class="tab-content-wrapper">
             <div id="tab1" class="tab-content" style="display:none;">
-                @RenderPage("~/Views/Registrar/_RegistrarBanco.cshtml")
+                @RenderPage("~/Views/Registrar/vRegistrarBanco.cshtml")
             </div>
             <div id="tab2" class="tab-content" style="display:none;">
                 @RenderPage("~/Views/Registrar/vPropietarios.cshtml")
             </div>
             <div id="tab3" class="tab-content" style="display:none;">
-                @RenderPage("~/Views/Registrar/_RegistrarUsuarioFinal.cshtml")
+                @RenderPage("~/Views/Registrar/vRegistrarUsuarioFinal.cshtml")
             </div>
         </div>
     </div>
-<script>
-    $(document).ready(function () {
-        $(".tab-nav-wrapper li.active").click();
-        $($(".tab-nav-wrapper li.active a").attr("href")).show();
-
-        $(".tab-nav-wrapper li").click(function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            $(".tab-nav-wrapper li").removeClass("active");
-            $(this).addClass("active");
-
-            var target = $(this).find("a").attr("href");
-            $(".tab-content-wrapper").find(".tab-content").hide();
-            $(".tab-content-wrapper").find(target).show();
-        })
-    });
-</script>

@@ -1,12 +1,12 @@
-﻿
+﻿@model Entities_POJO.Cuenta
 @{
-    ViewBag.Title = "vPropietarios";
+    ViewBag.Title = "vRegistrarBanco";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/Scripts/Views/vPropietarios.js"></script>
+<script src="~/Scripts/Views/vRegistrarBanco.js"></script>
 
-<h3>Registrar Propietario</h3>
+<h3>Registrar Banco</h3>
 
 <div class="card border-secondary" style="margin-top: 50px;">
 
@@ -14,14 +14,13 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="bs-component">
-                    <form id="frmEdition">
+                    <form id="frmBanco">
                         @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo Id", columnDataName: "Tipo_Id")
                         @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
-                        @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
                         @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
                         @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Telefono", columnDataName: "Telefono")
-                        @Html.CtrlInput(id: "txtTelefono", type: "date", label: "Fecha nacimiento", columnDataName: "Fecha_Nac")
+                        @Html.CtrlInput(id: "txtPwdTest", type: "text", label: "Contraseña", columnDataName: "Contrasenna")
                     </form>
                 </div>
             </div>
@@ -30,7 +29,7 @@
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-4">
-                @Html.CtrlButton(viewName: "vPropietarios", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vRegistrarBanco", id: "btnCreate", label: "Guardar", onClickFunction: "CreateBanco", buttonType: "success")
             </div>
         </div>
     </div>

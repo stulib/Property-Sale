@@ -230,11 +230,13 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\ControlActions.js" />
+    <Content Include="Scripts\Views\vRegistrarCuenta.js" />
     <Content Include="Scripts\Views\vCustomers.js" />
     <Content Include="Scripts\Views\vIndex.js" />
     <Content Include="Scripts\Views\vPerfil_Administrador.js" />
     <Content Include="Scripts\Views\vPropiedades.js" />
     <Content Include="Scripts\Views\vPropietarios.js" />
+    <Content Include="Scripts\Views\vRegistrarBanco.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
     <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
@@ -257,11 +259,9 @@
     <Content Include="Views\Perfiles\vPerfil_Administrador.cshtml" />
     <Content Include="Views\Perfiles\vPerfil_Admin_Suscripciones.cshtml" />
     <Content Include="Views\Perfiles\vPropiedades.cshtml" />
-    <Content Include="Views\Registrar\_RegistrarAdministrador.cshtml" />
-    <Content Include="Views\Registrar\_RegistrarBanco.cshtml" />
-    <Content Include="Views\Registrar\_RegistrarUsuarioFinal.cshtml" />
-    <Content Include="Views\Home\AccountProfile.cshtml" />
-    <Content Include="Views\Home\RegistrarCuenta.cshtml" />
+    <Content Include="Views\Registrar\vRegistrarBanco.cshtml" />
+    <Content Include="Views\Registrar\vRegistrarUsuarioFinal.cshtml" />
+    <Content Include="Views\Home\vRegistrarCuenta.cshtml" />
     <Content Include="Views\Shared\_LayoutRegistrarCuenta.cshtml" />
     <Content Include="Views\Registrar\vPropietarios.cshtml" />
   </ItemGroup>

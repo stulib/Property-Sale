@@ -6,54 +6,55 @@ namespace Entities_POJO
     public class Cuenta : BaseEntity
     {
 
-        public String TIPO_ID { get; set; }
+        public string TIPO_ID { get; set; }
 
-        public String ID { get; set; }
+        public string ID { get; set; }
 
-        public String NOMBRE { get; set; }
-        public String APELLIDOS { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDOS { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? FECHA_NAC { get; set; }
-        public String CONTRASENNA { get; set; }
+        public string CONTRASENNA { get; set; }
 
         [Display(Name = "Direccion de Correo")]
         [Required(ErrorMessage = "El correo es requerido")]
         [EmailAddress(ErrorMessage = "Direccion de correo inválida")]
-        public String EMAIL { get; set; }
-        public String ESTADO { get; set; }
+        public string EMAIL { get; set; }
+        public string ESTADO { get; set; }
         public int TELEFONO { get; set; }
         public int COD_EMAIL { get; set; }
         public int COD_CEL { get; set; }
-        public String ID_ROL { get; set; }
-        public String Mensaje { get; set; }
-        public String ID_AGENCIA { get; set; }
+        public string ID_ROL { get; set; }
+        public string Mensaje { get; set; }
+        public string ID_AGENCIA { get; set; }
         public string VERIFICADO { get; set; }
         public string Nombre_Rol { get; set; }
 
-        public static explicit operator Cuenta(Usuario v)
+        public Cuenta() { }
+        
+        public Cuenta(string[] info)
         {
-            var cuenta = new Cuenta();
+            ID = info[0];
+            TIPO_ID = info[1];
+            NOMBRE = info[2];
+            APELLIDOS = info[3];
+            FECHA_NAC = DateTime.Parse(info[4]);
+            CONTRASENNA = info[5];
+            EMAIL = info[6];
+            ESTADO = info[7];
+            TELEFONO = Convert.ToInt32(info[8]);
+            COD_EMAIL = Convert.ToInt32(info[9]);
+            COD_CEL = Convert.ToInt32(info[10]);
+            ID_ROL = info[11];
+            Mensaje = info[12];
+            ID_AGENCIA = info[13];
+            VERIFICADO = info[14];
+            Nombre_Rol = info[15];
 
-            {
-                cuenta.ID = v.Id;
-                cuenta.TIPO_ID = v.Tipo_Id;
-                cuenta.NOMBRE = v.Nombre;
-                cuenta.APELLIDOS = v.Apellidos;
-                cuenta.FECHA_NAC = v.Fecha_Nac;
-                cuenta.CONTRASENNA = v.Contrasenna;
-                cuenta.EMAIL = v.Email;
-                cuenta.ESTADO = v.Estado;
-                cuenta.TELEFONO = v.Telefono;
-                cuenta.COD_EMAIL = v.Cod_Email;
-                cuenta.COD_CEL = v.Cod_Celular;
-                cuenta.ID_ROL = v.Id_Rol;
-                cuenta.ID_AGENCIA = v.Id_Agencia;
-                cuenta.VERIFICADO = v.Verificado.ToString();
-                cuenta.Nombre_Rol = v.Nombre_Rol;
-            };
-
-            return cuenta;
         }
+
+
+
     }
 }
+

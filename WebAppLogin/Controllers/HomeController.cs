@@ -52,7 +52,7 @@ namespace WebApp.Controllers
             return View("vLogin", usuario);
         }
 
-        public ActionResult RegistrarCuenta() {
+        public ActionResult vRegistrarCuenta() {
             return View();
         }
 

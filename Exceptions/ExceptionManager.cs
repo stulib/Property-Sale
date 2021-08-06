@@ -84,7 +84,7 @@ namespace Exceptions
 
         private void LoadMessages()
         {
-            messages.Add(0, new ApplicationMessage { Id = 0, Message = "Houston we have a problem!"});
+            messages.Add(0, new ApplicationMessage { Id = 0, Message = "Ha ocurrido un problema!"});
             messages.Add(1, new ApplicationMessage { Id = 1, Message = "Cliente ya registrado"});
             messages.Add(2, new ApplicationMessage { Id = 2, Message = "El cliente debe ser mayor de edad."});
             messages.Add(3, new ApplicationMessage { Id = 3, Message = "Por favor ingrese un correo válido."});
