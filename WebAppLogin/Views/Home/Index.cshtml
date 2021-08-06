@@ -1,2 +1,125 @@
-﻿<script src="~/Scripts/Views/vIndex.js"></script>
-@*Html.CtrlChart("vIndex", "myChart", "Millenials customers","'Millenials','Other generations'","bar",onLoadFunction: "GetDataToChart")*@
+﻿@{ Layout = null;}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Content/reset.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Content/landing.css" type="text/css">
+    <title>TechHouse</title>
+</head>
+
+<body>
+    <header>
+        <Img class="logo" src="../../Content/imgs/TechHouse logo blancopng.png"></Img>
+        <nav>
+            <ul class="nav_links">
+                <li>
+                    <a href="#">Quiero comprar</a>
+                </li>
+                <li>
+                    <a href="#">Quiero alquilar</a>
+                </li>
+                <li>
+                    <a href="#">Quiero publicar</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="navIcons">
+            <a href="">@Html.ActionLink(" ", "vLogin", "Home", null, new { @class = "far fa-user-circle" })</a>
+
+            <a href=""><i class="fab fa-gratipay"></i></a>
+        </div>
+    </header>
+    <section class="banner_principal">
+        <div class="circulo">
+            <h1>Encuentra el lugar de tus sueños</h1>
+            <button type="button" class="boton_principal">Empieza a buscar</button>
+        </div>
+    </section>
+    <section class="categorias">
+        <h2>Encuentra lo que necesitas</h2>
+        <div class="categorias_grid">
+            <div class="columna">
+                <div class="col_imagen col_imagen1"></div>
+                <span>Casas</span>
+            </div>
+            <div class="columna">
+                <div class="col_imagen col_imagen2"></div>
+                <span>Condominios</span>
+            </div>
+            <div class="columna">
+                <div class="col_imagen col_imagen3"></div>
+                <div class="imagen"></div>
+                <span>Lotes</span>
+            </div>
+            <div class="columna">
+                <div class="col_imagen col_imagen4"></div>
+                <div class="imagen"></div>
+                <span>Apartamentos</span>
+            </div>
+        </div>
+    </section>
+    <section class="info">
+        <div class="info_grid">
+            <div class="texto">
+                <Img class="logo" src="../../Content/imgs/TechHouse logo blancopng.png"></Img>
+                <p>Porque nosotros sabemos que un hogar significa mucho más que solo una casa.</p>
+                <button type="button" class="boton_info">Más información</button>
+            </div>
+            <div class="imagen_info">
+
+            </div>
+        </div>
+    </section>
+    <section class="ventajas">
+        <div class="ventajas_grid">
+            <div class="columna2">
+                <div class="col_imagen col_imagen5"></div>
+                <span>
+                    Encuentra propiedades en
+                    cualquier parte del país.
+                </span>
+            </div>
+            <div class="columna2">
+                <div class="col_imagen col_imagen6"></div>
+                <span>
+                    Haz que tus anuncios resalten
+                    con publicaciones destacadas
+                </span>
+            </div>
+            <div class="columna2">
+                <div class="col_imagen col_imagen7"></div>
+                <div class="imagen"></div>
+                <span>
+                    Encuentra lo que necesitas sin
+                    salirte de tu presupuesto.
+                </span>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div id="logoContFooter">
+            <div id="logoFoot"></div>
+        </div>
+        <div id="links">
+            <a href="#proyects">Información</a>
+            <a href="#aboutUs">Contáctanos</a>
+            <a href="#contact">Comprar</a>
+            <a href="#aboutUs">Vender</a>
+            <a href="#contact">Comunidad</a>
+        </div>
+        <div id="line"></div>
+        <div id="copyright">
+            <p>2021 ©techhouse. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/5467869dd1.js " crossorigin="anonymous "></script>
+</body>
+
+</html>

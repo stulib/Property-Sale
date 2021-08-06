@@ -36,14 +36,7 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            if (Session["UserID"] != null)
-            {
                 return View();
-            }
-            else
-            {
-                return RedirectToAction("vLogin");
-            }
         }
 
         public ActionResult vLogin()
