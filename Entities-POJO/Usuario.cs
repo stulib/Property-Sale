@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities_POJO
 {
@@ -9,7 +10,10 @@ namespace Entities_POJO
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public DateTime? Fecha_Nac { get; set; }
+        [Required(ErrorMessage = "Por favor ingrese su contraseña.")]
         public string Contrasenna { get; set; }
+        [Required(ErrorMessage = "El correo es requerido")]
+        [EmailAddress(ErrorMessage = "Dirección de correo inválida")]
         public string Email { get; set; }
         public string Estado { get; set; }
         public int Telefono { get; set; }
@@ -40,6 +44,31 @@ namespace Entities_POJO
             Verificado = Convert.ToChar(info[13]);
             Nombre_Rol = info[14];
             Mensaje = info[15];
+        }
+
+        public static explicit operator Usuario(Cuenta v)
+        {
+            var usuario = new Usuario();
+
+            {
+                usuario.Id = v.ID;
+                usuario.Tipo_Id = v.TIPO_ID;
+                usuario.Nombre = v.NOMBRE;
+                usuario.Apellidos = v.APELLIDOS;
+                usuario.Fecha_Nac = v.FECHA_NAC;
+                usuario.Contrasenna = v.CONTRASENNA;
+                usuario.Email = v.EMAIL;
+                usuario.Estado = v.ESTADO;
+                usuario.Telefono = v.TELEFONO;
+                usuario.Cod_Email = v.COD_EMAIL;
+                usuario.Cod_Celular = v.COD_CEL;
+                usuario.Id_Rol = v.ID_ROL;
+                usuario.Id_Agencia = v.ID_AGENCIA;
+                usuario.Verificado = Convert.ToChar(v.VERIFICADO);
+                usuario.Nombre_Rol = v.Nombre_Rol;
+            };
+
+            return usuario;
         }
     }
 }

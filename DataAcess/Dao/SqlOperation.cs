@@ -19,7 +19,7 @@ namespace DataAcess.Dao
         {
             var param = new SqlParameter("@P_" + paramName, SqlDbType.VarChar)
             {
-                Value = (object)paramValue
+                Value = (object)paramValue ?? DBNull.Value
             };
             Parameters.Add(param);
         }

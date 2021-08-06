@@ -51,14 +51,12 @@
     <Compile Include="ApplicationMessage.cs" />
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Cuenta.cs" />
-    <Compile Include="Customer.cs" />
     <Compile Include="ObjectDumper.cs" />
     <Compile Include="OptionList.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Propiedad.cs" />
     <Compile Include="Suscripcion.cs" />
-    <Compile Include="UserProfile.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
