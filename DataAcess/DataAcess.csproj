@@ -44,21 +44,17 @@
   <ItemGroup>
     <Compile Include="Crud\AccountCrudFactory.cs" />
     <Compile Include="Crud\AppMessagesCrudFactory.cs" />
-    <Compile Include="Crud\CustomerCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
     <Compile Include="Crud\ListOptionCrudFactory.cs" />
     <Compile Include="Crud\PropiedadCrudFactory.cs" />
-    <Compile Include="Crud\UserProfileCrudFactory.cs" />
     <Compile Include="Crud\UsuarioCrudFactory.cs" />
     <Compile Include="Mapper\AccountMapper.cs" />
     <Compile Include="Mapper\AppMessageMapper.cs" />
-    <Compile Include="Mapper\CustomerMapper.cs" />
     <Compile Include="Mapper\EntityMapper.cs" />
     <Compile Include="Mapper\IObjectMapper.cs" />
     <Compile Include="Mapper\ISqlStaments.cs" />
     <Compile Include="Mapper\ListOptionMapper.cs" />
     <Compile Include="Mapper\PropiedadMapper.cs" />
-    <Compile Include="Mapper\UserProfileMapper.cs" />
     <Compile Include="Mapper\UsuarioMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dao\SqlDao.cs" />

@@ -1,11 +1,16 @@
 ﻿using DataAcess.Crud;
 using Entities_POJO;
 using Exceptions;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace CoreAPI
 {
@@ -31,13 +36,20 @@ namespace CoreAPI
                 int codigo_Correo = GenerarCodigo(rng);
                 bool email_Match = regexEmail.IsMatch(usuario.Email);
                 bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
-
+                DateTime fechaNac = (DateTime)usuario.Fecha_Nac;
+                TimeSpan tm = DateTime.Now - fechaNac;
+                double edad = (tm.Days / 365.242);
 
                 usuario.Cod_Celular = codigo_Celular;
                 usuario.Cod_Email = codigo_Correo;
+
                 if (u != null)
                 {
                     throw new BussinessException(1);
+                }
+                else if(edad < 18)
+                {
+                    throw new BussinessException(2);
                 }
                 else if (email_Match == false)
                 {
@@ -50,6 +62,8 @@ namespace CoreAPI
                 else
                 {
                     usuario.Contrasenna = Hash_Function(usuario.Contrasenna);
+                    Correo(usuario.Cod_Email, usuario.Email).GetAwaiter();
+                    Mensaje(usuario.Cod_Celular, usuario.Telefono);
                     crudUsuario.Create(usuario);
                 }
             }
@@ -194,6 +208,37 @@ namespace CoreAPI
             }
             hashed_Pwd = stringbuilder.ToString();
             return hashed_Pwd;
+        }
+
+        private static async Task Correo(int cod_Verificacion_Email, string correo)
+        {
+            string codigo_Texto = cod_Verificacion_Email.ToString();
+            var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("jzunigas@ucenfotec.ac.cr", "TechHouse");
+            var subject = "Código de verificación de cuenta";
+            var to = new EmailAddress(correo, "Usuario de MathBot");
+            var plainTextContent = codigo_Texto;
+            var htmlContent = "Gracias por registrarse con TechHouse. Su código de verificación es:" +
+                "<strong>" + codigo_Texto + "</strong><br><br>" +
+                "Bienvenido.";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+        }
+
+        private static void Mensaje(int cod_Verificacion_Cel, int numero_Cel)
+        {
+            string accountSid = Environment.GetEnvironmentVariable("TwilioID");
+            string authToken = Environment.GetEnvironmentVariable("TwilioToken");
+            string numero = numero_Cel.ToString();
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var message = MessageResource.Create(
+                body: "Su código de verificación es " + cod_Verificacion_Cel + ".",
+                from: new Twilio.Types.PhoneNumber("+17076913593"),
+                to: new Twilio.Types.PhoneNumber(numero)
+            );
         }
     }
 }

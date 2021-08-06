@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities_POJO
 {
@@ -9,7 +10,10 @@ namespace Entities_POJO
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public DateTime? Fecha_Nac { get; set; }
+        [Required(ErrorMessage = "Por favor ingrese su contraseña.")]
         public string Contrasenna { get; set; }
+        [Required(ErrorMessage = "El correo es requerido")]
+        [EmailAddress(ErrorMessage = "Dirección de correo inválida")]
         public string Email { get; set; }
         public string Estado { get; set; }
         public int Telefono { get; set; }
