@@ -63,8 +63,14 @@
                 @Html.CtrlInput(id: "txtFechaNac", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
                 @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo Electrónico", columnDataName: "Email")
                 @Html.CtrlInput(id: "txtTelefono", type: "text", label: "Número celular", columnDataName: "Telefono")
-                @Html.CtrlInput(id: "txtPwdTest", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
+                @Html.CtrlInput(id: "txtPwd", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
             </form>
+            <div class="card-body">
+                <div class="col-lg-6">
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "mostrarPwd", label: "Mostrar", onClickFunction: "ShowPwd", buttonType: "info")
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "ocultarPwd", label: "Ocultar", onClickFunction: "HidePwd", buttonType: "info")
+                </div>
+            </div>
         </div>
         @Html.CtrlButton(viewName: "vReg_Admin", id: "btnCreate", label: "Crear nuevo", onClickFunction: "Create", buttonType: "success")
     </div>

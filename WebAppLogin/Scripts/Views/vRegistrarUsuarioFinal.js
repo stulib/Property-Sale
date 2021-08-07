@@ -13,27 +13,27 @@
 		getElementById('frmRegistroUsuario').reset();
 	}
 
-	this.ShowPwd = function () {
-		var input = document.getElementById('txtPwd');
+	this.ShowPwdF = function () {
+		var input = document.getElementById('txtPwdFinal');
 		input.type = 'text';
-		var showHiddenBtn = document.getElementById('ocultarPwd');
+		var showHiddenBtn = document.getElementById('ocultarPwdFinal');
 		showHiddenBtn.hidden = false;
-		var hideCurrentBtn = document.getElementById('mostrarPwd');
+		var hideCurrentBtn = document.getElementById('mostrarPwdFinal');
 		hideCurrentBtn.hidden = true;
 	}
 
-	this.HidePwd = function () {
-		var input = document.getElementById('txtPwd');
+	this.HidePwdF = function () {
+		var input = document.getElementById('txtPwdFinal');
 		input.type = 'password';
-		var showHiddenBtn = document.getElementById('mostrarPwd');
+		var showHiddenBtn = document.getElementById('mostrarPwdFinal');
 		showHiddenBtn.hidden = false;
-		var hideCurrentBtn = document.getElementById('ocultarPwd');
+		var hideCurrentBtn = document.getElementById('ocultarPwdFinal');
 		hideCurrentBtn.hidden = true;
 	}
 }
 
 $(document).ready(function () {
 	var vpropietario = new vPropietarios();
-	var hideBtn = document.getElementById('ocultarPwd');
+	var hideBtn = document.getElementById('ocultarPwdFinal');
 	hideBtn.hidden = true;
 });

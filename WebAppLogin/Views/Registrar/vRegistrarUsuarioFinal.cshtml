@@ -28,16 +28,16 @@
                             @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
                             @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Teléfono", columnDataName: "Telefono")
                             @Html.CtrlInput(id: "txtTelefono", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
-                            @Html.CtrlInput(id: "txtPwd", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
+                            @Html.CtrlInput(id: "txtPwdFinal", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
-            <div class="col-lg-6">
-                @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "mostrarPwd", label: "Mostrar", onClickFunction: "ShowPwd", buttonType: "info")
-                @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "ocultarPwd", label: "Ocultar", onClickFunction: "HidePwd", buttonType: "info")
+            <div class="card-body">
+                <div class="col-lg-6">
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "mostrarPwdFinal", label: "Mostrar", onClickFunction: "ShowPwdF", buttonType: "info")
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "ocultarPwdFinal", label: "Ocultar", onClickFunction: "HidePwdF", buttonType: "info")
+                </div>
             </div>
         </div>
         <div class="card-header">

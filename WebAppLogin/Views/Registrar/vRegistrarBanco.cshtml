@@ -20,9 +20,15 @@
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                         @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
                         @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Telefono", columnDataName: "Telefono")
-                        @Html.CtrlInput(id: "txtPwdTest", type: "text", label: "Contraseña", columnDataName: "Contrasenna")
+                        @Html.CtrlInput(id: "txtPwdB", type: "text", label: "Contraseña", columnDataName: "Contrasenna")
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="col-lg-6">
+                @Html.CtrlButton(viewName: "vRegistrarBanco", id: "mostrarPwdB", label: "Mostrar", onClickFunction: "ShowPwdB", buttonType: "info")
+                @Html.CtrlButton(viewName: "vRegistrarBanco", id: "ocultarPwdB", label: "Ocultar", onClickFunction: "HidePwdB", buttonType: "info")
             </div>
         </div>
     </div>
