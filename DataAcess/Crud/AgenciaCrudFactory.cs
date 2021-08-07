@@ -26,7 +26,8 @@ namespace DataAcess.Crud
 
         public override void Delete(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            var agencia = (Agencia)entity;
+            dao.ExecuteProcedure(mapper.GetDeleteStatement(agencia));
         }
 
         public override T Retrieve<T>(BaseEntity entity)
@@ -63,7 +64,8 @@ namespace DataAcess.Crud
 
         public override void Update(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            var agencia = (Agencia)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateStatement(agencia));
         }
     }
 }

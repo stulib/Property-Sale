@@ -33,8 +33,8 @@ namespace DataAcess.Mapper
 
             foreach (var row in lstRows)
             {
-                var customer = BuildObject(row);
-                lstResults.Add(customer);
+                var agencia = BuildObject(row);
+                lstResults.Add(agencia);
             }
 
             return lstResults;
@@ -60,7 +60,6 @@ namespace DataAcess.Mapper
 
             var u = (Agencia)entity;
             operation.AddVarcharParam(DB_COL_ID, u.Id);
-
             return operation;
         }
 
@@ -82,7 +81,17 @@ namespace DataAcess.Mapper
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)
         {
-            throw new System.NotImplementedException();
+            var operation = new SqlOperation { ProcedureName = "ACT_AGENCIA_PR" };
+
+            var u = (Agencia)entity;
+            operation.AddVarcharParam(DB_COL_ID, u.Id);
+            operation.AddVarcharParam(DB_COL_NOMBRE, u.Nombre);
+            operation.AddVarcharParam(DB_COL_TIPO, u.Tipo);
+            operation.AddVarcharParam(DB_COL_ID_USUARIO, u.Id_Usuario);
+            operation.AddVarcharParam(DB_COL_LOGO, u.Logo);
+            operation.AddVarcharParam(DB_COL_ESTADO, u.Estado);
+
+            return operation;
         }
     }
 }

@@ -24,8 +24,8 @@ namespace CoreAPI
         {
              try
             {
-                var u = crudAgencia.Retrieve<Agencia>(agencia);
-                if (u != null)
+                var a = crudAgencia.Retrieve<Agencia>(agencia);
+                if (a != null)
                 {
                     throw new BussinessException(9);
                 }
@@ -43,6 +43,51 @@ namespace CoreAPI
         public List<Agencia> RetrieveAll()
         {
             return crudAgencia.RetrieveAll<Agencia>();
+        }
+
+        public Agencia RetrieveById(Agencia agencia)
+        {
+            Agencia a = null;
+            try
+            {
+                a = crudAgencia.Retrieve<Agencia>(agencia);
+                if (a == null)
+                {
+                    throw new BussinessException(5);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.GetInstance().Process(ex);
+            }
+
+            return a;
+        }
+
+        public void Update(Agencia agencia)
+        {
+            var a = crudAgencia.Retrieve<Agencia>(agencia);
+            if (a == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudAgencia.Update(agencia);
+            }
+        }
+
+        public void Delete(Agencia agencia)
+        {
+            var a = crudAgencia.Retrieve<Agencia>(agencia);
+            if (a == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudAgencia.Delete(agencia);
+            }
         }
     }
 }

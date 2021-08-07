@@ -250,6 +250,7 @@
     <Content Include="Views\Home\RegistrarCuenta.cshtml" />
     <Content Include="Views\Shared\_LayoutRegistrarCuenta.cshtml" />
     <Content Include="Views\Registrar\vPropietarios.cshtml" />
+    <Content Include="Views\Registrar\_RegistrarAgencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
