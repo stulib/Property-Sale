@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechHouse</title>
+    <title>TechHouse - Registro</title>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
@@ -43,12 +43,15 @@
             </div>
         </div>
     </div>
-
+    <div class= " text-xl-center body-content">
+        <p>Seleccione de las pestañas el tipo de usuario que desea registrar.</p>
+        <p>Después de ingresar sus datos personales recibirá un código en su correo y uno distinto en su teléfono celular. Deberá confirmar ambos para activar su cuenta.</p>
+    </div>
     <div class="container body-content">
-        <div class="alert alert-success alert-dismissable" style="display: none" id="alert_container">
+        @*<div class="alert alert-success alert-dismissable" style="display: none" id="alert_container">
             <button type="button" class="close" onclick="$('.alert').hide()">&times;</button>
             <span id="alert_message"></span>
-        </div>
+        </div>*@
         @RenderBody()
         <hr />
 

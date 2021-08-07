@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -7,12 +6,47 @@
 
 <html>
 <head>
+    <script src="~/Scripts/Views/vRegistrarUsuarioFinal.js"></script>
     <meta name="viewport" content="width=device-width" />
-    <title>_RegistrarUsuarioFinal</title>
+    <title>Registrar Usuario</title>
 </head>
 <body>
     <div>
-        <h3>Registrar Usuario Final</h3>
+        <h3>Registrar Usuario</h3>
+    </div>
+    <div class="card border-secondary" style="margin-top: 50px;">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="bs-component">
+                        <form id="frmRegistroUsuario">
+                            @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+                            @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                            @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                            @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
+                            @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Teléfono", columnDataName: "Telefono")
+                            @Html.CtrlInput(id: "txtTelefono", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")
+                            @Html.CtrlInput(id: "txtPwdFinal", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="col-lg-6">
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "mostrarPwdFinal", label: "Mostrar", onClickFunction: "ShowPwdF", buttonType: "info")
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "ocultarPwdFinal", label: "Ocultar", onClickFunction: "HidePwdF", buttonType: "info")
+                </div>
+            </div>
+        </div>
+        <div class="card-header">
+            <div class="row pull-right">
+                <div class="col-md-4">
+                    @Html.CtrlButton(viewName: "vRegistrarUsuarioFinal", id: "btnRegUsuarioF", label: "Enviar", onClickFunction: "CreateU", buttonType: "success")
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -237,6 +237,7 @@
     <Content Include="Scripts\Views\vPropiedades.js" />
     <Content Include="Scripts\Views\vPropietarios.js" />
     <Content Include="Scripts\Views\vRegistrarBanco.js" />
+    <Content Include="Scripts\Views\vRegistrarUsuarioFinal.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
     <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />

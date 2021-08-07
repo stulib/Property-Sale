@@ -47,9 +47,8 @@ namespace WebApp.Controllers
 
         public ActionResult Logout()
         {
-            var usuario = new Usuario();
             Session.Clear();    
-            return View("vLogin", usuario);
+            return View("Index");
         }
 
         public ActionResult vRegistrarCuenta() {
