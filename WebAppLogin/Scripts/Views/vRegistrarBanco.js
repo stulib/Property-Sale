@@ -3,7 +3,6 @@
 	this.service = 'account';
 	this.ctrlActions = new ControlActions();
 
-
 	this.CreateBanco = function () {
 		var banco_Data = {};
 		banco_Data = this.ctrlActions.GetDataForm('frmBanco');
@@ -15,6 +14,7 @@
 		this.ctrlActions.PostToAPI(this.service, banco_Data, function () {
 			var v_Gestion_Banco = new vRegistrarBanco();
 		});
+		document.getElementById('frmBanco').reset();
 	}
 
 	this.ShowPwdB = function () {

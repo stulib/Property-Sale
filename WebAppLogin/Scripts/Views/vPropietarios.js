@@ -1,5 +1,4 @@
-﻿
-function vPropietarios() {
+﻿function vPropietarios() {
 
 	this.service = 'usuario';
 	this.ctrlActions = new ControlActions();
@@ -12,7 +11,10 @@ function vPropietarios() {
 		propietario_Data.Id_Agencia = "0";
 		propietario_Data.Verificado = "N";
 		//Hace el post al create
-		this.ctrlActions.PostToAPI(this.service, propietario_Data);
+		this.ctrlActions.PostToAPI(this.service, propietario_Data, function () {
+			var vpropietario = new vPropietarios();
+		});
+		document.getElementById('frmPropietario').reset();
 	}
 
 	this.ShowPwdP = function () {
