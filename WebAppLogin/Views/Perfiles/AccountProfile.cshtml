@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "AccountProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Entities_POJO.Cuenta
+@using Entities_POJO;
+@{
+    var cuenta = ViewData["Cuenta"] as Cuenta;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            @using (Html.BeginForm("_ActualizarCuenta", "Registrar", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                if (cuenta.ID_ROL == "01")
+                {
+                    <h2>Perfil de Administrador</h2>
+                }
+                else if (cuenta.ID_ROL == "02")
+                {
+                    <h2>Perfil de Usuario</h2>
+                }
+                else if (cuenta.ID_ROL == "03")
+                {
+                    <h2>Perfil de Propietario</h2>
+                }
+                else if (cuenta.ID_ROL == "04")
+                {
+                    <h2>Perfil de Agente de Bienes Raíces</h2>
+                }
+                else if (cuenta.ID_ROL == "05")
+                {
+                    <h2>Perfil Bancario</h2>
+                }
+                if (cuenta.ID_ROL == "06")
+                {
+                    <h2>Perfil de Administrador de Agencia</h2>
+                }
+                <div class="form-">
+                    <table class="">
+                        <tr>
+                            <th>Nombre:</th>
+                            <td>
+                                @Html.TextBox("cuenta", cuenta.NOMBRE)
+                            </td>
+                        </tr>
+                        @if (cuenta.ID_ROL != "05" && cuenta.ID_ROL != "06")
+                        {
+                            <tr>
+                                <th>Apellidos:</th>
+                                <td>
+                                    @Html.TextBox("cuenta", cuenta.APELLIDOS)
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <th>Correo Electrónico:</th>
+                            <td>
+                                @Html.TextBox("cuenta", cuenta.EMAIL)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Teléfono:</th>
+                            <td>
+                                @Html.TextBox("cuenta", cuenta.TELEFONO)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Estado:</th>
+                            <td>
+                                @Html.Label(cuenta.ESTADO)
+                            </td>
+                        </tr>
+
+                        @if (cuenta.ID_ROL != "05" && cuenta.ID_ROL != "06")
+                        {
+                            <tr>
+                                <th>Fecha Nacimiento:</th>
+                                <td>
+                                    @Html.TextBox("cuenta", cuenta.FECHA_NAC)
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <th>Verificado:</th>
+                            <td>
+                                @Html.Label(cuenta.VERIFICADO.ToString())
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><input type="submit" value="Guardar Cambios" class="btn btn-info"></td></tr>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

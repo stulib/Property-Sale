@@ -36,29 +36,9 @@
                 {
                     @Html.ActionLink(" ", "vLogin", "Home", null, new { @class = "far fa-user-circle" });
                 }
-                else if (Session["IdRol"].ToString() == "01")
+                else
                 {
-                    @Html.ActionLink(" ", "vPerfil_Administrador", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
-                }
-                else if (Session["IdRol"].ToString() == "02")
-                {
-                    @Html.ActionLink(" ", "vPropiedades", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
-                }
-                else if (Session["IdRol"].ToString() == "03")
-                {
-                    @Html.ActionLink(" ", "vPropiedades", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
-                }
-                else if (Session["IdRol"].ToString() == "04")
-                {
-                    @Html.ActionLink(" ", "vPropiedades", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
-                }
-                else if (Session["IdRol"].ToString() == "05")
-                {
-                    @Html.ActionLink(" ", "vPropiedades", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
-                }
-                else if (Session["IdRol"].ToString() == "06")
-                {
-                    @Html.ActionLink(" ", "vPropiedades", "Perfiles", new { id = Session["UserID"] }, new { @class = "far fa-user-circle" });
+                    @Html.ActionLink(" ", "AccountProfile", "Home", new { id = Session["UserID"], idrol = Session["IdRol"] }, new { @class = "far fa-user-circle" });
                 }
             </a>
 

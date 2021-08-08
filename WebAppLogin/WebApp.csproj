@@ -265,6 +265,8 @@
     <Content Include="Views\Home\vRegistrarCuenta.cshtml" />
     <Content Include="Views\Shared\_LayoutRegistrarCuenta.cshtml" />
     <Content Include="Views\Registrar\vPropietarios.cshtml" />
+    <Content Include="Views\Perfiles\AccountProfile.cshtml" />
+    <Content Include="Views\Perfiles\UsuarioProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
