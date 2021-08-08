@@ -1,7 +1,7 @@
 ﻿@model Entities_POJO.Cuenta
 @{
     ViewBag.Title = "vRegistrarBanco";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
 
 <script src="~/Scripts/Views/vRegistrarBanco.js"></script>
@@ -14,13 +14,22 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="bs-component">
+                    <div>
+                        <label>Tipo de Identificación</label>
+                    </div>
+                    <select name="Tipo_Id" id="tipo-id-Banco">
+                        <option value="">Seleccione uno</option>
+                        <option value="Física">Física</option>
+                        <option value="Jurídica">Jurídica</option>
+                        <option value="DIMEX">DIMEX</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>
                     <form id="frmBanco">
-                        @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo Id", columnDataName: "Tipo_Id")
-                        @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "Identificación", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                         @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Email")
-                        @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Telefono", columnDataName: "Telefono")
-                        @Html.CtrlInput(id: "txtPwdB", type: "text", label: "Contraseña", columnDataName: "Contrasenna")
+                        @Html.CtrlInput(id: "txtTelefono", type: "tel", label: "Teléfono", columnDataName: "Telefono")
+                        @Html.CtrlInput(id: "txtPwdB", type: "password", label: "Contraseña", columnDataName: "Contrasenna")
                     </form>
                 </div>
             </div>

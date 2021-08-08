@@ -36,9 +36,13 @@
                 {
                     @Html.ActionLink(" ", "vLogin", "Home", null, new { @class = "far fa-user-circle" });
                 }
-                else
+                else if (Session["IdRol"].ToString() == "05")
                 {
                     @Html.ActionLink(" ", "AccountProfile", "Home", new { id = Session["UserID"], idrol = Session["IdRol"] }, new { @class = "far fa-user-circle" });
+                }
+                else
+                {
+                    @Html.ActionLink(" ", "UsuarioProfile", "Home", new { id = Session["UserID"], idrol = Session["IdRol"] }, new { @class = "far fa-user-circle" });
                 }
             </a>
 

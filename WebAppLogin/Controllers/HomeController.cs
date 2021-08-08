@@ -96,6 +96,11 @@ namespace WebApp.Controllers
             return RedirectToAction("AccountProfile", "Perfiles");
         }
 
+        public ActionResult UsuarioProfile()
+        {
+            return RedirectToAction("UsuarioProfile", "Perfiles");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult _RegistrarBanco(Cuenta objBanco)
