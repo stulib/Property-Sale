@@ -47,5 +47,21 @@ namespace WebAPI.Controllers
             }
         }
 
+        public IHttpActionResult Put(Cuenta cuentaC)
+        {
+            var cuenta = (Usuario)cuentaC;
+            try
+            {
+                var mng = new AccountManager();
+                mng.Update(cuenta);
+                apiResp = new ApiResponse();
+                apiResp.Message = "Action was executed.";
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
+            }
+        }
     }
 }
