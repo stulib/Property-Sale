@@ -91,22 +91,14 @@ namespace WebApp.Controllers
             return View(objUser);
         }
 
-        public ActionResult AccountProfile(Usuario usuario)
+        public ActionResult AccountProfile()
         {
-            usuario.Id = Session["UserID"].ToString();
-            string jsonString = JsonConvert.SerializeObject(usuario);
-            HttpContent c = new StringContent(jsonString, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.GetAsync(String.Format("http://localhost:57056/api/usuario?ID={0}", usuario.Id)).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                var content = response.Content.ReadAsStringAsync().Result;
+            return RedirectToAction("AccountProfile", "Perfiles");
+        }
 
-                var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(content);
-                var pCuenta = JsonConvert.DeserializeObject<Usuario>(apiResponse.Data.ToString());
-                usuario = pCuenta;
-            }
-            ViewData["Cuenta"] = usuario;
-            return View("~/Views/Home/AccountProfile.cshtml");
+        public ActionResult UsuarioProfile()
+        {
+            return RedirectToAction("UsuarioProfile", "Perfiles");
         }
 
         [HttpPost]

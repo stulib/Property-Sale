@@ -4,8 +4,10 @@
 	this.ctrlActions = new ControlActions();
 
 	this.CreateProp = function () {
+		var seleccionIdP = document.getElementById('tipo-id-Prop').value;
 		var propietario_Data = {};
 		propietario_Data = this.ctrlActions.GetDataForm('frmPropietario');
+		propietario_Data.Tipo_Id = seleccionIdP;
 		propietario_Data.Estado = "Activo";
 		propietario_Data.Id_Rol = "02";
 		propietario_Data.Id_Agencia = "0";
@@ -15,6 +17,7 @@
 			var vpropietario = new vPropietarios();
 		});
 		document.getElementById('frmPropietario').reset();
+		seleccionIdP.reset();
 	}
 
 	this.ShowPwdP = function () {
