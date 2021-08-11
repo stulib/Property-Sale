@@ -1,21 +1,23 @@
-﻿
-function vPropietarios() {
+﻿function vPropietarios() {
 
 	this.service = 'usuario';
 	this.ctrlActions = new ControlActions();
-	
 
 	this.CreateProp = function () {
+		var seleccionIdP = document.getElementById('tipo-id-Prop').value;
 		var propietario_Data = {};
-		var tipoInput = document.getElementById("tipo-id");
 		propietario_Data = this.ctrlActions.GetDataForm('frmPropietario');
-		propietario_Data.Tipo_Id = tipoInput.value;
+		propietario_Data.Tipo_Id = seleccionIdP;
 		propietario_Data.Estado = "Activo";
 		propietario_Data.Id_Rol = "02";
 		propietario_Data.Id_Agencia = "0";
 		propietario_Data.Verificado = "N";
 		//Hace el post al create
-		this.ctrlActions.PostToAPI(this.service, propietario_Data);
+		this.ctrlActions.PostToAPI(this.service, propietario_Data, function () {
+			var vpropietario = new vPropietarios();
+		});
+		document.getElementById('frmPropietario').reset();
+		seleccionIdP.reset();
 	}
 
 	this.ShowPwdP = function () {
