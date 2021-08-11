@@ -68,7 +68,8 @@ namespace DataAcess.Crud
 
         public override void Update(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            var cuenta = (Cuenta)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateStatement(cuenta));
         }
 
         public Boolean ValidateDuplicate(BaseEntity entity)

@@ -3,11 +3,12 @@
 	this.service = 'account';
 	this.ctrlActions = new ControlActions();
 
+
 	this.CreateBanco = function () {
-		var seleccionIdB = document.getElementById('tipo-id-Banco').value;
+		var seleccionIdb = document.getElementById('tipo-id-Banco').value;
 		var banco_Data = {};
 		banco_Data = this.ctrlActions.GetDataForm('frmBanco');
-		banco_Data.Tipo_Id = seleccionIdB;
+		banco_Data.Tipo_Id = seleccionIdb;
 		banco_Data.Estado = "Activo";
 		banco_Data.Id_Rol = "05";
 		banco_Data.Id_Agencia = "0";
@@ -17,7 +18,6 @@
 			var v_Gestion_Banco = new vRegistrarBanco();
 		});
 		document.getElementById('frmBanco').reset();
-		seleccionIdB.reset();
 	}
 
 	this.ShowPwdB = function () {
@@ -37,6 +37,8 @@
 		var hideCurrentBtn = document.getElementById('ocultarPwdB');
 		hideCurrentBtn.hidden = true;
 	}
+
+
 }
 
 //ON DOCUMENT READY

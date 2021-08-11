@@ -13,7 +13,6 @@
 		usuario_Data.Verificado = "N";
 		this.ctrlActions.PostToAPI(this.service, usuario_Data);
 		document.getElementById('frmRegistroUsuario').reset();
-		seleccionIdF.reset();
 	}
 
 	this.ShowPwdF = function () {

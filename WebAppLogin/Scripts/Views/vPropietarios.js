@@ -17,7 +17,6 @@
 			var vpropietario = new vPropietarios();
 		});
 		document.getElementById('frmPropietario').reset();
-		seleccionIdP.reset();
 	}
 
 	this.ShowPwdP = function () {
