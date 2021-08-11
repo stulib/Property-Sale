@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "_RegistrarAgencia";
+}
+
+
+@using WebApp.Helpers;
+@*<script src="~/Scripts/Views/vPropietarios.js"></script>*@
+
+<h3>Registrar Agencia</h3>
+
+<div class="card border-secondary" style="margin-top: 50px;">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo Id", columnDataName: "Tipo")
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                        @Html.CtrlInput(id: "txtIdUser", type: "text", label: "Id del administrador", columnDataName: "Id_Usuario")
+                        @Html.CtrlInput(id: "txtLogo", type: "text", label: "Logo", columnDataName: "Logo")
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-header">
+        <div class="row pull-right">
+            <div class="col-md-4">
+                @Html.CtrlButton(viewName: "_RegistrarAgencia", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
+            </div>
+        </div>
+    </div>
+</div>
