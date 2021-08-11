@@ -17,10 +17,11 @@ namespace WebAPI.Controllers
             {
                 var mng = new AccountManager();
                 cuenta = mng.Create(cuenta);
-                apiResp = new ApiResponse
+                apiResp = new ApiResponse()
                 {
                     Data = cuenta
                 };
+                apiResp.Message = "Usuario Registrado correctamente.";
                 return Ok(apiResp);
             }
             catch (BussinessException bex)

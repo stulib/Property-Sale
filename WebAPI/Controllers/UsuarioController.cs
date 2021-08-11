@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
                 mng.Create(usuario);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Usuario Registrado correctamente.";
 
                 return Ok(apiResp);
             }

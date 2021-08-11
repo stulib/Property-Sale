@@ -219,7 +219,7 @@ namespace CoreAPI
             string codigo_Texto = cod_Verificacion_Email.ToString();
             var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("jzunigas@ucenfotec.ac.cr", "TechHouse");
+            var from = new EmailAddress("techhousecenfo@gmail.com", "TechHouse");
             var subject = "Código de verificación de cuenta";
             var to = new EmailAddress(correo, "Nuevo usuario de TechHouse");
             var plainTextContent = codigo_Texto;
