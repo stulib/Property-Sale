@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,32 +20,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="bs-component">
-                        
-
+                        <div>
+                            <label>Tipo de Identificación</label>
+                        </div>
+                        <select name="Tipo_Id" id="tipo-id-Final">
+                            <option value="">Seleccione uno</option>
+                            <option value="Física">Física</option>
+                            <option value="Jurídica">Jurídica</option>
+                            <option value="DIMEX">DIMEX</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
                         <form id="frmRegistroUsuario">
-
-                            @{
-                                List<SelectListItem> listTipo = new List<SelectListItem>();
-                                listTipo.Add(new SelectListItem
-                                {
-                                    Text = "AtlantaPort",
-                                    //Value = "AtlantaPort"
-                                });
-                                listTipo.Add(new SelectListItem
-                                {
-                                    Text = "NewJersyTerminal",
-                                    Value = "NewJersyTerminal",
-                                    Selected = true
-                                });
-                                listTipo.Add(new SelectListItem
-                                {
-                                    Text = "AWS",
-                                    Value = "AWS"
-                                });
-                            }
-
-                            @Html.DropDownList("yourDropName", listTipo, new { @class = "form-control" })
-                            @*@Html.CtrlDropDown(id: "txtTipoId", label: "Tipo ID", listId: "listItems")*@
                             @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                             @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                             @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
@@ -74,3 +59,4 @@
     </div>
 </body>
 </html>
+
