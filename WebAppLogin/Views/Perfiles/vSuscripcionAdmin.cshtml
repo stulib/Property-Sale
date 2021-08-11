@@ -1,0 +1,35 @@
+﻿@using WebApp.Helpers;
+<script src="~/Scripts/Views/vSuscripcionAdmin.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@Html.CtrlTable(viewName: "vSuscripcionAdmin", id: "tblSuscripcion", title: "Listado de suscripciones",
+    columnsTitle: "ID,Nombre,Anuncios,Facturación", ColumnsDataName: "Id,Nombre,Cantidad_Anuncios,Periodo_Facturacion",
+    onSelectFunction: "BindFields", colorHeader: "red")
+
+
+<div class="card border-secondary" style="margin-top: 50px;">
+    <div class="card-header">
+        <div class="row pull-right">
+            <div class="col-md-8">Suscripciones</div>
+            <div class="col-md-4">
+                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnCreate", label: "Guardar nuevo", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
+                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                        @Html.CtrlInput(id: "txtAnuncios", type: "number", label: "Anuncios", columnDataName: "Cantidad_Anuncios")
+                        @Html.CtrlInput(id: "txtFacturacion", type: "text", label: "Facturacion", columnDataName: "Periodo_Facturacion")
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

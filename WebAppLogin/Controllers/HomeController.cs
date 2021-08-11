@@ -20,6 +20,11 @@ namespace WebApp.Controllers
             return RedirectToAction("vPerfil_Admin_Suscripciones", "Perfiles");
         }
 
+        public ActionResult vSuscripcionAdmin()
+        {
+            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
+        }
+
         public ActionResult vPerfil_Administrador() {
             return RedirectToAction("vPerfil_Administrador", "Perfiles", new { id = Session["UserID"] });
         }
