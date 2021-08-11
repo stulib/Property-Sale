@@ -15,9 +15,9 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult vPerfil_Admin_Suscripciones()
+        public ActionResult vSuscripcionAdmin()
         {
-            return RedirectToAction("vPerfil_Admin_Suscripciones", "Perfiles");
+            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
         }
 
         public ActionResult vPerfil_Administrador() {

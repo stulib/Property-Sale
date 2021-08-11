@@ -28,12 +28,12 @@ namespace WebApp.Controllers
             }
         }
 
-        public ActionResult vPerfil_Admin_Suscripciones()
+        public ActionResult vSuscripcionAdmin()
         {
             string RolUsuario = (string)Session["IdRol"];
             if ((Session["UserID"] != null) && (RolUsuario.Equals("01") == true))
             {
-                return View("vPerfil_Admin_Suscripciones");
+                return View("vSuscripcionAdmin");
             }
             else
             {

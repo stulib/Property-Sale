@@ -28,35 +28,29 @@
                         <div class="dropdown-menu">
                             @if (Session["IdRol"].ToString() == "01")
                             {
-                                @Html.ActionLink("Gestión de suscripciones", "vPerfil_Admin_Suscripciones", "Home", null, new { @class = "nav-link" })
+                                @Html.ActionLink("Gestión de suscripciones", "vSuscripcionAdmin", "Home", null, new { @class = "nav-link" })
                                 <div class="dropdown-divider"></div>
-                                @Html.ActionLink("Gestión de usuarios", "vReg_Admin", "Home", null, new { @class = "nav-link" })
-                            }
+                                @Html.ActionLink("Gestión de usuarios", "vReg_Admin", "Home", null, new { @class = "nav-link" }) }
                             else if (Session["IdRol"].ToString() == "02")
                             {
                                 @Html.ActionLink("Gestión de propiedades", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div>
-                            }
+                                <div class="dropdown-divider"></div> }
                             else if (Session["IdRol"].ToString() == "03")
                             {
                                 @Html.ActionLink("Métodos de pago", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div>
-                            }
+                                <div class="dropdown-divider"></div> }
                             else if (Session["IdRol"].ToString() == "04")
                             {
                                 @Html.ActionLink("Gestión de agentes", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div>
-                            }
+                                <div class="dropdown-divider"></div> }
                             else if (Session["IdRol"].ToString() == "05")
                             {
                                 @Html.ActionLink("Gestión de propiedades", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div>
-                            }
+                                <div class="dropdown-divider"></div> }
                             else if (Session["IdRol"].ToString() == "06")
                             {
                                 @Html.ActionLink("Gestión de propiedades", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div>
-                            }
+                                <div class="dropdown-divider"></div>}
                         </div>
                     </li>
                 </ul>
@@ -64,12 +58,10 @@
                     <li class="nav-item">
                         @if (Session["IdRol"].ToString() == "05")
                         {
-                            @Html.ActionLink(Session["Nombre"].ToString(), "AccountProfile", "Perfiles", null, new { @class = "nav-link" })
-                        }
+                            @Html.ActionLink(Session["Nombre"].ToString(), "AccountProfile", "Perfiles", null, new { @class = "nav-link" }) }
                         else
                         {
-                            @Html.ActionLink(Session["Nombre"].ToString(), "UsuarioProfile", "Perfiles", null, new { @class = "nav-link" })
-                        }
+                            @Html.ActionLink(Session["Nombre"].ToString(), "UsuarioProfile", "Perfiles", null, new { @class = "nav-link" })}
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Cerrar sesión", "Logout", "Home", null, new { @class = "nav-link" })
