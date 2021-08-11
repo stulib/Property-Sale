@@ -20,8 +20,32 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="bs-component">
+                        
+
                         <form id="frmRegistroUsuario">
-                            @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
+
+                            @{
+                                List<SelectListItem> listTipo = new List<SelectListItem>();
+                                listTipo.Add(new SelectListItem
+                                {
+                                    Text = "AtlantaPort",
+                                    //Value = "AtlantaPort"
+                                });
+                                listTipo.Add(new SelectListItem
+                                {
+                                    Text = "NewJersyTerminal",
+                                    Value = "NewJersyTerminal",
+                                    Selected = true
+                                });
+                                listTipo.Add(new SelectListItem
+                                {
+                                    Text = "AWS",
+                                    Value = "AWS"
+                                });
+                            }
+
+                            @Html.DropDownList("yourDropName", listTipo, new { @class = "form-control" })
+                            @*@Html.CtrlDropDown(id: "txtTipoId", label: "Tipo ID", listId: "listItems")*@
                             @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                             @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                             @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")

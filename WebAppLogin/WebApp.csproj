@@ -239,6 +239,7 @@
     <Content Include="Scripts\Views\vRegistrarBanco.js" />
     <Content Include="Scripts\Views\vRegistrarUsuarioFinal.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
+    <Content Include="Scripts\Views\vSuscripcionAdmin.js" />
     <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -258,13 +259,13 @@
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
     <Content Include="Views\Perfiles\vPerfil_Administrador.cshtml" />
-    <Content Include="Views\Perfiles\vPerfil_Admin_Suscripciones.cshtml" />
     <Content Include="Views\Perfiles\vPropiedades.cshtml" />
     <Content Include="Views\Registrar\vRegistrarBanco.cshtml" />
     <Content Include="Views\Registrar\vRegistrarUsuarioFinal.cshtml" />
     <Content Include="Views\Home\vRegistrarCuenta.cshtml" />
     <Content Include="Views\Shared\_LayoutRegistrarCuenta.cshtml" />
     <Content Include="Views\Registrar\vPropietarios.cshtml" />
+    <Content Include="Views\Perfiles\vSuscripcionAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

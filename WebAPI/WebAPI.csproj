@@ -199,6 +199,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PropiedadController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\SuscripcionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="ExceptionFilter.cs" />
     <Compile Include="Filters\UserLogFilter.cs" />

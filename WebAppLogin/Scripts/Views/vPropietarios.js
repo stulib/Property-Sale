@@ -3,10 +3,13 @@ function vPropietarios() {
 
 	this.service = 'usuario';
 	this.ctrlActions = new ControlActions();
+	
 
 	this.CreateProp = function () {
 		var propietario_Data = {};
+		var tipoInput = document.getElementById("tipo-id");
 		propietario_Data = this.ctrlActions.GetDataForm('frmPropietario');
+		propietario_Data.Tipo_Id = tipoInput.value;
 		propietario_Data.Estado = "Activo";
 		propietario_Data.Id_Rol = "02";
 		propietario_Data.Id_Agencia = "0";

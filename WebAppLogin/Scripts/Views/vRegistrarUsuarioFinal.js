@@ -10,7 +10,7 @@
 		usuario_Data.Id_Agencia = "";
 		usuario_Data.Verificado = "N";
 		this.ctrlActions.PostToAPI(this.service, usuario_Data);
-		getElementById('frmRegistroUsuario').reset();
+		document.getElementById('frmRegistroUsuario').reset();
 	}
 
 	this.ShowPwdF = function () {

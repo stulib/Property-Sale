@@ -15,7 +15,17 @@
             <div class="col-lg-6">
                 <div class="bs-component">
                     <form id="frmPropietario">
-                        @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo ID", columnDataName: "Tipo_Id")
+@*                        <label for="tipo-id">Tipo Id</label>
+                        <div>
+                            <select name="tipo" id="tipo-id">
+                                <option value="">Escoja una opción</option>
+                                <option value="Física">Física</option>
+                                <option value="Dimex">Dimex</option>
+                                <option value="Jurídica">Jurídica</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                            </select>
+                        </div>*@
+                        
                         @Html.CtrlInput(id: "txtId", type: "text", label: "Identificación", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                         @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
