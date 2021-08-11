@@ -174,20 +174,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.min.js" />
     <Content Include="Content\imgs\background2.jpg" />
-    <Content Include="Content\imgs\BannerPrincipalCortado.jpg" />
-    <Content Include="Content\imgs\BannerPrincipalOg.jpg" />
-    <Content Include="Content\imgs\imagenAparta.jpg" />
-    <Content Include="Content\imgs\imagenCasas.jpg" />
-    <Content Include="Content\imgs\imagenCondos.jpg" />
-    <Content Include="Content\imgs\imagenfamilia.jpg" />
-    <Content Include="Content\imgs\imagenLotes.jpg" />
-    <Content Include="Content\imgs\TechHouse logo blancopng.png" />
-    <Content Include="Content\imgs\ventaja1.jpg" />
-    <Content Include="Content\imgs\ventaja2.jpg" />
-    <Content Include="Content\imgs\ventaja3.jpg" />
     <Content Include="Content\jquery.dataTables.min.css" />
-    <Content Include="Content\landing.css" />
-    <Content Include="Content\reset.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -230,18 +217,12 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\ControlActions.js" />
-    <Content Include="Scripts\Views\vPerfilBanco.js" />
-    <Content Include="Scripts\Views\vRegistrarCuenta.js" />
     <Content Include="Scripts\Views\vCustomers.js" />
     <Content Include="Scripts\Views\vIndex.js" />
     <Content Include="Scripts\Views\vPerfil_Administrador.js" />
     <Content Include="Scripts\Views\vPropiedades.js" />
     <Content Include="Scripts\Views\vPropietarios.js" />
-    <Content Include="Scripts\Views\vRegistrarBanco.js" />
-    <Content Include="Scripts\Views\vRegistrarUsuarioFinal.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
-    <Content Include="Scripts\Views\vSuscripcionAdmin.js" />
-    <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -260,13 +241,16 @@
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
     <Content Include="Views\Perfiles\vPerfil_Administrador.cshtml" />
+    <Content Include="Views\Perfiles\vPerfil_Admin_Suscripciones.cshtml" />
     <Content Include="Views\Perfiles\vPropiedades.cshtml" />
-    <Content Include="Views\Registrar\vRegistrarBanco.cshtml" />
-    <Content Include="Views\Registrar\vRegistrarUsuarioFinal.cshtml" />
-    <Content Include="Views\Home\vRegistrarCuenta.cshtml" />
+    <Content Include="Views\Registrar\_RegistrarAdministrador.cshtml" />
+    <Content Include="Views\Registrar\_RegistrarBanco.cshtml" />
+    <Content Include="Views\Registrar\_RegistrarUsuarioFinal.cshtml" />
+    <Content Include="Views\Home\AccountProfile.cshtml" />
+    <Content Include="Views\Home\RegistrarCuenta.cshtml" />
     <Content Include="Views\Shared\_LayoutRegistrarCuenta.cshtml" />
     <Content Include="Views\Registrar\vPropietarios.cshtml" />
-    <Content Include="Views\Perfiles\vSuscripcionAdmin.cshtml" />
+    <Content Include="Views\Registrar\_RegistrarAgencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
