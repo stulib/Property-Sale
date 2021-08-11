@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "vPropietarios";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
 
 <script src="~/Scripts/Views/vPropietarios.js"></script>
@@ -14,18 +14,17 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="bs-component">
+                    <div>
+                        <label>Tipo de Identificación</label>
+                    </div>
+                    <select name="Tipo_Id" id="tipo-id-Prop">
+                        <option value="">Seleccione uno</option>
+                        <option value="Física">Física</option>
+                        <option value="Jurídica">Jurídica</option>
+                        <option value="DIMEX">DIMEX</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>
                     <form id="frmPropietario">
-@*                        <label for="tipo-id">Tipo Id</label>
-                        <div>
-                            <select name="tipo" id="tipo-id">
-                                <option value="">Escoja una opción</option>
-                                <option value="Física">Física</option>
-                                <option value="Dimex">Dimex</option>
-                                <option value="Jurídica">Jurídica</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                            </select>
-                        </div>*@
-                        
                         @Html.CtrlInput(id: "txtId", type: "text", label: "Identificación", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                         @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellidos", columnDataName: "Apellidos")
@@ -47,7 +46,7 @@
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-4">
-                @Html.CtrlButton(viewName: "vPropietarios", id: "btnCreateP ", label: "Guardar", onClickFunction: "CreateProp", buttonType: "success")
+                @Html.CtrlButton(viewName: "vPropietarios", id: "btnCreateP", label: "Guardar", onClickFunction: "CreateProp", buttonType: "success")
             </div>
         </div>
     </div>
