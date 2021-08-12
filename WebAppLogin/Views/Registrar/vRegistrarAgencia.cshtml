@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "_RegistrarAgencia";
+    ViewBag.Title = "vRegistrarAgencia";
 }
 
 
 @using WebApp.Helpers;
-@*<script src="~/Scripts/Views/vPropietarios.js"></script>*@
+<script src="~/Scripts/Views/vRegistrarAgencia.js"></script>
 
 <h3>Registrar Agencia</h3>
 
@@ -29,7 +29,7 @@
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-4">
-                @Html.CtrlButton(viewName: "_RegistrarAgencia", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vRegistrarAgencia", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
             </div>
         </div>
     </div>
