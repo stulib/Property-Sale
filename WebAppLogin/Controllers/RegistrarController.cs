@@ -15,6 +15,11 @@ namespace WebApp.Controllers
                 return View("vRegistrarBanco");
         }
 
+        public ActionResult vRegistrarAgencia()
+        {
+            return View("vRegistrarAgencia");
+        }
+
         public ActionResult Logout()
         {
             Session.Clear();
