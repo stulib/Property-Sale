@@ -20,11 +20,6 @@ namespace WebApp.Controllers
             return RedirectToAction("vSuscripcionAdmin", "Perfiles");
         }
 
-        public ActionResult vSuscripcionAdmin()
-        {
-            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
-        }
-
         public ActionResult vPerfil_Administrador() {
             return RedirectToAction("vPerfil_Administrador", "Perfiles", new { id = Session["UserID"] });
         }
@@ -98,12 +93,12 @@ namespace WebApp.Controllers
 
         public ActionResult AccountProfile()
         {
-            return RedirectToAction("AccountProfile", "Perfiles");
+            return RedirectToAction("AccountProfile", "Perfiles", new { id = Session["UserID"] });
         }
 
         public ActionResult UsuarioProfile()
         {
-            return RedirectToAction("UsuarioProfile", "Perfiles");
+            return RedirectToAction("UsuarioProfile", "Perfiles", new { id = Session["UserID"] });
         }
 
         [HttpPost]

@@ -25,16 +25,18 @@ namespace CoreAPI
             crudUsuario = new UsuarioCrudFactory();
         }
 
+        public UsuarioManager(string test)
+        {
+        }
+
         public void Create(Usuario usuario)
         {
-            Regex regexEmail = new Regex(@"([a-zA-ZÀ-ÿ\u00f1\u00d1\!0-9]+@[a-zA-Z\!0-9]+\.[a-zA-Z]+)",
-            RegexOptions.Compiled | RegexOptions.IgnoreCase);
             try
             {
                 var u = crudUsuario.Retrieve<Usuario>(usuario);
                 int codigo_Celular = GenerarCodigo(rng);
                 int codigo_Correo = GenerarCodigo(rng);
-                bool email_Match = regexEmail.IsMatch(usuario.Email);
+                bool email_Match = ValidateEmail(usuario.Email);
                 bool contrasenna_Match = ValidatePassword(usuario.Contrasenna);
                 DateTime fechaNac = (DateTime)usuario.Fecha_Nac;
                 TimeSpan tm = DateTime.Now - fechaNac;
@@ -163,7 +165,17 @@ namespace CoreAPI
             return codigo;
         }
 
-        private bool ValidatePassword(string password)
+        public bool ValidateEmail(string email) {
+            bool email_Matches;
+            Regex regexEmail = new Regex(@"([a-zA-ZÀ-ÿ\u00f1\u00d1\!0-9]+@[a-zA-Z\!0-9]+\.[a-zA-Z]+)",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            
+            email_Matches = regexEmail.IsMatch(email);
+
+            return email_Matches;
+        }
+
+        public bool ValidatePassword(string password)
         {
             var input = password;
             var hasLowerChar = new Regex(@"[a-z]+");
