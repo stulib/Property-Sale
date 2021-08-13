@@ -75,6 +75,12 @@ namespace DataAcess.Crud
             dao.ExecuteProcedure(mapper.GetUpdateStatement(usuario));
         }
 
+        public void UpdateProfile(BaseEntity entity)
+        {
+            var usuario = (Usuario)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateProfileStatement(usuario));
+        }
+
         public override void Delete(BaseEntity entity)
         {
             var usuario = (Usuario)entity;

@@ -28,9 +28,9 @@
         this.ctrlActions.BindFields("forma_Usuario_Upd", usuario);
         var seleccionIdU = document.getElementById('tipo-id-U');
         var tipoID = usuario.Tipo_Id;
-        if (tipoID == "Física") {
+        if (tipoID == "Física" | tipoID == "Fisica") {
             seleccionIdU.getElementsByTagName('option')[1].selected = 'selected'
-        } else if (tipoID == "Jurídica") {
+        } else if (tipoID == "Jurídica" | tipoID == "Juridica") {
             seleccionIdU.getElementsByTagName('option')[2].selected = 'selected'
         } else if (tipoID == "DIMEX") {
             seleccionIdU.getElementsByTagName('option')[3].selected = 'selected'
@@ -38,7 +38,8 @@
             seleccionIdU.getElementsByTagName('option')[4].selected = 'selected'
         }
         var date_B = document.getElementById('txtDOB');
-        date_B.value = usuario.Fecha_Nac;
+        dateFormat = moment(usuario.Fecha_Nac, 'YYYY-MM-DDTHH:mm:ss').format('YYYY-MM-DD')
+        date_B.value = dateFormat;
     }
 
     this.UpdateU = function () {
@@ -51,28 +52,8 @@
     }
 
     GetToApi(this.service + '?id=' + param);
-
-	this.ShowPwdU = function () {
-		var input = document.getElementById('txtPwdU');
-		input.type = 'text';
-		var showHiddenBtn = document.getElementById('ocultarPwdU');
-		showHiddenBtn.hidden = false;
-		var hideCurrentBtn = document.getElementById('mostrarPwdU');
-		hideCurrentBtn.hidden = true;
-	}
-
-	this.HidePwdU = function () {
-		var input = document.getElementById('txtPwdU');
-		input.type = 'password';
-		var showHiddenBtn = document.getElementById('mostrarPwdU');
-		showHiddenBtn.hidden = false;
-		var hideCurrentBtn = document.getElementById('ocultarPwdU');
-		hideCurrentBtn.hidden = true;
-	}
 }
 
 $(document).ready(function () {
     var vUPerfil = new UsuarioProfile();
-	var hideBtn = document.getElementById('ocultarPwdU');
-	hideBtn.hidden = true;
 });

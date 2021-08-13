@@ -67,8 +67,11 @@ namespace WebAPI.Controllers
             try
             {
                 var mng = new UsuarioManager();
-                mng.Update(usuario);
-
+                if (usuario.Contrasenna != null) {
+                    mng.Update(usuario);
+                } else {
+                    mng.UpdateProfile(usuario);
+                }
                 apiResp = new ApiResponse();
                 apiResp.Message = "Action was executed.";
 

@@ -11,8 +11,11 @@
 		usuario_Data.Id_Rol = "03";
 		usuario_Data.Id_Agencia = "";
 		usuario_Data.Verificado = "N";
-		this.ctrlActions.PostToAPI(this.service, usuario_Data);
-		document.getElementById('frmRegistroUsuario').reset();
+		this.ctrlActions.PostToAPI(this.service, usuario_Data, function () {
+			var vregUFinal = new vRegistrarUsuarioFinal();
+			document.getElementById('frmRegistroUsuario').reset();
+			document.getElementById('tipo-id-Final').getElementsByTagName('option')[0].selected = 'selected'
+		});
 	}
 
 	this.ShowPwdF = function () {

@@ -38,7 +38,7 @@ namespace DataAcess.Mapper
             operation.AddVarcharParam(DB_COL_EMAIL, u.Email);
             operation.AddVarcharParam(DB_COL_ESTADO, u.Estado);
             operation.AddIntParam(DB_COL_TELEFONO, u.Telefono);
-                
+            operation.AddIntParam(DB_COL_COD_EMAIL, u.Cod_Email);
             operation.AddIntParam(DB_COL_COD_CEL, u.Cod_Celular);
             operation.AddVarcharParam(DB_COL_ID_ROL, u.Id_Rol);
             operation.AddVarcharParam(DB_COL_ID_AGENCIA, u.Id_Agencia);
@@ -90,6 +90,26 @@ namespace DataAcess.Mapper
             operation.AddIntParam(DB_COL_TELEFONO, u.Telefono);
             operation.AddIntParam(DB_COL_COD_EMAIL, u.Cod_Email);
             operation.AddIntParam(DB_COL_COD_CEL, u.Cod_Celular);
+            operation.AddVarcharParam(DB_COL_ID_ROL, u.Id_Rol);
+            operation.AddVarcharParam(DB_COL_ID_AGENCIA, u.Id_Agencia);
+            operation.AddCharParam(DB_COL_VERIFICADO, u.Verificado);
+
+            return operation;
+        }
+
+        public SqlOperation GetUpdateProfileStatement(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "ACT_PERFILUSUARIO_PR" };
+
+            var u = (Usuario)entity;
+            operation.AddVarcharParam(DB_COL_ID, u.Id);
+            operation.AddVarcharParam(DB_COL_TIPO_ID, u.Tipo_Id);
+            operation.AddVarcharParam(DB_COL_NOMBRE, u.Nombre);
+            operation.AddVarcharParam(DB_COL_APELLIDOS, u.Apellidos);
+            operation.AddDateParam(DB_COL_FECHA_NAC, u.Fecha_Nac);
+            operation.AddVarcharParam(DB_COL_EMAIL, u.Email);
+            operation.AddVarcharParam(DB_COL_ESTADO, u.Estado);
+            operation.AddIntParam(DB_COL_TELEFONO, u.Telefono);
             operation.AddVarcharParam(DB_COL_ID_ROL, u.Id_Rol);
             operation.AddVarcharParam(DB_COL_ID_AGENCIA, u.Id_Agencia);
             operation.AddCharParam(DB_COL_VERIFICADO, u.Verificado);

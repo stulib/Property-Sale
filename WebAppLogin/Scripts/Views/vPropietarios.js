@@ -15,8 +15,9 @@
 		//Hace el post al create
 		this.ctrlActions.PostToAPI(this.service, propietario_Data, function () {
 			var vpropietario = new vPropietarios();
+			document.getElementById('frmPropietario').reset();
+			document.getElementById('tipo-id-Prop').getElementsByTagName('option')[0].selected = 'selected'
 		});
-		document.getElementById('frmPropietario').reset();
 	}
 
 	this.ShowPwdP = function () {

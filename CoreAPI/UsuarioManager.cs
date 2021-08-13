@@ -112,6 +112,19 @@ namespace CoreAPI
             }
         }
 
+        public void UpdateProfile(Usuario usuario)
+        {
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudUsuario.UpdateProfile(usuario);
+            }
+        }
+
         public void Delete(Usuario usuario)
         {
             var u = crudUsuario.Retrieve<Usuario>(usuario);
@@ -235,7 +248,7 @@ namespace CoreAPI
             var subject = "Código de verificación de cuenta";
             var to = new EmailAddress(correo, "Nuevo usuario de TechHouse");
             var plainTextContent = codigo_Texto;
-            var htmlContent = nombre +", gracias por registrarse con TechHouse. Su código de verificación es:" +
+            var htmlContent = "<strong>" + nombre + ",</strong><br><br> Gracias por registrarse con TechHouse. Su código de verificación es: " +
                 "<strong>" + codigo_Texto + "</strong><br><br>" +
                 "Bienvenido.";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
