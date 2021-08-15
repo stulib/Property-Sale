@@ -15,11 +15,20 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="bs-component">
+                    <div>
+                        <label>Tipo de Identificación</label>
+                    </div>
+                    <select name="Tipo_Id" id="tipo-id-Agencia">
+                        <option value="">Seleccione uno</option>
+                        <option value="Física">Física</option>
+                        <option value="Jurídica">Jurídica</option>
+                        <option value="DIMEX">DIMEX</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>
                     <form id="frmEdition">
-                        @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo Id", columnDataName: "Tipo")
-                        @Html.CtrlInput(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
-                        @Html.CtrlInput(id: "txtIdUser", type: "text", label: "Id del administrador", columnDataName: "Id_Usuario")
+                        @Html.CtrlInputDisabled(id: "txtIdUser", type: "text", label: "ID del administrador", columnDataName: "Id_Usuario")
                         @Html.CtrlInput(id: "txtLogo", type: "text", label: "Logo", columnDataName: "Logo")
                     </form>
                 </div>
@@ -29,7 +38,7 @@
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-4">
-                @Html.CtrlButton(viewName: "vRegistrarAgencia", id: "btnCreate", label: "Guardar", onClickFunction: "Create", buttonType: "success")
+                @Html.CtrlButton(viewName: "vRegistrarAgencia", id: "btnCreate", label: "Guardar", onClickFunction: "CreateAgencia", buttonType: "success")
             </div>
         </div>
     </div>

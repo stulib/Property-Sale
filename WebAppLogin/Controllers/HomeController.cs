@@ -39,6 +39,11 @@ namespace WebApp.Controllers
             return RedirectToAction("vPropiedades", "Perfiles");
         }
 
+        public ActionResult vRegistrarAgencia()
+        {
+            return RedirectToAction("vRegistrarAgencia", "Registrar", new { id = Session["UserID"] });
+        }
+
         public ActionResult Index()
         {
                 return View();
