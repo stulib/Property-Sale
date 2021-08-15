@@ -9,7 +9,7 @@ namespace PruebasUnitariasUsuarioCore
         private UsuarioManager usuarioManager;
         private const string Test_PasswordA = "Contrasena12!";
         private const string Test_PasswordB = "contrasenna";
-        private const string Test_EmailA = "valentina@gmail.com";
+        private const string Test_EmailA = "valentina1231231@gmail.com";
         private const string Test_EmailB = "triddi";
         private const string Test_EmailC = "triddi.com";
 
