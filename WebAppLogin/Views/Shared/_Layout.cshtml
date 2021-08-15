@@ -33,8 +33,10 @@
                                 @Html.ActionLink("Gestión de usuarios", "vReg_Admin", "Home", null, new { @class = "nav-link" }) }
                             else if (Session["IdRol"].ToString() == "02")
                             {
+                                @Html.ActionLink("Registrar Propiedades", "vRegistrarPropiedades", "Registrar", null, new { @class = "nav-link" })
                                 @Html.ActionLink("Gestión de propiedades", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
-                                <div class="dropdown-divider"></div> }
+                                <div class="dropdown-divider"></div>}
+
                             else if (Session["IdRol"].ToString() == "03")
                             {
                                 @Html.ActionLink("Métodos de pago", "vPropiedades", "Perfiles", null, new { @class = "nav-link" })
