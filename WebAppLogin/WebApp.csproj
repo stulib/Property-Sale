@@ -173,6 +173,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.min.js" />
+    <Content Include="Content\equipo.css" />
     <Content Include="Content\imgs\background2.jpg" />
     <Content Include="Content\imgs\BannerPrincipalCortado.jpg" />
     <Content Include="Content\imgs\BannerPrincipalOg.jpg" />
@@ -230,8 +231,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\ControlActions.js" />
+    <Content Include="Scripts\Views\vRegistrarPropiedades.js" />
     <Content Include="Scripts\Views\vRegistrarAgencia.js" />
-	  <Content Include="Scripts\Views\UsuarioProfile.js" />
+    <Content Include="Scripts\Views\UsuarioProfile.js" />
     <Content Include="Scripts\Views\vPerfilBanco.js" />
     <Content Include="Scripts\Views\vRegistrarCuenta.js" />
     <Content Include="Scripts\Views\vCustomers.js" />
@@ -273,6 +275,9 @@
     <Content Include="Views\Perfiles\UsuarioProfile.cshtml" />
     <Content Include="Views\Perfiles\vSuscripcionAdmin.cshtml" />
     <Content Include="Views\Registrar\vRegistrarAgencia.cshtml" />
+    <Content Include="Views\Registrar\vRegistrarPropiedades.cshtml" />
+    <Content Include="Views\Home\vEquipo.cshtml" />
+    <Content Include="Views\Perfiles\vEquipo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
