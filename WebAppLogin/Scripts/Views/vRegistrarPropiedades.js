@@ -1,4 +1,4 @@
-﻿function vPropiedades() {
+﻿function vRegistrarPropiedades() {
 
 	this.service = 'propiedad';
 	this.ctrlActions = new ControlActions();
@@ -49,6 +49,6 @@
 }
 
 $(document).ready(function () {
-	var vpropiedad = new vPropiedades();
-	vpropiedad.RetrieveAll();
+	var vregistrarpropiedades = new vRegistrarPropiedades();
+	vregistrarpropiedades.RetrieveAll();
 });
