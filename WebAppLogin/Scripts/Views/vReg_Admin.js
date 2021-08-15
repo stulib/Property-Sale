@@ -20,8 +20,10 @@
 
 
     this.Create = function () {
+        var tipoId = document.getElementById('tipo-id-Admin').value;
         var usuario_Data = {};
         usuario_Data = this.ctrlActions.GetDataForm('forma_Reg_Admin');
+        usuario_Data.Tipo_Id = tipoId;
         usuario_Data.Contrasenna = "tempTest1!";
         usuario_Data.Estado = "Activo";
         usuario_Data.Id_Rol = "01";
@@ -29,6 +31,8 @@
         usuario_Data.Verificado = "N";
         this.ctrlActions.PostToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
+            document.getElementById('frmPropietario').reset();
+            document.getElementById('tipo-id-Prop').getElementsByTagName('option')[0].selected = 'selected';
             v_Gestion_Admin.ReloadTable();
         });
     }
