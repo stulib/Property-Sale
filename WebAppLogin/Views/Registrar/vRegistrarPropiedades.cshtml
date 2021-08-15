@@ -1,0 +1,31 @@
+﻿@model Entities_POJO.Propiedad
+@using WebApp.Helpers;
+@{
+    ViewBag.Title = "vRegistrarPropiedades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/datetimeplugin.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/moment-with-locales.js"></script>
+<script src="~/Scripts/Views/vRegistrarPropiedades.js"></script>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Registrar Usuario</h2>
+
+<form id="forma_Propiedad_Upd">
+    @Html.CtrlInputDisabled(id: "txtID", type: "text", label: "Código", columnDataName: "Id")
+    @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo de Propiedad", columnDataName: "Tipo")
+    @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compra", columnDataName: "Opcion_Compra")
+    @Html.CtrlInput(id: "txtFechaPub", type: "date", label: "Fecha de Publicación", columnDataName: "Fecha_Publicacion")
+    @Html.CtrlInput(id: "txtLatitud", type: "text", label: "Latitud", columnDataName: "Latitud")
+    @Html.CtrlInput(id: "txtLong", type: "text", label: "Longitud", columnDataName: "Longitud")
+    @Html.CtrlInput(id: "txtPrecio", type: "number", label: "Precio", columnDataName: "Precio")
+    @Html.CtrlInputDisabled(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
+    @Html.CtrlInput(id: "txtProvincia", type: "text", label: "Provincia", columnDataName: "Provincia")
+    @Html.CtrlInput(id: "txtCanton", type: "text", label: "Canton", columnDataName: "Canton")
+    @Html.CtrlInput(id: "txtDistrito", type: "text", label: "Distito", columnDataName: "Distrito")
+    @Html.CtrlInput(id: "txtDirExacta", type: "text", label: "Dirección Exacta", columnDataName: "Direccion_Exacta") 
+</form>
+<div class="col-md-8">
+    @Html.CtrlButton(viewName: "vRegistrarPropiedades", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
+</div>

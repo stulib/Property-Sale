@@ -29,6 +29,11 @@ namespace WebApp.Controllers
             return RedirectToAction("vReg_Admin", "Registros");
         }
 
+        public ActionResult vEquipo()
+        {
+            return View();
+        }
+
         public ActionResult vPropiedades()
         {
             return RedirectToAction("vPropiedades", "Perfiles");
