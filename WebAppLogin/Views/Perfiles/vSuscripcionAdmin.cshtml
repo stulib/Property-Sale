@@ -11,11 +11,6 @@
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-8">Suscripciones</div>
-            <div class="col-md-4">
-                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnCreate", label: "Guardar nuevo", onClickFunction: "Create", buttonType: "success")
-                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
-                @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
-            </div>
         </div>
     </div>
     <div class="card-body">
@@ -23,11 +18,17 @@
             <div class="col-lg-6">
                 <div class="bs-component">
                     <form id="frmEdition">
-                        @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "Id", columnDataName: "Id")
+                        @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
                         @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                         @Html.CtrlInput(id: "txtAnuncios", type: "number", label: "Anuncios", columnDataName: "Cantidad_Anuncios")
-                        @Html.CtrlInput(id: "txtFacturacion", type: "text", label: "Facturacion", columnDataName: "Periodo_Facturacion")
+                        @Html.CtrlInput(id: "txtFacturacion", type: "text", label: "Facturación", columnDataName: "Periodo_Facturacion")
                     </form>
+                    <div class="col-md-12">
+                        @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnCreate", label: "Guardar nuevo", onClickFunction: "Create", buttonType: "success")
+                        @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "Update", buttonType: "info")
+                        @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnDelete", label: "Borrar", onClickFunction: "Delete", buttonType: "danger")
+                        @Html.CtrlButton(viewName: "vSuscripcionAdmin", id: "btnCancel", label: "Cancelar", onClickFunction: "ReleaseForm", buttonType: "info")
+                    </div>
                 </div>
             </div>
         </div>

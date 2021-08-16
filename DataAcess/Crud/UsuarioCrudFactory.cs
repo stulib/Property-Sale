@@ -86,5 +86,17 @@ namespace DataAcess.Crud
             var usuario = (Usuario)entity;
             dao.ExecuteProcedure(mapper.GetDeleteStatement(usuario));
         }
+
+        public void GetCodes(BaseEntity entity)
+        {
+            var usuario = (Usuario)entity;
+            dao.ExecuteProcedure(mapper.GetUserCodesStatement(usuario));
+        }
+
+        public void VerifyUser(BaseEntity entity)
+        {
+            var usuario = (Usuario)entity;
+            dao.ExecuteProcedure(mapper.VerifyUserStatement(usuario));
+        }
     }
 }

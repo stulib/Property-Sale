@@ -31,8 +31,8 @@
         usuario_Data.Verificado = "N";
         this.ctrlActions.PostToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
-            document.getElementById('frmPropietario').reset();
-            document.getElementById('tipo-id-Prop').getElementsByTagName('option')[0].selected = 'selected';
+            document.getElementById('forma_Reg_Admin').reset();
+            document.getElementById('tipo-id-Admin').getElementsByTagName('option')[0].selected = 'selected';
             v_Gestion_Admin.ReloadTable();
         });
     }
@@ -44,6 +44,7 @@
         this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
             v_Gestion_Admin.ReloadTable();
+            document.getElementById('forma_Usuario_Display').reset();
         });
     }
 
@@ -55,6 +56,7 @@
         this.ctrlActions.PutToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
             v_Gestion_Admin.ReloadTable();
+            document.getElementById('forma_Usuario_Display').reset();
         });
     }
 
@@ -64,6 +66,7 @@
         this.ctrlActions.DeleteToAPI(this.service, usuario_Data, function () {
             var v_Gestion_Admin = new vReg_Admin();
             v_Gestion_Admin.ReloadTable();
+            document.getElementById('forma_Usuario_Display').reset();
         });
     }
 

@@ -38,6 +38,11 @@ namespace WebApp.Controllers
             return View("vRegistrarPropiedades");
         }
 
+        public ActionResult vVerificarUsuario()
+        {
+            return View("vVerificarUsuario");
+        }
+
         public ActionResult Logout()
         {
             Session.Clear();

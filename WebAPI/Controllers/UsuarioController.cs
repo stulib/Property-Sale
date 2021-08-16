@@ -48,10 +48,17 @@ namespace WebAPI.Controllers
             try
             {
                 var mng = new UsuarioManager();
-                mng.Create(usuario);
+                if (usuario.Contrasenna == null)
+                {
+                    mng.VerifyNewUser(usuario);
+                }
+                else
+                {
+                    mng.Create(usuario);
+                }
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Usuario Registrado correctamente.";
+                apiResp.Message = "Usuario registrado correctamente.";
 
                 return Ok(apiResp);
             }
@@ -73,7 +80,7 @@ namespace WebAPI.Controllers
                     mng.UpdateProfile(usuario);
                 }
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Perfil actualizado correctamente.";
 
                 return Ok(apiResp);
             }
@@ -91,7 +98,7 @@ namespace WebAPI.Controllers
                 mng.Delete(usuario);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Usuario eliminado correctamente.";
 
                 return Ok(apiResp);
             }

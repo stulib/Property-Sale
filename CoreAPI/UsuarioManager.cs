@@ -64,7 +64,7 @@ namespace CoreAPI
                 else
                 {
                     usuario.Contrasenna = Hash_Function(usuario.Contrasenna);
-                    Correo(usuario.Cod_Email, usuario.Email, usuario.Nombre).GetAwaiter();
+                    Correo(usuario.Cod_Email, usuario.Email, usuario.Nombre, usuario.Id).GetAwaiter();
                     Mensaje(usuario.Cod_Celular, usuario.Telefono);
                     crudUsuario.Create(usuario);
                 }
@@ -141,11 +141,10 @@ namespace CoreAPI
         public Usuario ValidateUser(Usuario user)
         {
             Usuario u = null;
+            u = crudUsuario.LoginData<Usuario>(user);
+            string pwd_To_Match = Hash_Function(user.Contrasenna);
             try
             {
-                u = crudUsuario.LoginData<Usuario>(user);
-                string pwd_To_Match = Hash_Function(user.Contrasenna);
-
                 if (u == null)
                 {
                     throw new BussinessException(5);
@@ -162,13 +161,14 @@ namespace CoreAPI
                 {
                     throw new BussinessException(6);
                 }
+                return u;
             }
             catch (Exception ex)
             {
                 ExceptionManager.GetInstance().Process(ex);
+                u.Mensaje = ex.Message;
+                return u;
             }
-
-            return u;
         }
 
         private int GenerarCodigo(Random rng)
@@ -178,11 +178,12 @@ namespace CoreAPI
             return codigo;
         }
 
-        public bool ValidateEmail(string email) {
+        public bool ValidateEmail(string email)
+        {
             bool email_Matches;
             Regex regexEmail = new Regex(@"([a-zA-ZÀ-ÿ\u00f1\u00d1\!0-9]+@[a-zA-Z\!0-9]+\.[a-zA-Z]+)",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            
+
             email_Matches = regexEmail.IsMatch(email);
 
             return email_Matches;
@@ -239,7 +240,7 @@ namespace CoreAPI
             return hashed_Pwd;
         }
 
-        private static async Task Correo(int cod_Verificacion_Email, string correo, string nombre)
+        private static async Task Correo(int cod_Verificacion_Email, string correo, string nombre, string id)
         {
             string codigo_Texto = cod_Verificacion_Email.ToString();
             var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
@@ -250,6 +251,8 @@ namespace CoreAPI
             var plainTextContent = codigo_Texto;
             var htmlContent = "<strong>" + nombre + ",</strong><br><br> Gracias por registrarse con TechHouse. Su código de verificación es: " +
                 "<strong>" + codigo_Texto + "</strong><br><br>" +
+                "Puede validar este código y el enviado a su celular accediendo al siguiente enlace:<br>" +
+                "http://localhost:52014/Home/vVerificarUsuario/" + id + "<br><br>" +
                 "Bienvenido.";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
@@ -266,8 +269,45 @@ namespace CoreAPI
             var message = MessageResource.Create(
                 body: "Su código de verificación para registrarse con TechHouse es " + cod_Verificacion_Cel + ".",
                 from: new Twilio.Types.PhoneNumber("+16178924006"),
-                to: new Twilio.Types.PhoneNumber("+506"+numero)
+                to: new Twilio.Types.PhoneNumber("+506" + numero)
             );
+        }
+
+        public void GetCodes(Usuario usuario)
+        {
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                crudUsuario.GetCodes(usuario);
+            }
+        }
+
+        public void VerifyNewUser(Usuario usuario)
+        {
+            var u = crudUsuario.Retrieve<Usuario>(usuario);
+            if (u == null)
+            {
+                throw new BussinessException(5);
+            }
+            else
+            {
+                if (usuario.Cod_Email != u.Cod_Email)
+                {
+                    throw new BussinessException(11);
+                }
+                else if (usuario.Cod_Celular != u.Cod_Celular)
+                {
+                    throw new BussinessException(12);
+                }
+                else
+                {
+                    crudUsuario.VerifyUser(usuario);
+                }
+            }
         }
     }
 }

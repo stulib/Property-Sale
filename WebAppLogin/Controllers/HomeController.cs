@@ -15,6 +15,16 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
+        public ActionResult vVerificarUsuario(string id)
+        {
+            return RedirectToAction("vVerificarUsuario", "Registrar", new { id = id });
+        }
+
+        public ActionResult vVerificacionCompleta()
+        {
+            return View("vVerificacionCompleta");
+        }
+
         public ActionResult vSuscripcionAdmin()
         {
             return RedirectToAction("vSuscripcionAdmin", "Perfiles");

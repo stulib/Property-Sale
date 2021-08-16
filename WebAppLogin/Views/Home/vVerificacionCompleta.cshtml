@@ -1,0 +1,25 @@
+﻿@model Entities_POJO.Usuario
+
+@{
+    ViewBag.Title = "vVerificacionCompleta";
+    Layout = "~/Views/Shared/_Layout_login.cshtml";
+}
+
+<h2>¡Verificación Exitosa!</h2>
+
+<div class="card-body">
+    <div class="row">
+        <p>
+            ¡Bienvenido a la plataforma de TechHouse!
+        </p>
+        <p>
+            Ahora que ha verificado su cuenta, puede guardar propiedades como favoritas y crear sus propias listas para acceder a ellas fácilmente.
+        </p>
+    </div>
+</div>
+<table>
+    <tr>
+        <td><a href="@Url.Action("Index", "Home")"><span>Ir al inicio</span></a></td>
+    </tr>
+</table>
+

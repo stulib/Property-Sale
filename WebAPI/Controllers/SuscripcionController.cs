@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
                 mng.Create(suscripcion);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "La suscripcion fue agregada exitosamente";
+                apiResp.Message = "La suscripción fue agregada exitosamente";
 
                 return Ok(apiResp);
             }
@@ -73,7 +73,7 @@ namespace WebAPI.Controllers
                 mng.Update(suscripcion);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "WebDyno me la suda";
+                apiResp.Message = "Suscripción modificada exitosamente.";
 
                 return Ok(apiResp);
             }

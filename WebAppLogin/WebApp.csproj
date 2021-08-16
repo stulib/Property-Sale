@@ -244,6 +244,7 @@
     <Content Include="Scripts\Views\vRegistrarUsuarioFinal.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
     <Content Include="Scripts\Views\vSuscripcionAdmin.js" />
+    <Content Include="Scripts\Views\vVerificarUsuario.js" />
     <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -276,6 +277,8 @@
     <Content Include="Views\Registrar\vRegistrarPropiedades.cshtml" />
     <Content Include="Views\Home\vEquipo.cshtml" />
     <Content Include="Views\Perfiles\vEquipo.cshtml" />
+    <Content Include="Views\Registrar\vVerificarUsuario.cshtml" />
+    <Content Include="Views\Home\vVerificacionCompleta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

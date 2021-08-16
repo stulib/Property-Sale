@@ -126,6 +126,24 @@ namespace DataAcess.Mapper
             return operation;
         }
 
+        public SqlOperation GetUserCodesStatement(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "OBT_CODIGOS_USUARIO" };
+            var u = (Usuario)entity;
+            operation.AddVarcharParam(DB_COL_ID, u.Id);
+
+            return operation;
+        }
+
+        public SqlOperation VerifyUserStatement(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "VERIFICAR_USUARIO" };
+            var u = (Usuario)entity;
+            operation.AddVarcharParam(DB_COL_ID, u.Id);
+
+            return operation;
+        }
+
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
         {
             var lstResults = new List<BaseEntity>();
