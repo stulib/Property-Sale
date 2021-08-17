@@ -55,9 +55,18 @@
     </div>
     <div class="bs-component">
         <div class="card-body">
+            <div>
+                <label>Tipo de Identificación</label>
+            </div>
+            <select name="Tipo_Id" id="tipo-id-Admin">
+                <option value="">Seleccione uno</option>
+                <option value="Física">Física</option>
+                <option value="Jurídica">Jurídica</option>
+                <option value="DIMEX">DIMEX</option>
+                <option value="Pasaporte">Pasaporte</option>
+            </select>
             <form id="forma_Reg_Admin">
                 @Html.CtrlInput(id: "txtId", type: "text", label: "ID", columnDataName: "Id")
-                @Html.CtrlInput(id: "txtTipoId", type: "text", label: "Tipo de Identificación", columnDataName: "Tipo_Id")
                 @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
                 @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
                 @Html.CtrlInput(id: "txtFechaNac", type: "date", label: "Fecha de Nacimiento", columnDataName: "Fecha_Nac")

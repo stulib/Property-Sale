@@ -16,8 +16,9 @@
 		//Hace el post al create
 		this.ctrlActions.PostToAPI(this.service, banco_Data, function () {
 			var v_Gestion_Banco = new vRegistrarBanco();
+			document.getElementById('frmBanco').reset();
+			document.getElementById('tipo-id-Banco').getElementsByTagName('option')[0].selected = 'selected'
 		});
-		document.getElementById('frmBanco').reset();
 	}
 
 	this.ShowPwdB = function () {

@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
                 var mng = new AgenciaManager();
                 mng.Create(agencia);
 
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Agencia registrada correctamente.";
 
                 return Ok(apiResp);
             }
@@ -69,7 +69,7 @@ namespace WebAPI.Controllers
                 mng.Update(agencia);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Agencia actualizada correctamente.";
 
                 return Ok(apiResp);
             }
@@ -87,7 +87,7 @@ namespace WebAPI.Controllers
                 mng.Delete(agencia);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Agencia borrada correctamente.";
 
                 return Ok(apiResp);
             }

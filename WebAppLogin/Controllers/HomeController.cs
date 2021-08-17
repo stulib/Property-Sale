@@ -15,9 +15,14 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
-        public ActionResult vSuscripcionAdmin()
+        public ActionResult vVerificarUsuario(string id)
         {
-            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
+            return RedirectToAction("vVerificarUsuario", "Registrar", new { id = id });
+        }
+
+        public ActionResult vVerificacionCompleta()
+        {
+            return View("vVerificacionCompleta");
         }
 
         public ActionResult vPerfil_Administrador() {
@@ -26,12 +31,22 @@ namespace WebApp.Controllers
 
         public ActionResult vReg_Admin()
         {
-            return RedirectToAction("vReg_Admin", "Registros");
+            return RedirectToAction("vReg_Admin", "Registrar");
+        }
+
+        public ActionResult vEquipo()
+        {
+            return View();
         }
 
         public ActionResult vPropiedades()
         {
             return RedirectToAction("vPropiedades", "Perfiles");
+        }
+
+        public ActionResult vRegistrarAgencia()
+        {
+            return RedirectToAction("vRegistrarAgencia", "Registrar", new { id = Session["UserID"] });
         }
 
         public ActionResult Index()
@@ -93,7 +108,7 @@ namespace WebApp.Controllers
 
         public ActionResult AccountProfile()
         {
-            return RedirectToAction("AccountProfile", "Perfiles" , new { id = Session["UserID"] });
+            return RedirectToAction("AccountProfile", "Perfiles");
         }
 
         public ActionResult UsuarioProfile()

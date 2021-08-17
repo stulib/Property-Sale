@@ -1,5 +1,4 @@
-﻿
-function vSuscripcionAdmin() {
+﻿function vSuscripcionAdmin() {
 
 	this.tblSuscripcionesId = 'tblSuscripcion';
 	this.service = 'suscripcion';
@@ -17,10 +16,13 @@ function vSuscripcionAdmin() {
 	this.Create = function () {
 		var suscripcionData = {};
 		suscripcionData = this.ctrlActions.GetDataForm('frmEdition');
-		//Hace el post al create
+		suscripcionData.Estado = "Activa";
 		this.ctrlActions.PostToAPI(this.service, suscripcionData, function () {
 			var reload = new vSuscripcionAdmin();
 			reload.ReloadTable();
+			document.getElementById('frmEdition').reset();
+			var campoId = document.getElementById('txtId');
+			campoId.disabled = false;
 		});
 	}
 
@@ -28,10 +30,12 @@ function vSuscripcionAdmin() {
 
 		var suscripcionData = {};
 		suscripcionData = this.ctrlActions.GetDataForm('frmEdition');
-		//Hace el post al create
 		this.ctrlActions.PutToAPI(this.service, suscripcionData, function () {
 			var reload = new vSuscripcionAdmin();
 			reload.ReloadTable();
+			document.getElementById('frmEdition').reset();
+			var campoId = document.getElementById('txtId');
+			campoId.disabled = false;
 		});
 	}
 
@@ -39,15 +43,25 @@ function vSuscripcionAdmin() {
 
 		var suscripcionData = {};
 		suscripcionData = this.ctrlActions.GetDataForm('frmEdition');
-		//Hace el post al create
 		this.ctrlActions.DeleteToAPI(this.service, suscripcionData, function () {
 			var reload = new vSuscripcionAdmin();
 			reload.ReloadTable();
+			document.getElementById('frmEdition').reset();
+			var campoId = document.getElementById('txtId');
+			campoId.disabled = false;
 		});
 	}
 
 	this.BindFields = function (data) {
 		this.ctrlActions.BindFields('frmEdition', data);
+		var campoId = document.getElementById('txtId');
+		campoId.disabled = true;
+	}
+
+	this.ReleaseForm = function () {
+		document.getElementById('frmEdition').reset();
+		var campoId = document.getElementById('txtId');
+		campoId.disabled = false;
 	}
 }
 
@@ -55,6 +69,5 @@ function vSuscripcionAdmin() {
 $(document).ready(function () {
 	var vsuscripcion = new vSuscripcionAdmin();
 	vsuscripcion.RetrieveAll();
-
 });
 

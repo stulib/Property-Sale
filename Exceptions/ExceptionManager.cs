@@ -95,6 +95,8 @@ namespace Exceptions
             messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
             messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
             messages.Add(10, new ApplicationMessage { Id = 10, Message = "Cuenta no verificada. Por favor active su cuenta para iniciar sesión." });
+            messages.Add(11, new ApplicationMessage { Id = 11, Message = "Código incorrecto. Por favor revise su correo e intente de nuevo." });
+            messages.Add(12, new ApplicationMessage { Id = 12, Message = "Código incorrecto. Por favor revise sus mensajes de texto e intente de nuevo." });
             /*var crudMessages = new AppMessagesCrudFactory();
             var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
 

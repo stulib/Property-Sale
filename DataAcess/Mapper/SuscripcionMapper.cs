@@ -14,6 +14,7 @@ namespace DataAcess.Mapper
         private const string DB_COL_NOMBRE = "NOMBRE";
         private const string DB_COL_CANTIDAD_ANUNCIOS = "CANTIDAD_ANUNCIOS";
         private const string DB_COL_PERIODO_FACTURACION = "PERIODO_FACTURACION";
+        private const string DB_COL_ESTADO = "ESTADO";
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
@@ -24,6 +25,7 @@ namespace DataAcess.Mapper
             operation.AddVarcharParam(DB_COL_NOMBRE, s.Nombre);
             operation.AddIntParam(DB_COL_CANTIDAD_ANUNCIOS, s.Cantidad_Anuncios);
             operation.AddVarcharParam(DB_COL_PERIODO_FACTURACION, s.Periodo_Facturacion);
+            operation.AddVarcharParam(DB_COL_ESTADO, s.Estado);
 
             return operation;
         }

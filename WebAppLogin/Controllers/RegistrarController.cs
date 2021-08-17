@@ -10,9 +10,37 @@ namespace WebApp.Controllers
     {
         static HttpClient client = new HttpClient();
 
+        public ActionResult vReg_Admin()
+        {
+            string RolUsuario = (string)Session["IdRol"];
+            if ((Session["UserID"] != null) & (RolUsuario.Equals("01") == true))
+            {
+                return View("vReg_Admin");
+            }
+            else
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
         public ActionResult vRegistrarBanco()
         {         
                 return View("vRegistrarBanco");
+        }
+
+        public ActionResult vRegistrarAgencia()
+        {
+            return View("vRegistrarAgencia");
+        }
+
+        public ActionResult vRegistrarPropiedades()
+        {
+            return View("vRegistrarPropiedades");
+        }
+
+        public ActionResult vVerificarUsuario()
+        {
+            return View("vVerificarUsuario");
         }
 
         public ActionResult Logout()

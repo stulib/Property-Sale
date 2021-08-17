@@ -1331,6 +1331,7 @@ progress {
   .col-md-12 {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+    margin-top: 20px;
     width: 100%;
   }
   .offset-md-0 {

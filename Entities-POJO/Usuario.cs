@@ -9,9 +9,14 @@ namespace Entities_POJO
         public string Tipo_Id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Fecha_Nac { get; set; }
+
         [Required(ErrorMessage = "Por favor ingrese su contraseña.")]
         public string Contrasenna { get; set; }
+
         [Required(ErrorMessage = "El correo es requerido")]
         [EmailAddress(ErrorMessage = "Dirección de correo inválida")]
         public string Email { get; set; }
@@ -44,6 +49,12 @@ namespace Entities_POJO
             Verificado = Convert.ToChar(info[13]);
             Nombre_Rol = info[14];
             Mensaje = info[15];
+        }
+        
+        {
+            Física,
+            Jurídica,
+            Dimex
         }
 
         public static explicit operator Usuario(Cuenta v)

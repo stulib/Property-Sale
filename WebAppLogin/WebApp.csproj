@@ -152,7 +152,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfilesController.cs" />
     <Compile Include="Controllers\RegistrarController.cs" />
-    <Compile Include="Controllers\RegistrosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,6 +172,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.min.js" />
+    <Content Include="Content\equipo.css" />
     <Content Include="Content\imgs\background2.jpg" />
     <Content Include="Content\imgs\BannerPrincipalCortado.jpg" />
     <Content Include="Content\imgs\BannerPrincipalOg.jpg" />
@@ -230,8 +230,10 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\ControlActions.js" />
+    <Content Include="Scripts\Views\vRegistrarPropiedades.js" />
+    <Content Include="Scripts\Views\vRegistrarAgencia.js" />
     <Content Include="Scripts\Views\UsuarioProfile.js" />
-    <Content Include="Scripts\Views\AccountProfile.js" />
+    <Content Include="Scripts\Views\vPerfilBanco.js" />
     <Content Include="Scripts\Views\vRegistrarCuenta.js" />
     <Content Include="Scripts\Views\vCustomers.js" />
     <Content Include="Scripts\Views\vIndex.js" />
@@ -242,6 +244,7 @@
     <Content Include="Scripts\Views\vRegistrarUsuarioFinal.js" />
     <Content Include="Scripts\Views\vReg_Admin.js" />
     <Content Include="Scripts\Views\vSuscripcionAdmin.js" />
+    <Content Include="Scripts\Views\vVerificarUsuario.js" />
     <Content Include="Views\Home\vIndex.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -257,11 +260,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Registros\vReg_Admin.cshtml" />
+    <Content Include="Views\Registrar\vReg_Admin.cshtml" />
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
     <Content Include="Views\Perfiles\vPerfil_Administrador.cshtml" />
-    <Content Include="Views\Perfiles\vPerfil_Admin_Suscripciones.cshtml" />
     <Content Include="Views\Perfiles\vPropiedades.cshtml" />
     <Content Include="Views\Registrar\vRegistrarBanco.cshtml" />
     <Content Include="Views\Registrar\vRegistrarUsuarioFinal.cshtml" />
@@ -271,6 +273,12 @@
     <Content Include="Views\Perfiles\AccountProfile.cshtml" />
     <Content Include="Views\Perfiles\UsuarioProfile.cshtml" />
     <Content Include="Views\Perfiles\vSuscripcionAdmin.cshtml" />
+    <Content Include="Views\Registrar\vRegistrarAgencia.cshtml" />
+    <Content Include="Views\Registrar\vRegistrarPropiedades.cshtml" />
+    <Content Include="Views\Home\vEquipo.cshtml" />
+    <Content Include="Views\Perfiles\vEquipo.cshtml" />
+    <Content Include="Views\Registrar\vVerificarUsuario.cshtml" />
+    <Content Include="Views\Home\vVerificacionCompleta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
