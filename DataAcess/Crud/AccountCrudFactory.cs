@@ -72,6 +72,12 @@ namespace DataAcess.Crud
             dao.ExecuteProcedure(mapper.GetUpdateStatement(cuenta));
         }
 
+        public void UpdateBanco(BaseEntity entity)
+        {
+            var cuenta = (Cuenta)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateBancoStatement(cuenta));
+        }
+
         public Boolean ValidateDuplicate(BaseEntity entity)
         {
             bool result = bool.Parse(dao.GetScalar(mapper.ValidateDuplicate(entity)).ToString());

@@ -45,12 +45,6 @@ namespace Entities_POJO
             Nombre_Rol = info[14];
             Mensaje = info[15];
         }
-        public enum TipoId
-        {
-            Física,
-            Jurídica,
-            Dimex
-        }
 
         public static explicit operator Usuario(Cuenta v)
         {
@@ -72,6 +66,7 @@ namespace Entities_POJO
                 usuario.Id_Agencia = v.ID_AGENCIA;
                 usuario.Verificado = Convert.ToChar(v.VERIFICADO);
                 usuario.Nombre_Rol = v.Nombre_Rol;
+                usuario.Mensaje = v.Mensaje;
             };
 
             return usuario;
