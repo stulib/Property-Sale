@@ -48,15 +48,15 @@ namespace WebAPI.Controllers
             }
         }
 
-        public IHttpActionResult Put(Cuenta cuentaC)
+        public IHttpActionResult Put(Cuenta cuenta)
         {
-            var cuenta = (Usuario)cuentaC;
             try
             {
                 var mng = new AccountManager();
-                mng.Update(cuenta);
+
+                mng.UpdateBanco(cuenta);             
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "Perfil actualizado con éxito.";
                 return Ok(apiResp);
             }
             catch (BussinessException bex)

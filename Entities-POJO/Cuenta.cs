@@ -53,7 +53,30 @@ namespace Entities_POJO
 
         }
 
+        public static explicit operator Cuenta(Usuario v)
+        {
+            var usuario = new Cuenta();
 
+            {
+                usuario.ID = v.Id;
+                usuario.TIPO_ID = v.Tipo_Id;
+                usuario.NOMBRE = v.Nombre;
+                usuario.APELLIDOS = v.Apellidos;
+                usuario.FECHA_NAC = v.Fecha_Nac;
+                usuario.CONTRASENNA = v.Contrasenna;
+                usuario.EMAIL = v.Email;
+                usuario.ESTADO = v.Estado;
+                usuario.TELEFONO = v.Telefono;
+                usuario.COD_EMAIL = v.Cod_Email;
+                usuario.COD_CEL = v.Cod_Celular;
+                usuario.ID_ROL = v.Id_Rol;
+                usuario.ID_AGENCIA = v.Id_Agencia;
+                usuario.VERIFICADO = v.Verificado.ToString();
+                usuario.Nombre_Rol = v.Nombre_Rol;
+                usuario.Mensaje = v.Mensaje;
+            };
+            return usuario;
+        }
 
     }
 }

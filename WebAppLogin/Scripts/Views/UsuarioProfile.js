@@ -52,8 +52,28 @@
     }
 
     GetToApi(this.service + '?id=' + param);
+
+	this.ShowPwdU = function () {
+		var input = document.getElementById('txtPwdU');
+		input.type = 'text';
+		var showHiddenBtn = document.getElementById('ocultarPwdU');
+		showHiddenBtn.hidden = false;
+		var hideCurrentBtn = document.getElementById('mostrarPwdU');
+		hideCurrentBtn.hidden = true;
+	}
+
+	this.HidePwdU = function () {
+		var input = document.getElementById('txtPwdU');
+		input.type = 'password';
+		var showHiddenBtn = document.getElementById('mostrarPwdU');
+		showHiddenBtn.hidden = false;
+		var hideCurrentBtn = document.getElementById('ocultarPwdU');
+		hideCurrentBtn.hidden = true;
+	}
 }
 
 $(document).ready(function () {
     var vUPerfil = new UsuarioProfile();
+	var hideBtn = document.getElementById('ocultarPwdU');
+	hideBtn.hidden = true;
 });

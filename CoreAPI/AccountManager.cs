@@ -190,16 +190,16 @@ namespace CoreAPI
             return u;
         }
 
-        public void Update(Usuario usuario)
+        public void UpdateBanco(Cuenta cuenta)
         {
-            var u = crudAccount.Retrieve<Usuario>(usuario);
-            if (u != null)
+            var u = crudAccount.Retrieve<Cuenta>(cuenta.ID);
+            if (u == null)
             {
                 throw new BussinessException(1);
             }
             else
             {
-                crudAccount.Update(usuario);
+                crudAccount.UpdateBanco(cuenta);
             }
         }
 

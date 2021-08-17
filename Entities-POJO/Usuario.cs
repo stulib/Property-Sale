@@ -51,6 +51,12 @@ namespace Entities_POJO
             Mensaje = info[15];
         }
         
+        {
+            Física,
+            Jurídica,
+            Dimex
+        }
+
         public static explicit operator Usuario(Cuenta v)
         {
             var usuario = new Usuario();
@@ -71,6 +77,7 @@ namespace Entities_POJO
                 usuario.Id_Agencia = v.ID_AGENCIA;
                 usuario.Verificado = Convert.ToChar(v.VERIFICADO);
                 usuario.Nombre_Rol = v.Nombre_Rol;
+                usuario.Mensaje = v.Mensaje;
             };
 
             return usuario;

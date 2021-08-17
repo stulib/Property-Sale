@@ -25,11 +25,6 @@ namespace WebApp.Controllers
             return View("vVerificacionCompleta");
         }
 
-        public ActionResult vSuscripcionAdmin()
-        {
-            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
-        }
-
         public ActionResult vPerfil_Administrador() {
             return RedirectToAction("vPerfil_Administrador", "Perfiles", new { id = Session["UserID"] });
         }
@@ -113,7 +108,7 @@ namespace WebApp.Controllers
 
         public ActionResult AccountProfile()
         {
-            return RedirectToAction("AccountProfile", "Perfiles", new { id = Session["UserID"] });
+            return RedirectToAction("AccountProfile", "Perfiles");
         }
 
         public ActionResult UsuarioProfile()

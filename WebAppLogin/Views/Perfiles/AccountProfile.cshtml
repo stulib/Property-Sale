@@ -1,108 +1,50 @@
-﻿
+﻿@model Entities_POJO.Usuario
+@using Entities_POJO;
+<script src="~/Scripts/datetimeplugin.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/moment-with-locales.js"></script>
+<script src="~/Scripts/Views/AccountProfile.js"></script>
+
 @{
     ViewBag.Title = "AccountProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Entities_POJO.Cuenta
-@using Entities_POJO;
+
 @{
     var cuenta = ViewData["Cuenta"] as Cuenta;
 }
 <div class="container">
     <div class="row">
         <div class="col-12">
-
-            @using (Html.BeginForm("_ActualizarCuenta", "Registrar", FormMethod.Post))
+            @Html.AntiForgeryToken()
+            @if (cuenta.ID_ROL == "05")
             {
-                @Html.AntiForgeryToken()
-                if (cuenta.ID_ROL == "01")
-                {
-                    <h2>Perfil de Administrador</h2>
-                }
-                else if (cuenta.ID_ROL == "02")
-                {
-                    <h2>Perfil de Usuario</h2>
-                }
-                else if (cuenta.ID_ROL == "03")
-                {
-                    <h2>Perfil de Propietario</h2>
-                }
-                else if (cuenta.ID_ROL == "04")
-                {
-                    <h2>Perfil de Agente de Bienes Raíces</h2>
-                }
-                else if (cuenta.ID_ROL == "05")
-                {
-                    <h2>Perfil Bancario</h2>
-                }
-                if (cuenta.ID_ROL == "06")
-                {
-                    <h2>Perfil de Administrador de Agencia</h2>
-                }
-                <div class="form-">
-                    <table class="">
-                        <tr>
-                            <th>Nombre:</th>
-                            <td>
-                                @Html.TextBox("cuenta", cuenta.NOMBRE)
-                            </td>
-                        </tr>
-                        @if (cuenta.ID_ROL != "05" && cuenta.ID_ROL != "06")
-                        {
-                            <tr>
-                                <th>Apellidos:</th>
-                                <td>
-                                    @Html.TextBox("cuenta", cuenta.APELLIDOS)
-                                </td>
-                            </tr>
-                        }
-                        <tr>
-                            <th>Correo Electrónico:</th>
-                            <td>
-                                @Html.TextBox("cuenta", cuenta.EMAIL)
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Teléfono:</th>
-                            <td>
-                                @Html.TextBox("cuenta", cuenta.TELEFONO)
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>Estado:</th>
-                            <td>
-                                @Html.Label(cuenta.ESTADO)
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>Mensaje:</th>
-                            <td>
-                                @*Html.Label(cuenta.Mensaje)*@
-                            </td>
-                        </tr>
-
-                        @if (cuenta.ID_ROL != "05" && cuenta.ID_ROL != "06")
-                        {
-                            <tr>
-                                <th>Fecha Nacimiento:</th>
-                                <td>
-                                    @Html.TextBox("cuenta", cuenta.FECHA_NAC)
-                                </td>
-                            </tr>
-                        }
-                        <tr>
-                            <th>Verificado:</th>
-                            <td>
-                                @Html.Label(cuenta.VERIFICADO.ToString())
-                            </td>
-                        </tr>
-                        <tr><td colspan="2"><input type="submit" id="frmPerfil" value="Guardar Cambios" class="btn btn-info"></td></tr>
-                    </table>
-                </div>
+                <h2>Perfil de Administrador</h2>
             }
+            <div class="form">
+                <div>
+                    <label>Tipo de Identificación</label>
+                </div>
+                <select name="Tipo_Id" id="tipo-id-U">
+                    <option value="">Seleccione uno</option>
+                    <option value="Física">Física</option>
+                    <option value="Jurídica">Jurídica</option>
+                    <option value="DIMEX">DIMEX</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <form id="frmPerfil">
+                    @Html.CtrlInputDisabled(id: "txtId", type: "text", label: "ID", columnDataName: "ID")
+                    @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "NOMBRE")               
+                    @Html.CtrlInput(id: "txtEmail", type: "text", label: "Email", columnDataName: "EMAIL")
+                    @Html.CtrlInputDisabled(id: "txtEstado", type: "text", label: "Estado", columnDataName: "ESTADO")
+                    @Html.CtrlInput(id: "txtCel", type: "text", label: "Telefono", columnDataName: "TELEFONO")
+                    @Html.CtrlInputDisabled(id: "txtVerificado", type: "text", label: "Verificado", columnDataName: "VERIFICADO")
+                </form>
+            </div>
         </div>
     </div>
+</div>
+<div class="col-md-8">
+    @Html.CtrlButton(viewName: "AccountProfile", id: "btnUpdate", label: "Guardar cambios", onClickFunction: "UpdateBanco", buttonType: "info")
 </div>
 

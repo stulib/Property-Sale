@@ -76,7 +76,7 @@ namespace DataAcess.Mapper
             operation.AddVarcharParam("NOMBRE", u.NOMBRE);
             operation.AddIntParam("TEL", u.TELEFONO);
             operation.AddVarcharParam("TipoID", u.TIPO_ID);
-            operation.AddVarcharParam("Verificado", u.VERIFICADO);
+            operation.AddVarcharParam("Verificado", u.VERIFICADO.ToString());
             operation.AddIntParam("COD_CEL", u.COD_CEL);
             operation.AddIntParam("COD_EMAIL", u.COD_EMAIL);
             operation.AddVarcharParam("CONTRASENNA", u.CONTRASENNA);
@@ -103,25 +103,24 @@ namespace DataAcess.Mapper
             return operation;
         }
 
-        public SqlOperation GetUpdateStatement(BaseEntity entity)
+        public SqlOperation GetUpdateBancoStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "ACT_USUARIO_PR" };
+            var operation = new SqlOperation { ProcedureName = "UPD_USUARIO_PR" };
 
             var u = (Cuenta)entity;
             operation.AddVarcharParam("ID", u.ID);
-            operation.AddVarcharParam("IDAGencia", u.ID_AGENCIA);
-            operation.AddVarcharParam("IDRol", u.ID_ROL);
             operation.AddVarcharParam("NOMBRE", u.NOMBRE);
-            operation.AddIntParam("TEL", u.TELEFONO);
-            operation.AddVarcharParam("TipoID", u.TIPO_ID);
-            operation.AddVarcharParam("Verificado", u.VERIFICADO);
-            operation.AddIntParam("COD_CEL", u.COD_CEL);
-            operation.AddIntParam("COD_EMAIL", u.COD_EMAIL);
-            operation.AddVarcharParam("CONTRASENNA", u.CONTRASENNA);
-            operation.AddVarcharParam("Email", u.EMAIL);
+            operation.AddIntParam("TELEFONO", u.TELEFONO);
+            operation.AddVarcharParam("TIPO_ID", u.TIPO_ID);
+            operation.AddVarcharParam("VERIFICADO", u.VERIFICADO);
+            operation.AddVarcharParam("EMAIL", u.EMAIL);
             operation.AddVarcharParam("ESTADO", u.ESTADO);
-            operation.AddDateParam("FechaNa", u.FECHA_NAC);
             return operation;
+        }
+
+        public SqlOperation GetUpdateStatement(BaseEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
