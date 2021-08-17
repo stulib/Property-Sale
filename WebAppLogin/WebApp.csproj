@@ -233,7 +233,7 @@
     <Content Include="Scripts\Views\vRegistrarPropiedades.js" />
     <Content Include="Scripts\Views\vRegistrarAgencia.js" />
     <Content Include="Scripts\Views\UsuarioProfile.js" />
-    <Content Include="Scripts\Views\vPerfilBanco.js" />
+    <Content Include="Scripts\Views\AccountProfile.js" />
     <Content Include="Scripts\Views\vRegistrarCuenta.js" />
     <Content Include="Scripts\Views\vCustomers.js" />
     <Content Include="Scripts\Views\vIndex.js" />
