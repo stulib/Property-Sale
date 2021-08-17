@@ -143,30 +143,24 @@ namespace CoreAPI
             Usuario u = null;
             u = crudUsuario.LoginData<Usuario>(user);
             string pwd_To_Match = Hash_Function(user.Contrasenna);
-            try
+            if (u == null)
             {
-                if (u == null)
-                {
-                    throw new BussinessException(5);
-                }
-                else if (u.Verificado.Equals("N") | u.Verificado.Equals("n"))
-                {
-                    throw new BussinessException(10);
-                }
-                else if (u.Estado.Equals("Inactivo"))
-                {
-                    throw new BussinessException(7);
-                }
-                else if (u.Contrasenna.Equals(pwd_To_Match) == false)
-                {
-                    throw new BussinessException(6);
-                }
-                return u;
+                throw new BussinessException(5);
             }
-            catch (Exception ex)
+            else if (u.Verificado == 'N' | u.Verificado == 'n')
             {
-                ExceptionManager.GetInstance().Process(ex);
-                u.Mensaje = ex.Message;
+                throw new BussinessException(10);
+            }
+            else if (u.Estado.Equals("Inactivo"))
+            {
+                throw new BussinessException(7);
+            }
+            else if (u.Contrasenna.Equals(pwd_To_Match) == false)
+            {
+                throw new BussinessException(6);
+            }
+            else
+            {
                 return u;
             }
         }

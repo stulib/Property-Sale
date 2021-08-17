@@ -1,6 +1,8 @@
 ﻿using DataAcess.Crud;
 using Entities_POJO;
 using Exceptions;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,6 +11,9 @@ using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace CoreAPI
 {
@@ -26,7 +31,7 @@ namespace CoreAPI
         }
 
 
-        public static bool EmailSend(string SenderEmail, string Subject, string Message, bool IsBodyHtml = false)
+        /*public static bool EmailSend(string SenderEmail, string Subject, string Message, bool IsBodyHtml = false)
         {
             bool status = false;
             try
@@ -58,7 +63,7 @@ namespace CoreAPI
             {
                 return status;
             }
-        }
+        }*/
 
         public Cuenta getAccount(string iD)
         {
@@ -149,6 +154,8 @@ namespace CoreAPI
                 else
                 {
                     cuenta.CONTRASENNA = Hash_Function(cuenta.CONTRASENNA);
+                    Correo(cuenta.COD_EMAIL, cuenta.EMAIL, cuenta.NOMBRE, cuenta.ID).GetAwaiter();
+                    Mensaje(cuenta.COD_CEL, cuenta.TELEFONO);
                     crudAccount.Create(cuenta);
                 }
             }
@@ -264,6 +271,39 @@ namespace CoreAPI
             }
             hashed_Pwd = stringbuilder.ToString();
             return hashed_Pwd;
+        }
+
+        private static async Task Correo(int cod_Verificacion_Email, string correo, string nombre, string id)
+        {
+            string codigo_Texto = cod_Verificacion_Email.ToString();
+            var apiKey = Environment.GetEnvironmentVariable("SendGridKey");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("techhousecenfo@gmail.com", "TechHouse");
+            var subject = "Código de verificación de cuenta";
+            var to = new EmailAddress(correo, "Nuevo usuario de TechHouse");
+            var plainTextContent = codigo_Texto;
+            var htmlContent = "<strong>" + nombre + ",</strong><br><br> Gracias por registrarse con TechHouse. Su código de verificación es: " +
+                "<strong>" + codigo_Texto + "</strong><br><br>" +
+                "Puede validar este código y el enviado a su celular accediendo al siguiente enlace:<br>" +
+                "http://localhost:52014/Home/vVerificarUsuario/" + id + "<br><br>" +
+                "Bienvenido.";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+        }
+
+        private static void Mensaje(int cod_Verificacion_Cel, int numero_Cel)
+        {
+            string accountSid = Environment.GetEnvironmentVariable("TwilioID");
+            string authToken = Environment.GetEnvironmentVariable("TwilioToken");
+            string numero = numero_Cel.ToString();
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var message = MessageResource.Create(
+                body: "Su código de verificación para registrarse con TechHouse es " + cod_Verificacion_Cel + ".",
+                from: new Twilio.Types.PhoneNumber("+16178924006"),
+                to: new Twilio.Types.PhoneNumber("+506" + numero)
+            );
         }
     }
 }

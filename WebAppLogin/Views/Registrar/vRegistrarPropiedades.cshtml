@@ -13,19 +13,19 @@
 <h2>Registrar Propiedades</h2>
 
 <form id="forma_Propiedad_Upd">
-    @Html.CtrlInputDisabled(id: "txtID", type: "text", label: "Código", columnDataName: "Id")
+    @Html.CtrlInput(id: "txtID", type: "text", label: "Código", columnDataName: "Id")
     @Html.CtrlInput(id: "txtTipo", type: "text", label: "Tipo de Propiedad", columnDataName: "Tipo")
     @Html.CtrlInput(id: "txtOpcionCompra", type: "text", label: "Opción de Compra", columnDataName: "Opcion_Compra")
     @Html.CtrlInput(id: "txtFechaPub", type: "date", label: "Fecha de Publicación", columnDataName: "Fecha_Publicacion")
     @Html.CtrlInput(id: "txtLatitud", type: "text", label: "Latitud", columnDataName: "Latitud")
     @Html.CtrlInput(id: "txtLong", type: "text", label: "Longitud", columnDataName: "Longitud")
     @Html.CtrlInput(id: "txtPrecio", type: "number", label: "Precio", columnDataName: "Precio")
-    @Html.CtrlInputDisabled(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
+    @Html.CtrlInput(id: "txtEstado", type: "text", label: "Estado", columnDataName: "Estado")
     @Html.CtrlInput(id: "txtProvincia", type: "text", label: "Provincia", columnDataName: "Provincia")
-    @Html.CtrlInput(id: "txtCanton", type: "text", label: "Canton", columnDataName: "Canton")
+    @Html.CtrlInput(id: "txtCanton", type: "text", label: "Cantón", columnDataName: "Canton")
     @Html.CtrlInput(id: "txtDistrito", type: "text", label: "Distito", columnDataName: "Distrito")
-    @Html.CtrlInput(id: "txtDirExacta", type: "text", label: "Dirección Exacta", columnDataName: "Direccion_Exacta") 
+    @Html.CtrlInput(id: "txtDirExacta", type: "textbox", label: "Dirección Exacta", columnDataName: "Direccion_Exacta") 
 </form>
-<div class="col-md-8">
+<div class="col-md-12">
     @Html.CtrlButton(viewName: "vRegistrarPropiedades", id: "btnCreate", label: "Registrar", onClickFunction: "Create", buttonType: "success")
 </div>

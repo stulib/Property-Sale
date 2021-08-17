@@ -80,7 +80,7 @@ namespace WebAPI.Controllers
                     mng.UpdateProfile(usuario);
                 }
                 apiResp = new ApiResponse();
-                apiResp.Message = "Perfil actualizado correctamente.";
+                apiResp.Message = "Perfil actualizado con éxito.";
 
                 return Ok(apiResp);
             }

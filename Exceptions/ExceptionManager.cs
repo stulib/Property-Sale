@@ -72,7 +72,7 @@ namespace Exceptions
 
             var appMessage = new ApplicationMessage
             {
-                Message = "Message not found!"
+                Message = "Error no controlado."
             };
 
             if (messages.ContainsKey(bex.ExceptionId))
@@ -91,19 +91,12 @@ namespace Exceptions
             messages.Add(4, new ApplicationMessage { Id = 4, Message = "Por favor ingrese una contraseña válida."});
             messages.Add(5, new ApplicationMessage { Id = 5, Message = "Cliente no encontrado."});
             messages.Add(6, new ApplicationMessage { Id = 6, Message = "Contraseña incorrecta."});
-            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema." });
+            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema en techhousecenfo@gmail.com." });
             messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
             messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
             messages.Add(10, new ApplicationMessage { Id = 10, Message = "Cuenta no verificada. Por favor active su cuenta para iniciar sesión." });
             messages.Add(11, new ApplicationMessage { Id = 11, Message = "Código incorrecto. Por favor revise su correo e intente de nuevo." });
             messages.Add(12, new ApplicationMessage { Id = 12, Message = "Código incorrecto. Por favor revise sus mensajes de texto e intente de nuevo." });
-            /*var crudMessages = new AppMessagesCrudFactory();
-            var lstMessages = crudMessages.RetrieveAll<ApplicationMessage>();
-
-            foreach (var appMessage in lstMessages) { 
-            
-                messages.Add(appMessage.Id, appMessage);
-            }*/
         }
 
         private void Log(string logMessage, TextWriter w)
