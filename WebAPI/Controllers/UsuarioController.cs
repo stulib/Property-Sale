@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             }
             catch (BussinessException bex)
             {
-                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
+                return InternalServerError(new Exception(bex.AppMessage.Message));
             }
         }
 
@@ -64,8 +64,7 @@ namespace WebAPI.Controllers
             }
             catch (BussinessException bex)
             {
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                return InternalServerError(new Exception(bex.AppMessage.Message));
             }
         }
 

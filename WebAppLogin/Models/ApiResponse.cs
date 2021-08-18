@@ -10,6 +10,7 @@ namespace WebApp.Models
         public string Message { get; set; }
         //Soporta cualquier objeto.
         public object Data { get; set; }
+        public string ExceptionMessage { get; set; }
 
     }
 }

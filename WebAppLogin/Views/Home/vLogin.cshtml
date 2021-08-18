@@ -1,5 +1,9 @@
 ﻿@model Entities_POJO.Usuario
-
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Scripts/Views/ControlActions.js"></script>
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout_login.cshtml";
@@ -7,10 +11,9 @@
 
 @using (Html.BeginForm("vLogin", "Home", FormMethod.Post))
 {
+    <legend>Bienvenido</legend>
+    <legend>Por favor ingrese sus credenciales:</legend>
     <fieldset>
-        <legend>Bienvenido</legend>
-        <legend>Por favor ingrese sus credenciales:</legend>
-
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         @if (@ViewBag.Message != null)

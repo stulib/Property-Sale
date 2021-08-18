@@ -9,7 +9,7 @@ namespace Exceptions
 
         public string ExceptionDetails { get; set; }
         public ApplicationMessage AppMessage { get; set; }
-    
+
         public BussinessException()
         {
 
@@ -17,12 +17,25 @@ namespace Exceptions
 
         public BussinessException(int exceptionId)
         {
-            ExceptionId = exceptionId;
+            ExceptionManager excMang = ExceptionManager.GetInstance();
+
+            BussinessException bexGet = new BussinessException
+            {
+                ExceptionId = exceptionId
+            };
+
+            BussinessException bex = new BussinessException
+            {
+                ExceptionId = exceptionId,
+                AppMessage = excMang.GetMessage(bexGet)
+            };
+
+            throw bex;
         }
 
         public BussinessException(int exceptionId, Exception innerException)
         {
-            ExceptionId = exceptionId; 
+            ExceptionId = exceptionId;
         }
     }
 }

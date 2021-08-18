@@ -84,14 +84,14 @@ namespace Exceptions
 
         private void LoadMessages()
         {
-            messages.Add(0, new ApplicationMessage { Id = 0, Message = "Ha ocurrido un problema!"});
+            messages.Add(0, new ApplicationMessage { Id = 0, Message = "¡Ha ocurrido un problema!"});
             messages.Add(1, new ApplicationMessage { Id = 1, Message = "Cliente ya registrado"});
             messages.Add(2, new ApplicationMessage { Id = 2, Message = "El cliente debe ser mayor de edad."});
             messages.Add(3, new ApplicationMessage { Id = 3, Message = "Por favor ingrese un correo válido."});
             messages.Add(4, new ApplicationMessage { Id = 4, Message = "Por favor ingrese una contraseña válida."});
             messages.Add(5, new ApplicationMessage { Id = 5, Message = "Cliente no encontrado."});
             messages.Add(6, new ApplicationMessage { Id = 6, Message = "Contraseña incorrecta."});
-            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Acceso revocado. Por favor contacte al administrador del sistema en techhousecenfo@gmail.com." });
+            messages.Add(7, new ApplicationMessage { Id = 7, Message = "Cuenta desactivada. Por favor contacte al administrador del sistema en techhousecenfo@gmail.com." });
             messages.Add(8, new ApplicationMessage { Id = 8, Message = "Propiedad no encontrada." });
             messages.Add(9, new ApplicationMessage { Id = 9, Message = "Propiedad ya registrada." });
             messages.Add(10, new ApplicationMessage { Id = 10, Message = "Cuenta no verificada. Por favor active su cuenta para iniciar sesión." });
