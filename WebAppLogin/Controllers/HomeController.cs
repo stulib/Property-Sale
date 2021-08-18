@@ -37,6 +37,11 @@ namespace WebApp.Controllers
             return RedirectToAction("vReg_Admin", "Registrar");
         }
 
+        public ActionResult vSuscripcionAdmin()
+        {
+            return RedirectToAction("vSuscripcionAdmin", "Perfiles");
+        }
+
         public ActionResult vEquipo()
         {
             return View();
@@ -237,11 +242,10 @@ namespace WebApp.Controllers
             //Adding Item Details like name, currency, price etc  
             itemList.items.Add(new Item()
             {
-                name = "Item Name comes here",
+                name = "Suscripción Premium",
                 currency = "USD",
-                price = "1",
-                quantity = "1",
-                sku = "sku"
+                price = "15",
+                quantity = "1"
             });
             var payer = new Payer()
             {
@@ -256,29 +260,28 @@ namespace WebApp.Controllers
             // Adding Tax, shipping and Subtotal details  
             var details = new Details()
             {
-                tax = "1",
-                shipping = "1",
-                subtotal = "1"
+                tax = "1.5",
+                subtotal = "16.5"
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "3", // Total must be equal to sum of tax, shipping and subtotal.  
+                total = "16.5", // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
             // Adding description about the transaction  
             transactionList.Add(new Transaction()
             {
-                description = "Transaction description",
-                invoice_number = "your generated invoice number", //Generate an Invoice No  
+                description = "Compra de suscripción premium",
+                invoice_number = "6567ADFHGAS", //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList
             });
             this.payment = new Payment()
             {
-                intent = "sale",
+                intent = "Sale",
                 payer = payer,
                 transactions = transactionList,
                 redirect_urls = redirUrls
