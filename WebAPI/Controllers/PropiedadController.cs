@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
                 mng.Create(propiedad);
 
                 apiResp = new ApiResponse();
-                apiResp.Message = "Action was executed.";
+                apiResp.Message = "La propiedad se registró con éxito";
 
                 return Ok(apiResp);
             }
