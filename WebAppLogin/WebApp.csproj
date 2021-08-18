@@ -188,6 +188,7 @@
     <Content Include="Content\imgs\imagenCondos.jpg" />
     <Content Include="Content\imgs\imagenfamilia.jpg" />
     <Content Include="Content\imgs\imagenLotes.jpg" />
+    <Content Include="Content\imgs\placeholder.png" />
     <Content Include="Content\imgs\TechHouse logo blancopng.png" />
     <Content Include="Content\imgs\ventaja1.jpg" />
     <Content Include="Content\imgs\ventaja2.jpg" />
@@ -195,6 +196,7 @@
     <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="Content\landing.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\vRegistrarPropiedades.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
