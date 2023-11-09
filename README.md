@@ -12,3 +12,4 @@ This Web app applicattion was developed by a team of 4 engineers: Stuart Libby, 
 * Once the user is registered they can register properties for sale or rent.
 * Users can also list available properties.
 
+![alt text](https://github.com/stulib/Property-Sale/blob/main/Landing.jpg?raw=true)
