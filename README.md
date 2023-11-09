@@ -1,20 +1,14 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This Web app applicattion was developed by a team of 4 engineers: Stuart Libby, Jorge Zuñiga, Carlos Rodríguez and Minor Obando
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Application informatios:
+Application is written in C# using .Net Framnework 4.7
+User interface was made using Boostrap css Framework.
+Custom Web API was created to manage user interface and logic controllers.
+Data storage is managed with SQL databases.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+# Application functionality
+The applictions allows users to register accounts.
+Once the user is registered they can register properties for sale or rent.
+Users can also list available properties.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)23
